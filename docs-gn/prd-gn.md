@@ -1,0 +1,122 @@
+**Product Requirements Document: VETTPRO - Frontend Shell (Phase 1)**
+
+**1. Introduction**
+
+*   **Project:** VETTPRO - Secure Supplier Vetting Platform.
+*   **Purpose of this PRD:** To define the requirements for the initial frontend development phase ("Frontend Shell" or "Phase 1"). This phase focuses on establishing the main application layout, navigation structure, core visual theme (dark/light), and the overall look and feel as per the provided design guidelines and visual references.
+*   **References:**
+    *   `VettPro-overview.md` (for overall context, features, and high-level tech stack)
+    *   `design-theme.md` (for detailed visual principles, color palettes, typography, component styling guidelines, and specific tech stack for UI)
+    *   `menu.md` (for the detailed sidebar navigation structure and UX considerations)
+    *   Visual Reference Image 1: "Consilio-style_dashboard.png" (primarily for sidebar shape, overall card style, and dense information layout)
+    *   Visual Reference Image 2: "Recehtok-style_dashboard.png" (primarily for dark theme ambiance, chart glow effects, glassy notification panel, and general modern/luminous feel)
+
+**2. Goals of this Phase (Frontend Shell)**
+
+*   To create a functional Next.js application shell with the specified technology stack.
+*   To implement the primary navigation structure via a responsive sidebar, as detailed in `menu.md` and visually inspired by "Consilio-style_dashboard.png".
+*   To establish the core dark and light themes, including typography and primary color palette, as defined in `design-theme.md` and influenced by both reference images.
+*   To create placeholder pages for each main navigation item to demonstrate routing and the active state of navigation links.
+*   To achieve an initial look and feel that strongly reflects the "Modern & Sexy," "Luminous & Dynamic," and "Tactile & Layered" vision from `design-theme.md`.
+
+**3. Target Audience (for this PRD)**
+
+*   Frontend Developer(s)
+
+**4. Scope**
+
+*   **In Scope for Phase 1:**
+    *   Next.js project setup with TypeScript, Tailwind CSS, shadcn/ui, `next-themes`, `lucide-react`, and Recharts (initial setup, not full chart implementation).
+    *   Implementation of the main application layout (sidebar + main content area).
+    *   Full implementation of the sidebar navigation as per `menu.md`, including icons.
+    *   Styling of the sidebar to closely match the unique shape and style of "Consilio-style_dashboard.png".
+    *   Implementation of dark (default) and light themes, with a functional theme switcher.
+    *   Basic typography setup according to `design-theme.md`.
+    *   Implementation of the core color palette in Tailwind CSS config.
+    *   Creation of empty placeholder components/pages for each main navigation link specified in `menu.md`.
+    *   Responsive behavior of the sidebar (desktop fixed, mobile hamburger/slide-in).
+    *   Initial setup and styling for common shadcn/ui components (e.g., `Button`, `Input`, `Card` used in a very limited way on placeholder pages or sidebar) to reflect the theme.
+    *   Application of glassmorphism and subtle glow effects to a *few* representative static elements (e.g., sidebar background elements if applicable, a placeholder card) to establish the visual capability, as inspired by "Recehtok-style_dashboard.png" and `design-theme.md`.
+*   **Out of Scope for Phase 1:**
+    *   Actual functionality within placeholder pages (data fetching, form submissions, business logic).
+    *   Detailed implementation of charts with Recharts (beyond a simple placeholder container if needed).
+    *   User authentication (login/logout functionality).
+    *   Backend API integration.
+    *   LLM integration.
+    *   Database interactions.
+    *   PDF generation.
+    *   White-labeling functionality.
+    *   Specific content for pages beyond titles.
+    *   Advanced form handling with `react-hook-form` and `zod` (beyond basic setup).
+    *   Full implementation of all UI elements (Badges, detailed Modals, Popovers) unless part of the core navigation/theme demonstration.
+
+**5. Functional Requirements (Frontend Shell)**
+
+*   **FR1: Navigation System**
+    *   **FR1.1:** The application MUST implement a primary sidebar navigation as detailed in `menu.md`.
+    *   **FR1.2:** All main menu items and static sub-menu items listed in `menu.md` MUST be present.
+    *   **FR1.3:** Clicking a main menu item MUST navigate the user to its corresponding placeholder page.
+    *   **FR1.4:** The active navigation link MUST be visually distinct (as per `design-theme.md` and "Consilio-style_dashboard.png").
+*   **FR2: Theme Switching**
+    *   **FR2.1:** The application MUST support a dark theme (default) and a light theme.
+    *   **FR2.2:** A mechanism (e.g., a button/toggle, can be simple for now) MUST be provided to switch between dark and light themes.
+    *   **FR2.3:** The chosen theme MUST persist across sessions (e.g., using `localStorage` via `next-themes`).
+*   **FR3: Responsive Sidebar**
+    *   **FR3.1:** On desktop views (e.g., >1024px), the sidebar MUST be fixed on the left.
+    *   **FR3.2:** On mobile views (e.g., <768px), the sidebar MUST be hidden by default and accessible via a hamburger menu icon/button.
+
+**6. UI/UX Requirements (Frontend Shell)**
+
+*   **UIUX1: Overall Aesthetic & Ambiance**
+    *   **UIUX1.1:** The overall look and feel MUST adhere to the "Visual Vision" in `design-theme.md`: "Modern & Sexy," "Luminous & Dynamic," "Tactile & Layered," "Bold & Confident," "Data-Centric & Clear."
+    *   **UIUX1.2:** The dark theme should evoke the ambiance seen in "Recehtok-style_dashboard.png" (deep, rich, with potential for highlights).
+*   **UIUX2: Sidebar Design & Styling**
+    *   **UIUX2.1:** The sidebar's shape MUST closely replicate the curved right edge seen in "Consilio-style_dashboard.png". This should be achieved using an SVG path as a background or mask.
+    *   **UIUX2.2:** Sidebar background colors MUST adhere to `design-theme.md` (Light: `bg-white` or very light gray. Dark: Slightly lighter shade than main dark background, potentially with subtle glassmorphism if it enhances the "Consilio" reference without clutter).
+    *   **UIUX2.3:** Sidebar elements (Logo placeholder, Search input placeholder, Navigation Links, User profile section placeholder) MUST be laid out as generally depicted in "Consilio-style_dashboard.png".
+    *   **UIUX2.4:** Navigation links MUST use `lucide-react` icons paired with text. Active link styling should use a vibrant accent color background with contrasting text as per `design-theme.md`.
+*   **UIUX3: Color Palette & Typography**
+    *   **UIUX3.1:** The primary dark, primary light, accent, and neutral colors specified in `design-theme.md` (Section II.6) MUST be configured in Tailwind CSS and applied consistently. Reference the provided hex codes (e.g., `#1A1D2B`, `#111827`) as starting points for dark backgrounds.
+    *   **UIUX3.2:** The chosen font (e.g., Inter, Manrope, or Poppins from `design-theme.md`) MUST be applied globally with a clear typographic hierarchy for placeholder page titles.
+*   **UIUX4: Placeholder Pages**
+    *   **UIUX4.1:** Each main menu item in `menu.md` MUST link to a unique placeholder page.
+    *   **UIUX4.2:** Placeholder pages SHOULD display at least a title indicating the page name (e.g., "Dashboard Page," "Suppliers Page").
+    *   **UIUX4.3:** The layout of placeholder pages should consist of the fixed sidebar and a main content area where the title is displayed.
+*   **UIUX5: Initial Feel of Core Elements**
+    *   **UIUX5.1:** Demonstrate the application of glassmorphism (as described in `design-theme.md` and seen in "Recehtok-style_dashboard.png" notification panel) on at least one static UI element (e.g., a card on a placeholder page, or a section of the dark theme sidebar if appropriate). This includes `bg-opacity-*`, `backdrop-blur-*`, and subtle borders.
+    *   **UIUX5.2:** Demonstrate a subtle glow effect (as per `design-theme.md` and "Recehtok-style_dashboard.png" charts) on at least one static UI element (e.g., an active button state, a decorative element).
+    *   **UIUX5.3:** Buttons and Inputs (from shadcn/ui) used within the shell (e.g., theme switcher, placeholder search in sidebar) MUST reflect the overall theme styling (colors, rounded corners).
+
+**7. Technical Requirements**
+
+*   **TR1: Framework & Language:** Next.js (latest stable version) with TypeScript.
+*   **TR2: Styling:** Tailwind CSS (latest stable version) configured according to `design-theme.md` (including color palette, fonts, dark mode variant).
+*   **TR3: UI Components:** shadcn/ui components will be used for primitives. Installation and basic setup are required.
+*   **TR4: Charting (Placeholder):** Recharts library to be installed. No complex chart implementation, but the library should be part of the project dependencies.
+*   **TR5: Theme Management:** `next-themes` library for dark/light mode switching.
+*   **TR6: Iconography:** `lucide-react` for all icons.
+*   **TR7: Code Structure:** Standard Next.js project structure (e.g., using App Router if preferred). Components should be organized logically (e.g., `/components/layout`, `/components/ui`).
+*   **TR8: Version Control:** Git.
+*   **TR9: Linting/Formatting:** ESLint and Prettier should be set up with standard configurations for Next.js/TypeScript/Tailwind CSS.
+
+**8. Acceptance Criteria (for Phase 1 "Frontend Shell")**
+
+*   The Next.js application builds successfully without errors.
+*   The sidebar navigation is implemented as per `menu.md` and visually approximates the "Consilio-style_dashboard.png" shape and layout.
+*   All static menu items navigate to their respective placeholder pages.
+*   The active navigation link is clearly highlighted.
+*   Dark and Light themes are implemented and switchable, with styles adhering to `design-theme.md`.
+*   The chosen typography is applied globally.
+*   The sidebar is responsive (fixed on desktop, hamburger/slide-in on mobile).
+*   At least one example of glassmorphism and one example of a glow effect are present on static UI elements.
+*   The codebase uses the specified technology stack.
+*   Code is linted and formatted.
+
+**9. Assumptions**
+
+*   Specific SVG path data for the sidebar curve will be iteratively refined based on visual feedback if not provided upfront. A best-effort initial implementation based on "Consilio-style_dashboard.png" is expected.
+*   Placeholder content (e.g., "Logo," "User Name") is acceptable for elements not yet functional.
+*   The developer will make sensible initial choices for `lucide-react` icons if not explicitly mapped one-to-one for every menu item.
+*   The primary focus is on visual fidelity to the theme and sidebar design, and functional navigation.
+
+---
