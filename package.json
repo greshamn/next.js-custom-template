@@ -14,7 +14,9 @@
     "react-dom": "18.2.0",
     "next-themes": "^0.2.1",
     "lucide-react": "^0.295.0",
-    "recharts": "^2.8.0"
+    "recharts": "^2.8.0",
+    "clsx": "^2.0.0",
+    "tailwind-merge": "^2.0.0"
   },
   "devDependencies": {
     "typescript": "^5",

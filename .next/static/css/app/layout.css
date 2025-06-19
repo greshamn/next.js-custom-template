@@ -45,7 +45,77 @@
   }
 }
 
+@layer components {
+  /* Glassmorphic utility classes */
+  .glassmorphic {
+    @apply bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl shadow-lg;
+  }
+  
+  .glassmorphic-dark {
+    @apply bg-black/20 backdrop-blur-lg border border-white/10 rounded-xl shadow-lg;
+  }
+
+  /* Glow intensity utilities */
+  .glow-low {
+    filter: drop-shadow(0 0 5px currentColor);
+  }
+  
+  .glow-medium {
+    filter: drop-shadow(0 0 10px currentColor) drop-shadow(0 0 20px currentColor);
+  }
+  
+  .glow-high {
+    filter: drop-shadow(0 0 15px currentColor) drop-shadow(0 0 30px currentColor) drop-shadow(0 0 45px currentColor);
+  }
+
+  /* Text glow effects */
+  .text-glow-cyan {
+    @apply text-glow-cyan glow-medium;
+    text-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFFF, 0 0 30px #00FFFF;
+  }
+  
+  .text-glow-magenta {
+    @apply text-glow-magenta glow-medium;
+    text-shadow: 0 0 10px #FF00FF, 0 0 20px #FF00FF, 0 0 30px #FF00FF;
+  }
+  
+  .text-glow-orange {
+    @apply text-glow-orange glow-medium;
+    text-shadow: 0 0 10px #FFA500, 0 0 20px #FFA500, 0 0 30px #FFA500;
+  }
+
+  /* Interactive glow effects */
+  .glow-hover:hover {
+    @apply animate-glow-pulse;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .glow-float {
+    @apply animate-float;
+  }
+}
+
 @layer utilities {
+  /* Enhanced backdrop blur utilities */
+  .backdrop-blur-xs {
+    -webkit-backdrop-filter: blur(2px);
+            backdrop-filter: blur(2px);
+  }
+  
+  .backdrop-blur-glassmorphic {
+    -webkit-backdrop-filter: blur(10px) saturate(180%);
+            backdrop-filter: blur(10px) saturate(180%);
+  }
+  
+  /* Custom gradient utilities for Recehtok style */
+  .bg-gradient-recehtok {
+    background: linear-gradient(135deg, #2D1B69 0%, #1A103E 100%);
+  }
+  
+  .bg-gradient-glow {
+    background: linear-gradient(135deg, rgba(0, 255, 255, 0.1) 0%, rgba(255, 0, 255, 0.1) 50%, rgba(255, 165, 0, 0.1) 100%);
+  }
+
   /* Glassmorphic effect utilities */
   .glassmorphic {
     @apply bg-glassmorphic-bg backdrop-blur-glassmorphic border border-glassmorphic-border rounded-xl shadow-glassmorphic;
@@ -62,19 +132,6 @@
   
   .glow-orange {
     @apply shadow-glow-orange;
-  }
-  
-  /* Text glow effects */
-  .text-glow-cyan {
-    text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
-  }
-  
-  .text-glow-magenta {
-    text-shadow: 0 0 10px rgba(255, 0, 255, 0.8);
-  }
-  
-  .text-glow-orange {
-    text-shadow: 0 0 10px rgba(255, 165, 0, 0.8);
   }
   
   /* Recehtok-style animation classes */
