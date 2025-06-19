@@ -1,0 +1,1031 @@
+{
+  "master": {
+    "tasks": [
+      {
+        "id": 1,
+        "title": "Setup Next.js Project with TypeScript",
+        "description": "Initialize a new Next.js project with TypeScript, using the App Router, and set up the basic project structure.",
+        "details": "Use 'create-next-app' to set up a new Next.js project with TypeScript. Ensure you're using the latest stable version of Next.js (as of June 2023, it's 13.4.x) and configure it to use the App Router. Set up the basic folder structure including /app, /components, and /styles directories. Initialize Git repository and create a .gitignore file.",
+        "testStrategy": "Verify that the project builds without errors. Check that TypeScript is correctly configured. Ensure the App Router is working by creating a simple test page.",
+        "priority": "high",
+        "dependencies": [],
+        "status": "in-progress",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Initialize Next.js project",
+            "description": "Set up a new Next.js project with the app router and necessary dependencies.",
+            "dependencies": [],
+            "details": "Use 'create-next-app' to initialize the project. Include dependencies for styling (e.g., Tailwind CSS) to replicate the sleek design from Consilio-style_dashboard.png. Set up a dark theme configuration inspired by Recehtok-style_dashboard.png for the high-tech ambiance.",
+            "status": "done"
+          },
+          {
+            "id": 2,
+            "title": "Configure TypeScript",
+            "description": "Set up TypeScript configuration for the Next.js project.",
+            "dependencies": [
+              1
+            ],
+            "details": "Create tsconfig.json with strict type checking. Define types for the curved sidebar component from Consilio-style_dashboard.png and for the glow effects and glassmorphism panels seen in Recehtok-style_dashboard.png.\n<info added on 2025-06-19T21:03:34.477Z>\n✅ TypeScript Configuration Completed Successfully\n\n**What was accomplished:**\n- Verified the existing tsconfig.json has optimal settings for Next.js 14 with App Router\n- Created comprehensive TypeScript definitions in `types/index.ts` specifically for VETTPRO dashboard components\n- Defined interfaces for:\n  - CurvedSidebarProps: For the unique curved sidebar from Consilio-style reference\n  - GlowEffectProps & GlassmorphismProps: For the luminous effects from Recehtok-style reference\n  - NavigationItem: For the sidebar navigation structure\n  - ThemeConfig: For dark/light themes with visual effect configurations\n  - ChartData & CardProps: For dashboard components with visual effects\n\n**Key Implementation Details:**\n- Types include specific references to SVG path for curved sidebar shape\n- Glow effect types support the luminous chart styling from Recehtok dashboard\n- Glassmorphism types enable the frosted glass panels effect\n- Theme configuration supports the deep dark (#1A1D2B) background aesthetic\n\n**Technical Foundation:**\n- All types are export-ready for use across the application\n- Interfaces designed to support both reference dashboard aesthetics\n- TypeScript strict mode enabled for type safety\n</info added on 2025-06-19T21:03:34.477Z>",
+            "status": "done"
+          },
+          {
+            "id": 3,
+            "title": "Create folder structure",
+            "description": "Establish the project's folder structure, including components, pages, and styles.",
+            "dependencies": [
+              1,
+              2
+            ],
+            "details": "Set up folders for the unique curved sidebar, navigation components, and chart components inspired by Consilio-style_dashboard.png. Create separate folders for glassmorphism effects and luminous, high-tech styled components as seen in Recehtok-style_dashboard.png.\n<info added on 2025-06-19T21:06:46.897Z>\n✅ Comprehensive Folder Structure Created Successfully\n\n**What was accomplished:**\n- Created organized component folders: `/components/{layout,ui,dashboard,sidebar,charts,effects,forms}`\n- Set up utility and library folders: `/lib/{utils,hooks,constants}`, `/utils`, `/hooks`\n- Created styling organization: `/styles/{themes,effects}`\n- Established assets structure: `/assets/{icons,images}`\n- Set up App Router pages: `/src/app/{dashboard,vetting,suppliers,individuals,reporting,field-operations,administration,account,help}`\n\n**Key Component Placeholders Created:**\n- `CurvedSidebar.tsx`: Placeholder for Consilio-style curved sidebar\n- `GlowEffect.tsx`: Placeholder for Recehtok-style luminous effects\n- `Glassmorphism.tsx`: Placeholder for frosted glass panel effects\n- `design.ts`: Design constants with colors, curved sidebar paths, and navigation structure\n\n**Reference Implementation Details:**\n- Folder structure designed to separate concerns for both dashboard styles\n- Component placeholders include TypeScript interfaces for visual effects\n- Design constants capture key elements from both reference images:\n  - Curved sidebar SVG path from Consilio-style\n  - Dark theme colors (#1A1D2B) from Recehtok-style\n  - Glow effect configurations for luminous elements\n  - Navigation structure from PRD requirements\n\n**Technical Foundation:**\n- Proper TypeScript imports and exports established\n- Modular structure for scalable dashboard development\n- Clear separation between layout, effects, and UI components\n</info added on 2025-06-19T21:06:46.897Z>",
+            "status": "done"
+          },
+          {
+            "id": 4,
+            "title": "Initialize Git repository",
+            "description": "Set up Git version control for the project.",
+            "dependencies": [
+              1,
+              2,
+              3
+            ],
+            "details": "Initialize Git repository, create .gitignore file to exclude node_modules and build artifacts. Create initial commit with the basic project structure, including placeholder files for the curved sidebar (Consilio-style) and glowing chart components (Recehtok-style).",
+            "status": "in-progress"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "title": "Configure Tailwind CSS and shadcn/ui",
+        "description": "Set up Tailwind CSS and integrate shadcn/ui components library into the project.",
+        "details": "Install and configure Tailwind CSS (v3.3.x or later). Set up the tailwind.config.js file with the specified color palette (Dark: #1A1D2B, Accents: vibrant blue/purple). Install and configure shadcn/ui (latest version) for UI components. Ensure that the shadcn/ui theme is properly integrated with Tailwind.",
+        "testStrategy": "Verify that Tailwind classes are working correctly. Test a few shadcn/ui components to ensure they're styled properly and functional.",
+        "priority": "high",
+        "dependencies": [
+          1
+        ],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Install Tailwind CSS",
+            "description": "Set up Tailwind CSS in the project, ensuring compatibility with the existing React framework.",
+            "dependencies": [],
+            "details": "Install Tailwind CSS via npm, configure PostCSS, and create the tailwind.config.js file. Reference the Consilio-style_dashboard.png for the overall color scheme to be used in the configuration.",
+            "status": "pending"
+          },
+          {
+            "id": 2,
+            "title": "Configure Tailwind CSS",
+            "description": "Customize Tailwind CSS configuration to match the design requirements from the reference images.",
+            "dependencies": [
+              1
+            ],
+            "details": "Modify tailwind.config.js to include custom colors, fonts, and sizing that match the Consilio-style_dashboard.png sidebar shape and Recehtok-style_dashboard.png dark theme. Set up custom utilities for the curved sidebar and glow effects.",
+            "status": "pending"
+          },
+          {
+            "id": 3,
+            "title": "Set up shadcn/ui",
+            "description": "Install and configure shadcn/ui components to work with the custom Tailwind setup.",
+            "dependencies": [
+              2
+            ],
+            "details": "Install shadcn/ui, set up the configuration file, and import necessary components. Customize components to match the glassmorphism effects seen in Recehtok-style_dashboard.png panels.",
+            "status": "pending"
+          },
+          {
+            "id": 4,
+            "title": "Integrate custom theme",
+            "description": "Create a custom theme that combines elements from both reference images using Tailwind CSS and shadcn/ui.",
+            "dependencies": [
+              3
+            ],
+            "details": "Develop a theme that incorporates the curved sidebar from Consilio-style_dashboard.png and the luminous, high-tech ambiance from Recehtok-style_dashboard.png. Implement dark mode toggle functionality.",
+            "status": "pending"
+          },
+          {
+            "id": 5,
+            "title": "Test components and styling",
+            "description": "Implement and test key components to ensure proper styling and responsiveness.",
+            "dependencies": [
+              4
+            ],
+            "details": "Create test components for the navigation, charts with glow effects, and information panels with glassmorphism. Ensure the layout structure and information density match Consilio-style_dashboard.png while maintaining the visual aesthetics of Recehtok-style_dashboard.png.",
+            "status": "pending"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "title": "Implement Main Layout Structure",
+        "description": "Create the main layout structure with a fixed left sidebar and main content area.",
+        "details": "Create a Layout component that includes a fixed left sidebar and a main content area. Use Flexbox or Grid for layout. Ensure the sidebar is fixed on desktop views (>1024px) and hidden on mobile views (<768px). Implement a hamburger menu icon for mobile views to toggle the sidebar.",
+        "testStrategy": "Test the layout on various screen sizes to ensure responsiveness. Verify that the sidebar is fixed on desktop and toggleable on mobile.",
+        "priority": "high",
+        "dependencies": [
+          2
+        ],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Create Layout Component",
+            "description": "Implement the base Layout component structure",
+            "dependencies": [],
+            "details": "Set up the main Layout component with a container for the sidebar and main content area. Use the curved sidebar shape from Consilio-style_dashboard.png as inspiration, ensuring the unique curvature is replicated. Implement a dark theme base color scheme similar to Recehtok-style_dashboard.png.",
+            "status": "pending"
+          },
+          {
+            "id": 2,
+            "title": "Implement Sidebar Structure",
+            "description": "Develop the sidebar component with navigation elements",
+            "dependencies": [
+              1
+            ],
+            "details": "Create the sidebar structure with navigation items, using the styling from Consilio-style_dashboard.png. Include icons and text for each nav item. Implement the glassmorphism effect on the sidebar as seen in Recehtok-style_dashboard.png, with subtle transparency and blur.",
+            "status": "pending"
+          },
+          {
+            "id": 3,
+            "title": "Design Main Content Area",
+            "description": "Structure the main content area for dashboard components",
+            "dependencies": [
+              1
+            ],
+            "details": "Set up the main content area grid layout, accommodating various dashboard components. Use the information density from Consilio-style_dashboard.png as a guide. Implement glassmorphism effects on panels and add glow effects to charts and interactive elements as seen in Recehtok-style_dashboard.png.",
+            "status": "pending"
+          },
+          {
+            "id": 4,
+            "title": "Implement Responsive Design",
+            "description": "Ensure layout is responsive across different screen sizes",
+            "dependencies": [
+              1,
+              2,
+              3
+            ],
+            "details": "Implement media queries and flexible layouts to ensure responsiveness. Adapt the curved sidebar and main content area for smaller screens, maintaining the overall structure from Consilio-style_dashboard.png while preserving the luminous, high-tech ambiance of Recehtok-style_dashboard.png.",
+            "status": "pending"
+          },
+          {
+            "id": 5,
+            "title": "Create Mobile Menu Toggle",
+            "description": "Develop a mobile-friendly menu toggle for the sidebar",
+            "dependencies": [
+              2,
+              4
+            ],
+            "details": "Implement a hamburger menu icon for mobile views. When activated, it should reveal the sidebar with a smooth animation. Ensure the toggle button has a glow effect similar to the interactive elements in Recehtok-style_dashboard.png.",
+            "status": "pending"
+          },
+          {
+            "id": 6,
+            "title": "Finalize Layout Styling",
+            "description": "Polish the overall layout appearance and transitions",
+            "dependencies": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "details": "Refine the styling to perfectly match the curved sidebar from Consilio-style_dashboard.png and the luminous, high-tech ambiance from Recehtok-style_dashboard.png. Implement smooth transitions for interactive elements and ensure consistent application of glassmorphism and glow effects throughout the layout.",
+            "status": "pending"
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "title": "Design and Implement Curved Sidebar",
+        "description": "Create the uniquely shaped sidebar with a curved right edge as specified in the PRD.",
+        "details": "Design an SVG path that replicates the curved shape of the sidebar from Visual Reference A. Implement this shape using either an SVG background image or a CSS mask. Ensure the sidebar background color is slightly lighter than the main background in dark mode (e.g., bg-slate-800/80) and white or very light gray in light mode.",
+        "testStrategy": "Visually inspect the sidebar to ensure it matches the reference image. Test on different screen sizes to ensure the shape is maintained.",
+        "priority": "high",
+        "dependencies": [
+          3
+        ],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Design SVG path for curved sidebar",
+            "description": "Create an SVG path that replicates the unique curved shape of the sidebar from the Consilio-style dashboard image.",
+            "dependencies": [],
+            "details": "Use vector graphics software to design a precise SVG path that matches the flowing, organic curve of the Consilio sidebar. Ensure the path allows for a smooth transition between the sidebar and main content area. Consider how this curve will interact with the dark theme and potential glow effects inspired by the Recehtok dashboard.",
+            "status": "pending"
+          },
+          {
+            "id": 2,
+            "title": "Implement curved shape in HTML/CSS",
+            "description": "Apply the designed SVG path to create the curved sidebar structure in the dashboard layout.",
+            "dependencies": [
+              1
+            ],
+            "details": "Integrate the SVG path into the HTML structure and use CSS to position it correctly. Implement the sidebar content layout similar to the Consilio dashboard, adapting the navigation styling to fit the curved shape. Apply glassmorphism effects to the sidebar, inspired by the panel designs in the Recehtok dashboard.",
+            "status": "pending"
+          },
+          {
+            "id": 3,
+            "title": "Apply background styles and effects",
+            "description": "Implement the dark theme and visual effects inspired by both reference dashboards.",
+            "dependencies": [
+              2
+            ],
+            "details": "Create a dark color scheme based on the Recehtok dashboard. Apply glow effects to charts and interactive elements within the curved sidebar. Implement subtle gradient backgrounds and ensure proper contrast for readability. Consider adding animated transitions or hover effects to enhance the high-tech ambiance.",
+            "status": "pending"
+          },
+          {
+            "id": 4,
+            "title": "Ensure responsiveness of curved sidebar",
+            "description": "Optimize the curved sidebar design for various screen sizes and devices.",
+            "dependencies": [
+              2,
+              3
+            ],
+            "details": "Develop media queries to adjust the SVG path and sidebar layout for different breakpoints. Ensure the curve remains visually appealing on smaller screens, possibly simplifying the shape if necessary. Adapt the information density and navigation style of the Consilio dashboard for mobile views while maintaining the luminous aesthetics of the Recehtok design.",
+            "status": "pending"
+          },
+          {
+            "id": 5,
+            "title": "Optimize performance of SVG and effects",
+            "description": "Enhance the loading speed and rendering performance of the curved sidebar and visual effects.",
+            "dependencies": [
+              1,
+              2,
+              3,
+              4
+            ],
+            "details": "Minimize the SVG path complexity without losing the essence of the Consilio curve. Optimize CSS animations and transitions, particularly for the glow effects inspired by the Recehtok dashboard. Implement lazy loading for off-screen content and consider using CSS containment to improve rendering performance of the glassmorphism panels.",
+            "status": "pending"
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "title": "Implement Sidebar Navigation Structure",
+        "description": "Create the full navigation structure in the sidebar as specified in the PRD, ensuring all menu items, sub-menus, and separators are present and functional.",
+        "details": "Implement the exact navigation structure specified in REQ-3.4 of the PRD. This includes using lucide-react for icons, styling the active navigation link with a vibrant accent color background in a pill shape, and implementing all specified sub-menus and visual separators.",
+        "testStrategy": "Verify that all navigation items and sub-items are present and correctly structured. Test that clicking each item navigates to its placeholder page. Verify the active link styling is applied correctly. Test that sub-menus expand and collapse. Ensure keyboard accessibility.",
+        "priority": "high",
+        "dependencies": [
+          4
+        ],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Implement Top-Level Navigation Items",
+            "description": "Create all the main, top-level clickable navigation links within the sidebar component.",
+            "dependencies": [],
+            "details": "Create the following top-level navigation items: Dashboard, Vetting Center, Suppliers, Individuals, Reporting & Insights, Field Operations, Administration, My Account, Help Center. The 'Dashboard' link should navigate directly, while the others will be configured to expand their sub-menus.",
+            "status": "pending"
+          },
+          {
+            "id": 2,
+            "title": "Implement Collapsible Sub-Menu Items and Logic",
+            "description": "Create the nested sub-menu links for each top-level item and the expand/collapse functionality.",
+            "dependencies": [
+              1
+            ],
+            "details": "For each corresponding top-level item, create the following nested links: Vetting Center (New Vetting Request, Active Requests, Completed Vettings), Suppliers (Supplier List, Add New Supplier), Individuals (Individual List, Add New Individual), Reporting & Insights (Standard Reports, Generate Custom Report, Risk Analytics Dashboard), Field Operations (Verification Dashboard, Assign New Verification Task), Administration (User & Access Management, Vetting Configuration, System & Company Configuration, Billing & Subscription), My Account (Profile Settings, Security, Notification Preferences), Help Center (Knowledge Base & FAQs, Contact Support). Implement the state and logic for expanding and collapsing these sub-menus on click.",
+            "status": "pending"
+          },
+          {
+            "id": 3,
+            "title": "Implement Visual Separator",
+            "description": "Add the horizontal line separator in the correct position within the navigation list.",
+            "dependencies": [
+              1
+            ],
+            "details": "Create a styled visual separator element (e.g., a styled <hr> or <div>) and place it between the 'Field Operations' and 'Administration' top-level menu items as specified in the PRD.",
+            "status": "pending"
+          },
+          {
+            "id": 4,
+            "title": "Style Navigation Links (Icons & Active State)",
+            "description": "Apply icons to all navigation items and implement the styling for the active link.",
+            "dependencies": [
+              1,
+              2
+            ],
+            "details": "Integrate appropriate `lucide-react` icons for every navigation link (both top-level and sub-menu). Implement the active link styling as per Visual Reference A: a vibrant, pill-shaped accent color background with contrasting text/icon color. This style must apply to whichever link corresponds to the currently viewed page.",
+            "status": "pending"
+          },
+          {
+            "id": 5,
+            "title": "Ensure Full Navigation Accessibility",
+            "description": "Implement keyboard navigation and add necessary ARIA attributes for screen readers.",
+            "dependencies": [
+              1,
+              2,
+              3,
+              4
+            ],
+            "details": "Ensure the entire navigation menu is keyboard accessible (using Tab, Shift+Tab, Enter, and Spacebar to navigate and toggle sub-menus). Add all necessary ARIA attributes, such as `aria-current='page'` for the active link, `aria-expanded` for sub-menu toggles, and `role='navigation'` for the main container.",
+            "status": "pending"
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "title": "Set Up Dark and Light Themes",
+        "description": "Implement dark (default) and light themes using next-themes library.",
+        "details": "Install and configure next-themes (latest version). Set up dark and light themes, with dark theme as default. Ensure the dark theme background color is #1A1D2B. Implement a theme switcher button. Use Tailwind's dark: variant for styling differences between themes.",
+        "testStrategy": "Test theme switching functionality. Verify that the chosen theme persists across sessions. Check that all components render correctly in both themes.",
+        "priority": "high",
+        "dependencies": [
+          2
+        ],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Install next-themes package",
+            "description": "Set up next-themes in the project to enable theme switching functionality.",
+            "dependencies": [],
+            "details": "Install next-themes using npm or yarn. Update _app.js to wrap the application with ThemeProvider from next-themes. This will serve as the foundation for implementing both the curved sidebar design from Consilio-style_dashboard.png and the dark theme aesthetics from Recehtok-style_dashboard.png.",
+            "status": "pending"
+          },
+          {
+            "id": 2,
+            "title": "Configure theme options",
+            "description": "Define light and dark theme color schemes based on the reference images.",
+            "dependencies": [
+              1
+            ],
+            "details": "Create a theme configuration file to define color variables for light and dark modes. Use the color scheme from Recehtok-style_dashboard.png for the dark theme, including the luminous blues and purples. For the light theme, derive colors from Consilio-style_dashboard.png, focusing on the clean, professional look.",
+            "status": "pending"
+          },
+          {
+            "id": 3,
+            "title": "Implement theme switcher component",
+            "description": "Create a UI component that allows users to toggle between light and dark themes.",
+            "dependencies": [
+              2
+            ],
+            "details": "Develop a theme switcher component, possibly integrating it into the uniquely curved sidebar from Consilio-style_dashboard.png. Ensure the switcher's style adapts to both themes, maintaining visibility and usability in each mode.",
+            "status": "pending"
+          },
+          {
+            "id": 4,
+            "title": "Apply theme-specific styles",
+            "description": "Implement CSS/SCSS to apply theme-specific styles to all components.",
+            "dependencies": [
+              2,
+              3
+            ],
+            "details": "Apply theme-specific styles to replicate the glassmorphism effects and glow on charts from Recehtok-style_dashboard.png for the dark theme. For the light theme, focus on the clean layout and navigation styling from Consilio-style_dashboard.png. Ensure consistent theming across all components, including the curved sidebar, panels, and interactive elements.",
+            "status": "pending"
+          },
+          {
+            "id": 5,
+            "title": "Test theme persistence",
+            "description": "Implement and test functionality to remember user's theme preference across sessions.",
+            "dependencies": [
+              1,
+              2,
+              3,
+              4
+            ],
+            "details": "Use local storage or cookies to save the user's theme preference. Test that the chosen theme (either the Consilio-inspired light theme or the Recehtok-inspired dark theme) persists across page reloads and new sessions. Verify that all visual elements, including the curved sidebar and glowing effects, render correctly when the persisted theme is applied on initial load.",
+            "status": "pending"
+          }
+        ]
+      },
+      {
+        "id": 7,
+        "title": "Implement Glassmorphism Effect",
+        "description": "Create a reusable glassmorphism effect for modals, popovers, and notification panels.",
+        "details": "Implement a glassmorphism effect using Tailwind CSS classes: bg-opacity-*, backdrop-blur-*, and a subtle 1px border with border-opacity-*. Create a reusable component or utility class for this effect. Apply it to shadcn/ui Dialog component for modals, and create placeholder components for popovers and notification panels.",
+        "testStrategy": "Visually inspect the glassmorphism effect on different backgrounds. Ensure the effect is consistent across different components and themes.",
+        "priority": "medium",
+        "dependencies": [
+          2,
+          6
+        ],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Create Base Glassmorphism Effect",
+            "description": "Implement the foundational glassmorphism effect, focusing on the translucent, frosted glass appearance seen in the Recehtok-style dashboard panels.",
+            "dependencies": [],
+            "details": "Use CSS backdrop-filter for the blur effect. Implement a subtle background color with low opacity. Add a thin, light border for depth. Ensure the effect is visible against both light and dark backgrounds to accommodate the Consilio-style light theme and Recehtok-style dark theme.",
+            "status": "pending"
+          },
+          {
+            "id": 2,
+            "title": "Apply Glassmorphism to Modals",
+            "description": "Extend the glassmorphism effect to modal windows, enhancing the layered UI feel present in both reference dashboards.",
+            "dependencies": [
+              1
+            ],
+            "details": "Create a reusable modal component with glassmorphism styling. Ensure proper z-indexing for layered appearance. Implement a subtle zoom animation on modal open/close to emphasize the depth effect. Add a soft glow effect around the modal edges, similar to the chart glow in the Recehtok-style dashboard.",
+            "status": "pending"
+          },
+          {
+            "id": 3,
+            "title": "Develop Reusable Glassmorphic Components",
+            "description": "Create a set of reusable UI components with glassmorphism styling, inspired by elements from both reference dashboards.",
+            "dependencies": [
+              1
+            ],
+            "details": "Develop glassmorphic versions of cards, buttons, and input fields. Implement the curved shape for sidebar components as seen in the Consilio-style dashboard. Create glassmorphic chart containers with the luminous glow effect from the Recehtok-style dashboard. Ensure components are themeable to work in both light and dark modes.",
+            "status": "pending"
+          },
+          {
+            "id": 4,
+            "title": "Optimize Glassmorphism Performance",
+            "description": "Enhance the performance of glassmorphism effects across the application, ensuring smooth rendering on various devices.",
+            "dependencies": [
+              1,
+              2,
+              3
+            ],
+            "details": "Implement GPU acceleration for glassmorphism effects. Optimize backdrop-filter usage to minimize performance impact. Use CSS containment to reduce the scope of style recalculations. Implement lazy loading for off-screen glassmorphic elements. Test and optimize for both the high information density of the Consilio-style layout and the graphics-heavy Recehtok-style design.",
+            "status": "pending"
+          }
+        ]
+      },
+      {
+        "id": 8,
+        "title": "Implement Glow Effect",
+        "description": "Create a glow effect for charts, buttons, and form inputs as specified in the PRD.",
+        "details": "Implement a glow effect using SVG filters with <feGaussianBlur> for chart elements. For buttons and form inputs, use box-shadow with a color matching the element's main color. Create utility classes or mixins for easy application of the glow effect.",
+        "testStrategy": "Visually inspect the glow effect on charts, buttons, and form inputs. Ensure the effect is subtle yet noticeable, especially in dark mode.",
+        "priority": "medium",
+        "dependencies": [
+          2,
+          6
+        ],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Create SVG filters for glow effects",
+            "description": "Design and implement SVG filters to achieve the luminous glow effects seen in the Recehtok-style dashboard, particularly for charts and interactive elements.",
+            "dependencies": [],
+            "details": "Create multiple SVG filters with varying intensities and colors to match the vibrant, high-tech ambiance. Focus on replicating the soft blue glow around charts and the more intense glow on hover states for buttons and icons.",
+            "status": "pending"
+          },
+          {
+            "id": 2,
+            "title": "Apply glow effects to charts",
+            "description": "Integrate the created SVG filters with chart components to achieve the luminous effect seen in the Recehtok-style dashboard.",
+            "dependencies": [
+              1
+            ],
+            "details": "Apply the glow effects to line charts, bar charts, and circular progress indicators. Ensure the glow intensity enhances readability without overwhelming the data presentation. Pay special attention to the chart axes and data points to maintain clarity.",
+            "status": "pending"
+          },
+          {
+            "id": 3,
+            "title": "Style buttons and inputs with glow effects",
+            "description": "Enhance buttons and input fields with glow effects to match the high-tech aesthetic of the Recehtok-style dashboard while maintaining the curved design elements from the Consilio-style dashboard.",
+            "dependencies": [
+              1
+            ],
+            "details": "Implement hover and focus states with intensified glow effects. Incorporate the curved shapes from the Consilio sidebar into button designs. Ensure consistency between the glow effects and the overall dark theme of the Recehtok dashboard.",
+            "status": "pending"
+          },
+          {
+            "id": 4,
+            "title": "Create utility classes for glow effects",
+            "description": "Develop a set of reusable CSS utility classes to easily apply glow effects across the dashboard, combining elements from both reference images.",
+            "dependencies": [
+              1,
+              2,
+              3
+            ],
+            "details": "Create classes for different glow intensities, colors, and animations. Ensure these utilities can be applied to various elements including the curved sidebar from the Consilio dashboard and the glassmorphism panels from the Recehtok dashboard.",
+            "status": "pending"
+          },
+          {
+            "id": 5,
+            "title": "Optimize glow effect performance",
+            "description": "Refine and optimize the implementation of glow effects to ensure smooth performance across the dense information layout inspired by the Consilio dashboard.",
+            "dependencies": [
+              1,
+              2,
+              3,
+              4
+            ],
+            "details": "Conduct performance testing, particularly for animations and transitions. Optimize SVG filters and CSS properties to reduce rendering load. Ensure the glow effects enhance the user experience without impacting the responsiveness of the dashboard's interactive elements.",
+            "status": "pending"
+          }
+        ]
+      },
+      {
+        "id": 9,
+        "title": "Set Up Recharts for Data Visualization",
+        "description": "Install and configure Recharts library for future chart implementations.",
+        "details": "Install Recharts (latest version, 2.x.x as of June 2023). Create a basic wrapper component for Recharts that includes the SVG filter for the glow effect. Implement a simple placeholder chart on the Dashboard page to demonstrate the glow effect.",
+        "testStrategy": "Verify that Recharts is correctly installed and the placeholder chart renders without errors. Check that the glow effect is applied to the chart elements.",
+        "priority": "medium",
+        "dependencies": [
+          1
+        ],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Install Recharts and dependencies",
+            "description": "Set up the project with Recharts library and any necessary dependencies for chart creation and styling.",
+            "dependencies": [],
+            "details": "Install Recharts via npm or yarn. Include additional dependencies for styling, such as styled-components or CSS modules, to achieve the dark theme and glow effects seen in the Recehtok-style dashboard image.",
+            "status": "pending"
+          },
+          {
+            "id": 2,
+            "title": "Create a reusable chart wrapper component",
+            "description": "Develop a flexible wrapper component for charts that incorporates the glassmorphism effect and layout structure from the reference images.",
+            "dependencies": [
+              1
+            ],
+            "details": "Design the wrapper to mimic the panel style from the Recehtok-style dashboard, with a semi-transparent background and subtle border glow. Ensure the wrapper can adapt to different chart types and sizes, similar to the varied panel layouts in the Consilio-style dashboard.",
+            "status": "pending"
+          },
+          {
+            "id": 3,
+            "title": "Implement a placeholder line chart",
+            "description": "Create a basic line chart using Recharts within the wrapper component, focusing on the overall structure and layout.",
+            "dependencies": [
+              2
+            ],
+            "details": "Develop a line chart that matches the style of charts in the Recehtok-style dashboard. Use a dark background and light-colored lines. Position the chart within the layout to reflect the information density seen in the Consilio-style dashboard.",
+            "status": "pending"
+          },
+          {
+            "id": 4,
+            "title": "Apply glow effect to chart elements",
+            "description": "Enhance the chart with a glow effect on lines and data points to match the luminous, high-tech ambiance of the Recehtok-style dashboard.",
+            "dependencies": [
+              3
+            ],
+            "details": "Implement a CSS glow effect on chart lines and points. Adjust the intensity and color of the glow to complement the dark theme and create the futuristic look evident in the Recehtok-style dashboard image. Ensure the glow effect is subtle enough to maintain readability of the chart data.",
+            "status": "pending"
+          }
+        ]
+      },
+      {
+        "id": 10,
+        "title": "Implement Core UI Components",
+        "description": "Style and implement core UI components using shadcn/ui and custom styling.",
+        "details": "Implement and style core components: Button, Card, Input, etc. using shadcn/ui as the base. Apply custom styling to match the PRD requirements, including glow effects on hover/focus for buttons and inputs. Ensure components are themed correctly for both dark and light modes.",
+        "testStrategy": "Test each component in isolation and in combination. Verify styling in both dark and light themes. Check accessibility of all components.",
+        "priority": "high",
+        "dependencies": [
+          2,
+          6,
+          8
+        ],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Implement and style Button component",
+            "description": "Create a reusable Button component with theme compatibility and custom glow effect",
+            "dependencies": [],
+            "details": "Implement a Button component that matches the luminous, high-tech aesthetic from Recehtok-style_dashboard.png. Add a subtle glow effect on hover, similar to the interactive elements in the image. Ensure the button adapts to both light and dark themes.",
+            "status": "pending"
+          },
+          {
+            "id": 2,
+            "title": "Develop Card component with glassmorphism",
+            "description": "Create a Card component with glassmorphism effect and theme support",
+            "dependencies": [],
+            "details": "Design a Card component that incorporates the glassmorphism effect seen in the panels of Recehtok-style_dashboard.png. Ensure the component is responsive and maintains its aesthetic in both light and dark themes.",
+            "status": "pending"
+          },
+          {
+            "id": 3,
+            "title": "Implement Input component with custom styling",
+            "description": "Create an Input component with custom styling and theme compatibility",
+            "dependencies": [],
+            "details": "Develop an Input component that aligns with the overall design language of Consilio-style_dashboard.png. Pay attention to the subtle styling and ensure it integrates well with the curved sidebar shape.",
+            "status": "pending"
+          },
+          {
+            "id": 4,
+            "title": "Develop chart components with glow effects",
+            "description": "Create chart components with custom glow effects and theme support",
+            "dependencies": [
+              2
+            ],
+            "details": "Implement chart components that feature the glow effects seen in Recehtok-style_dashboard.png. Ensure the charts are interactive and maintain their luminous appearance in the dark theme.",
+            "status": "pending"
+          },
+          {
+            "id": 5,
+            "title": "Implement theme switching functionality",
+            "description": "Create a theme switching mechanism to toggle between light and dark themes",
+            "dependencies": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "details": "Develop a theme switching function that allows seamless transition between light theme (similar to Consilio-style_dashboard.png) and dark theme (as seen in Recehtok-style_dashboard.png). Ensure all components adapt appropriately.",
+            "status": "pending"
+          },
+          {
+            "id": 6,
+            "title": "Add custom animations and transitions",
+            "description": "Implement smooth animations and transitions for interactive elements",
+            "dependencies": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "details": "Add custom animations and transitions to enhance the user experience, inspired by the dynamic feel of both reference images. Focus on subtle movements that complement the high-tech ambiance of Recehtok-style_dashboard.png.",
+            "status": "pending"
+          },
+          {
+            "id": 7,
+            "title": "Conduct accessibility testing and optimization",
+            "description": "Perform comprehensive accessibility testing and optimize components accordingly",
+            "dependencies": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "details": "Test all components for accessibility, ensuring they meet WCAG guidelines. Pay special attention to color contrast in both themes, keyboard navigation, and screen reader compatibility. Optimize as necessary while maintaining the visual aesthetics from both reference images.",
+            "status": "pending"
+          }
+        ]
+      },
+      {
+        "id": 11,
+        "title": "Set Up Typography and Iconography",
+        "description": "Configure global typography settings and set up lucide-react for iconography.",
+        "details": "Choose and implement a clean, modern sans-serif font (Inter or Manrope) as the global font. Configure font sizes, weights, and line heights in the Tailwind config. Install and set up lucide-react (latest version) for icons. Create a custom Icon component that wraps lucide-react icons for consistent styling.",
+        "testStrategy": "Verify that the chosen font is applied globally. Test various text styles (headings, body text, etc.) for readability and consistency. Ensure lucide-react icons are rendering correctly and are easily customizable.",
+        "priority": "medium",
+        "dependencies": [
+          2
+        ],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Select and implement global font",
+            "description": "Choose and integrate a font that complements the sleek design of Consilio-style_dashboard.png and the futuristic look of Recehtok-style_dashboard.png",
+            "dependencies": [],
+            "details": "Research and select a modern, sans-serif font that works well in both light and dark themes. Implement it globally using Tailwind CSS config. Ensure it renders clearly in the curved sidebar from Consilio and the glowing elements from Recehtok.",
+            "status": "pending"
+          },
+          {
+            "id": 2,
+            "title": "Configure Tailwind typography settings",
+            "description": "Set up Tailwind typography to match the text styles seen in both reference dashboards",
+            "dependencies": [
+              1
+            ],
+            "details": "Adjust font sizes, line heights, and weights to achieve the clean look of Consilio's layout and the high-contrast text of Recehtok's dark theme. Pay special attention to navigation text styling and information density.",
+            "status": "pending"
+          },
+          {
+            "id": 3,
+            "title": "Set up lucide-react for icons",
+            "description": "Install and configure lucide-react to provide a consistent icon set across the application",
+            "dependencies": [],
+            "details": "Choose icons that match the style of both Consilio and Recehtok dashboards. Ensure icons are scalable and work well with the glow effects seen in Recehtok-style_dashboard.png.",
+            "status": "pending"
+          },
+          {
+            "id": 4,
+            "title": "Create custom Icon component",
+            "description": "Develop a reusable Icon component that incorporates styling from both reference dashboards",
+            "dependencies": [
+              3
+            ],
+            "details": "Build a component that can easily switch between the clean, minimal style of Consilio and the glowing, high-tech style of Recehtok. Include options for size, color, and glow effect.",
+            "status": "pending"
+          },
+          {
+            "id": 5,
+            "title": "Test typography and icons across the application",
+            "description": "Ensure consistent rendering and styling of fonts and icons throughout the dashboard",
+            "dependencies": [
+              1,
+              2,
+              3,
+              4
+            ],
+            "details": "Verify that the chosen font and icons look appropriate in both the curved sidebar layout of Consilio and the glassmorphic panels of Recehtok. Test responsiveness and adjust as needed to maintain the desired aesthetic across different screen sizes.",
+            "status": "pending"
+          }
+        ]
+      },
+      {
+        "id": 12,
+        "title": "Create Placeholder Pages",
+        "description": "Implement placeholder pages for each main navigation item.",
+        "details": "Create placeholder pages for each main navigation item listed in REQ-3.4. Each page should have a large title (<h1>) indicating its name. Implement proper routing using Next.js App Router. Ensure that the layout (including the sidebar) is applied to all pages.",
+        "testStrategy": "Verify that each navigation item routes to the correct placeholder page. Check that the layout is consistent across all pages. Test breadcrumb navigation if implemented.",
+        "priority": "medium",
+        "dependencies": [
+          5,
+          10
+        ],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Create template for placeholder pages",
+            "description": "Design a reusable template for placeholder pages incorporating key visual elements from the reference images",
+            "dependencies": [],
+            "details": "Implement a template that includes the curved sidebar shape from Consilio-style_dashboard.png and the dark theme with glow effects from Recehtok-style_dashboard.png. Ensure the template has placeholders for navigation, content areas, and interactive elements that will be consistent across all pages.",
+            "status": "pending"
+          },
+          {
+            "id": 2,
+            "title": "Implement routing for placeholder pages",
+            "description": "Set up the routing system to navigate between the placeholder pages",
+            "dependencies": [
+              1
+            ],
+            "details": "Create a routing structure that allows seamless navigation between pages. Implement the navigation styling from Consilio-style_dashboard.png, ensuring it works with the curved sidebar design. Include hover effects similar to the luminous, high-tech ambiance seen in Recehtok-style_dashboard.png.",
+            "status": "pending"
+          },
+          {
+            "id": 3,
+            "title": "Ensure layout consistency across pages",
+            "description": "Apply the template consistently across all placeholder pages, maintaining visual coherence",
+            "dependencies": [
+              1,
+              2
+            ],
+            "details": "Apply the template created in subtask 1 to all pages, ensuring the layout structure from Consilio-style_dashboard.png is maintained. Implement glassmorphism effects in panels as seen in Recehtok-style_dashboard.png to create a consistent, modern look across all pages.",
+            "status": "pending"
+          },
+          {
+            "id": 4,
+            "title": "Add basic content for each page",
+            "description": "Populate each placeholder page with basic content and mock data",
+            "dependencies": [
+              3
+            ],
+            "details": "Add placeholder content to each page, mimicking the information density from Consilio-style_dashboard.png. Include mock charts and interactive elements with glow effects as seen in Recehtok-style_dashboard.png to represent the eventual data visualization components.",
+            "status": "pending"
+          }
+        ]
+      },
+      {
+        "id": 13,
+        "title": "Implement Responsive Behavior",
+        "description": "Ensure the application is fully responsive, with special attention to the sidebar behavior.",
+        "details": "Implement responsive behavior for the entire application. Ensure the sidebar is hidden on mobile views (<768px) and can be toggled with a hamburger menu. Use Tailwind's responsive classes to adjust layouts and typography for different screen sizes. Implement any necessary JavaScript for handling responsive interactions.",
+        "testStrategy": "Test the application on various devices and screen sizes. Verify that the sidebar behaves correctly on mobile. Check that all content is readable and accessible on small screens.",
+        "priority": "high",
+        "dependencies": [
+          3,
+          4,
+          5
+        ],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Define Responsive Breakpoints",
+            "description": "Establish breakpoints for mobile, tablet, and desktop views, considering the complex layout of Consilio-style_dashboard.png",
+            "dependencies": [],
+            "details": "Analyze the Consilio dashboard layout and determine appropriate breakpoints (e.g., 768px, 1024px, 1440px) to maintain the curved sidebar shape and information density across different screen sizes",
+            "status": "pending"
+          },
+          {
+            "id": 2,
+            "title": "Adjust Layouts for Different Screen Sizes",
+            "description": "Modify the layout structure to adapt to various screen sizes while preserving the aesthetic of both reference images",
+            "dependencies": [
+              1
+            ],
+            "details": "Implement flexbox or grid layouts to reorganize content, ensuring the curved sidebar from Consilio-style_dashboard.png collapses appropriately on smaller screens, and maintain the glassmorphism panel effects from Recehtok-style_dashboard.png across all sizes",
+            "status": "pending"
+          },
+          {
+            "id": 3,
+            "title": "Implement Mobile Sidebar Behavior",
+            "description": "Create a collapsible sidebar for mobile views that maintains the curved shape aesthetic when expanded",
+            "dependencies": [
+              1,
+              2
+            ],
+            "details": "Develop a JavaScript-based solution for the sidebar toggle, ensuring the unique curved shape from Consilio-style_dashboard.png is preserved when expanded on mobile, and incorporate the glow effects from Recehtok-style_dashboard.png for interactive elements",
+            "status": "pending"
+          },
+          {
+            "id": 4,
+            "title": "Adapt Visual Elements for Responsiveness",
+            "description": "Ensure all visual elements, including charts and panels, are responsive and maintain their design integrity",
+            "dependencies": [
+              2
+            ],
+            "details": "Implement responsive versions of charts and panels, preserving the glow effects and glassmorphism from Recehtok-style_dashboard.png, and ensure the navigation styling from Consilio-style_dashboard.png adapts well to all screen sizes",
+            "status": "pending"
+          },
+          {
+            "id": 5,
+            "title": "Test Responsiveness on Various Devices",
+            "description": "Conduct thorough testing on different devices and browsers to ensure consistent responsiveness",
+            "dependencies": [
+              3,
+              4
+            ],
+            "details": "Use browser developer tools and physical devices to test the responsive design, paying special attention to the sidebar behavior, chart readability, and overall layout integrity across different screen sizes",
+            "status": "pending"
+          },
+          {
+            "id": 6,
+            "title": "Optimize Performance for Mobile Devices",
+            "description": "Enhance loading times and interactions for mobile users while maintaining visual fidelity",
+            "dependencies": [
+              5
+            ],
+            "details": "Implement lazy loading for images and charts, optimize CSS and JavaScript, and ensure smooth transitions for the collapsible sidebar and interactive elements, preserving the high-tech ambiance of Recehtok-style_dashboard.png on mobile devices",
+            "status": "pending"
+          }
+        ]
+      },
+      {
+        "id": 14,
+        "title": "Set Up ESLint and Prettier",
+        "description": "Configure ESLint and Prettier for code quality and consistency.",
+        "details": "Install and configure ESLint with appropriate plugins for React and TypeScript. Set up Prettier for code formatting. Create .eslintrc and .prettierrc configuration files. Integrate ESLint and Prettier with the IDE (e.g., VS Code extensions). Set up a pre-commit hook using husky to run linting and formatting checks.",
+        "testStrategy": "Run ESLint on the entire codebase and verify there are no errors. Test Prettier by intentionally writing poorly formatted code and running the formatter. Verify that the pre-commit hook catches linting and formatting issues.",
+        "priority": "medium",
+        "dependencies": [
+          1
+        ],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Install ESLint and Prettier",
+            "description": "Set up ESLint and Prettier in the project, focusing on configurations that support the visual styles from the reference images.",
+            "dependencies": [],
+            "details": "Install ESLint and Prettier packages. Configure ESLint to enforce code style similar to the clean, structured layout seen in Consilio-style_dashboard.png. Set up Prettier to maintain consistent formatting that aligns with the sleek, modern look of both dashboard designs.",
+            "status": "pending"
+          },
+          {
+            "id": 2,
+            "title": "Configure ESLint and Prettier Rules",
+            "description": "Define custom rules for ESLint and Prettier that align with the visual aesthetics of the reference dashboards.",
+            "dependencies": [
+              1
+            ],
+            "details": "Create .eslintrc and .prettierrc files. Set up rules to ensure code structure supports the curved sidebar shape from Consilio-style_dashboard.png and the glassmorphism effects from Recehtok-style_dashboard.png. Configure color-related linting rules to maintain consistency with the dark theme and glow effects seen in Recehtok-style_dashboard.png.",
+            "status": "pending"
+          },
+          {
+            "id": 3,
+            "title": "Integrate ESLint and Prettier with IDE",
+            "description": "Set up IDE integration for real-time linting and formatting that supports the visual design elements.",
+            "dependencies": [
+              2
+            ],
+            "details": "Configure IDE settings to highlight code issues that may affect the layout structure from Consilio-style_dashboard.png or the high-tech ambiance from Recehtok-style_dashboard.png. Set up auto-formatting on save to maintain code consistency aligned with the sleek design of both dashboards.",
+            "status": "pending"
+          },
+          {
+            "id": 4,
+            "title": "Set Up Pre-commit Hooks",
+            "description": "Implement pre-commit hooks to ensure code adheres to the defined rules and supports the visual designs before committing.",
+            "dependencies": [
+              2
+            ],
+            "details": "Use husky to set up pre-commit hooks. Configure lint-staged to run ESLint and Prettier checks before each commit, ensuring code supports the unique navigation styling from Consilio-style_dashboard.png and the luminous effects from Recehtok-style_dashboard.png.",
+            "status": "pending"
+          },
+          {
+            "id": 5,
+            "title": "Test ESLint and Prettier Configuration",
+            "description": "Verify that the ESLint and Prettier setup correctly enforces rules that support the visual designs from both reference images.",
+            "dependencies": [
+              3,
+              4
+            ],
+            "details": "Create test files with intentional style violations. Ensure ESLint catches issues related to the layout structure from Consilio-style_dashboard.png and the dark theme aesthetics from Recehtok-style_dashboard.png. Verify Prettier correctly formats code to support the overall information density and high-tech ambiance of both designs.",
+            "status": "pending"
+          }
+        ]
+      },
+      {
+        "id": 15,
+        "title": "Documentation and Final Testing",
+        "description": "Create documentation for the project and perform final testing.",
+        "details": "Create a README.md file with project overview, setup instructions, and key architectural decisions. Document any custom components or utilities created. Perform a final round of testing covering all implemented features. Create a test plan document outlining manual test cases for key functionalities.",
+        "testStrategy": "Review all documentation for completeness and clarity. Conduct a full regression test of all implemented features. Verify that the application meets all specified acceptance criteria from the PRD.",
+        "priority": "medium",
+        "dependencies": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+        ],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Create Project Documentation",
+            "description": "Develop comprehensive project documentation incorporating visual design elements from reference images",
+            "dependencies": [],
+            "details": "Document the project structure, focusing on the curved sidebar shape from Consilio-style_dashboard.png and the dark theme aesthetics from Recehtok-style_dashboard.png. Include sections on component hierarchy, state management, and API integrations.",
+            "status": "pending"
+          },
+          {
+            "id": 2,
+            "title": "Component Documentation",
+            "description": "Create detailed documentation for individual components, highlighting visual design implementations",
+            "dependencies": [
+              1
+            ],
+            "details": "Document each component, emphasizing the navigation styling from Consilio-style_dashboard.png and the glassmorphism effects in panels from Recehtok-style_dashboard.png. Include props, state, and styling information for each component.",
+            "status": "pending"
+          },
+          {
+            "id": 3,
+            "title": "Write Test Plans",
+            "description": "Develop comprehensive test plans covering functionality and visual design elements",
+            "dependencies": [
+              1,
+              2
+            ],
+            "details": "Create test cases for all features, including specific tests for the layout structure from Consilio-style_dashboard.png and the glow effects on charts from Recehtok-style_dashboard.png. Include unit tests, integration tests, and visual regression tests.",
+            "status": "pending"
+          },
+          {
+            "id": 4,
+            "title": "Conduct Final Testing",
+            "description": "Execute all test plans and perform thorough final testing of the application",
+            "dependencies": [
+              3
+            ],
+            "details": "Run all test cases, paying special attention to the information density from Consilio-style_dashboard.png and the overall luminous, high-tech ambiance from Recehtok-style_dashboard.png. Document and address any issues found during testing.",
+            "status": "pending"
+          },
+          {
+            "id": 5,
+            "title": "Create User Guides",
+            "description": "Develop user guides explaining application functionality and visual design elements",
+            "dependencies": [
+              1,
+              2,
+              4
+            ],
+            "details": "Write user-friendly guides explaining how to navigate the unique curved sidebar from Consilio-style_dashboard.png and interact with the interactive elements with glow effects from Recehtok-style_dashboard.png. Include screenshots and step-by-step instructions.",
+            "status": "pending"
+          },
+          {
+            "id": 6,
+            "title": "Compile Project Handover Document",
+            "description": "Create a comprehensive project handover document for future maintenance and updates",
+            "dependencies": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "details": "Compile all documentation, test plans, and user guides into a single handover document. Include sections on maintaining the visual design elements, such as updating the dark theme from Recehtok-style_dashboard.png and modifying the layout structure from Consilio-style_dashboard.png.",
+            "status": "pending"
+          },
+          {
+            "id": 7,
+            "title": "Final Review and Approval",
+            "description": "Conduct a final review of all documentation and obtain necessary approvals",
+            "dependencies": [
+              6
+            ],
+            "details": "Review all documentation for accuracy and completeness, ensuring that all visual design elements from both reference images are properly documented and explained. Obtain approvals from project stakeholders and prepare for project closure.",
+            "status": "pending"
+          }
+        ]
+      }
+    ],
+    "metadata": {
+      "created": "2025-06-19T20:24:46.376Z",
+      "updated": "2025-06-19T21:07:06.463Z",
+      "description": "Tasks for master context"
+    }
+  }
+}

@@ -1,5 +1,11 @@
 {
     "mcpServers": {
+        "browsermcp": {
+            "command": "npx",
+            "args": [
+                "@browsermcp/mcp@latest"
+            ]
+        },
         "task-master-ai": {
             "command": "npx",
             "args": [
