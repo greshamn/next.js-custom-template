@@ -39,7 +39,7 @@
               2
             ],
             "details": "Implement a Sidebar component with a dark background (#1A103E) and subtle hover effects. Use lucide-react for clean icons. Create a Layout component with a three-column structure: Sidebar, MainContent, and NotificationsPanel. Style the MainContent with the deep purple background (#2D1B69) and appropriate padding.",
-            "status": "pending",
+            "status": "in-progress",
             "testStrategy": "Verify responsive behavior of layout components and correct styling across breakpoints"
           },
           {
@@ -209,14 +209,14 @@
       {
         "id": 4,
         "title": "Implement navigation system based on menu.md",
-        "description": "Create a navigation system that implements all main menu items and static sub-menu items as specified in menu.md.",
-        "details": "1. Create a Navigation component in /components/layout\n2. Implement all main menu items and static sub-menu items from menu.md\n3. Use lucide-react for menu icons\n4. Create placeholder pages for each main navigation item\n5. Implement routing using Next.js App Router\n6. Style navigation items according to design-theme.md\n7. Ensure correct active state styling for navigation links",
-        "testStrategy": "1. Verify all menu items from menu.md are present\n2. Test navigation to all placeholder pages\n3. Check that active link styling is applied correctly\n4. Ensure icons are displayed properly for each menu item",
-        "priority": "high",
+        "description": "Create a navigation system that implements all main menu items and static sub-menu items as specified in menu.md, including the 9 main sections and their respective sub-items.",
+        "status": "pending",
         "dependencies": [
           2
         ],
-        "status": "pending",
+        "priority": "high",
+        "details": "1. Create a Navigation component in /components/layout\n2. Implement all 9 main menu items and their sub-items from menu.md\n3. Use lucide-react for menu icons\n4. Create placeholder pages for each main navigation item and sub-item\n5. Implement routing using Next.js App Router\n6. Style navigation items according to design-theme.md, including the curved edge design\n7. Ensure correct active state styling for navigation links\n8. Implement dynamic recently viewed items for Suppliers and Individuals sections\n9. Structure the Administration section with its main sub-sections and nested sub-items",
+        "testStrategy": "1. Verify all menu items from menu.md are present, including all 9 main sections and their sub-items\n2. Test navigation to all placeholder pages, including sub-item pages\n3. Check that active link styling is applied correctly for both main and sub-items\n4. Ensure icons are displayed properly for each main menu item\n5. Verify the curved edge design of the sidebar\n6. Test the dynamic recently viewed items functionality for Suppliers and Individuals sections\n7. Ensure proper nesting and functionality of the Administration section's sub-sections",
         "subtasks": [
           {
             "id": 1,
@@ -230,36 +230,36 @@
           {
             "id": 2,
             "title": "Implement Main Menu Items",
-            "description": "Add main menu items from menu.md to the Navigation component with appropriate icons and styling.",
+            "description": "Add all 9 main menu items from menu.md to the Navigation component with appropriate icons and styling.",
             "dependencies": [
               1
             ],
-            "details": "Map through main menu items from menu.md. For each item, create a button with flex items-center p-3 hover:bg-purple-700 hover:bg-opacity-30 transition-all duration-300. Use lucide-react for icons, setting size={20} and className='text-cyan-400 mr-3'. Set text color to text-gray-200. Implement active state with bg-purple-600 bg-opacity-50 and add a glowing effect using box-shadow: 0 0 15px rgba(129, 140, 248, 0.5).",
+            "details": "Map through the 9 main menu items from menu.md. For each item, create a button with flex items-center p-3 hover:bg-purple-700 hover:bg-opacity-30 transition-all duration-300. Use lucide-react for icons, setting size={20} and className='text-cyan-400 mr-3'. Set text color to text-gray-200. Implement active state with bg-purple-600 bg-opacity-50 and add a glowing effect using box-shadow: 0 0 15px rgba(129, 140, 248, 0.5). Ensure the sidebar has a curved edge design as referenced in the PRD.",
             "status": "pending",
-            "testStrategy": "Test each menu item's render, hover state, and active state. Ensure icons are correctly displayed and aligned."
+            "testStrategy": "Test each of the 9 main menu items' render, hover state, and active state. Ensure icons are correctly displayed and aligned. Verify the curved edge design of the sidebar."
           },
           {
             "id": 3,
             "title": "Add Static Sub-Menu Items",
-            "description": "Implement static sub-menu items as specified in menu.md with appropriate indentation and styling.",
+            "description": "Implement static sub-menu items for all 9 main sections as specified in menu.md with appropriate indentation and styling.",
             "dependencies": [
               2
             ],
-            "details": "For sub-menu items, use smaller text (text-sm) and add left padding (pl-8) for indentation. Style with text-gray-400 and hover:text-cyan-300. Add a subtle left border to indicate nesting: border-l-2 border-purple-500 border-opacity-30. Implement a softer glow effect on hover using box-shadow: 0 0 10px rgba(129, 140, 248, 0.3).",
+            "details": "For sub-menu items, use smaller text (text-sm) and add left padding (pl-8) for indentation. Style with text-gray-400 and hover:text-cyan-300. Add a subtle left border to indicate nesting: border-l-2 border-purple-500 border-opacity-30. Implement a softer glow effect on hover using box-shadow: 0 0 10px rgba(129, 140, 248, 0.3). Ensure proper nesting for the Administration section's sub-sections.",
             "status": "pending",
-            "testStrategy": "Verify sub-menu items are correctly nested under their parent items. Test hover and active states for sub-menu items."
+            "testStrategy": "Verify sub-menu items are correctly nested under their parent items for all 9 main sections. Test hover and active states for sub-menu items. Ensure proper structure for the Administration section's nested sub-items."
           },
           {
             "id": 4,
             "title": "Implement Next.js App Router Integration",
-            "description": "Set up routing for navigation items using Next.js App Router and create placeholder pages for each main item.",
+            "description": "Set up routing for all navigation items using Next.js App Router and create placeholder pages for each main item and sub-item.",
             "dependencies": [
               2,
               3
             ],
-            "details": "Use Next.js Link component for navigation items. Create placeholder pages in app/ directory for each main navigation item. Implement dynamic routing for sub-items if necessary. In placeholder pages, add a gradient background using bg-gradient-to-br from-purple-900 to-indigo-900. Include a page title with text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400 for the glowing text effect.",
+            "details": "Use Next.js Link component for navigation items. Create placeholder pages in app/ directory for each main navigation item and sub-item. Implement dynamic routing for sub-items if necessary. In placeholder pages, add a gradient background using bg-gradient-to-br from-purple-900 to-indigo-900. Include a page title with text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400 for the glowing text effect.",
             "status": "pending",
-            "testStrategy": "Test navigation between pages. Ensure correct routes are set up and placeholder pages are accessible."
+            "testStrategy": "Test navigation between all pages, including sub-item pages. Ensure correct routes are set up and all placeholder pages are accessible."
           },
           {
             "id": 5,
@@ -274,6 +274,30 @@
             "details": "Implement a media query for mobile devices to collapse the sidebar into a hamburger menu. Use @media (max-width: 768px) in a style tag or in a separate CSS module. For the collapsed state, position the navigation absolutely and add a slide-in animation. Add a semi-transparent overlay (bg-black bg-opacity-50) behind the open mobile menu. Implement smooth transitions for opening/closing using transition-all duration-300. Ensure all interactive elements have distinct hover and focus states with increased glow effect.",
             "status": "pending",
             "testStrategy": "Test responsiveness across various screen sizes. Verify mobile menu functionality and ensure all styles are applied correctly in both desktop and mobile views."
+          },
+          {
+            "id": 6,
+            "title": "Implement Dynamic Recently Viewed Items",
+            "description": "Add functionality for dynamic recently viewed items in the Suppliers and Individuals sections.",
+            "dependencies": [
+              3,
+              4
+            ],
+            "details": "Create a mechanism to track and display recently viewed suppliers and individuals. Implement a state management solution (e.g., React Context or Redux) to store and update recently viewed items. Display these items dynamically under the respective sections in the navigation menu. Limit the number of recently viewed items to 5 for each section.",
+            "status": "pending",
+            "testStrategy": "Test the addition and removal of recently viewed items. Verify that the list updates correctly when viewing new suppliers or individuals. Ensure the limit of 5 items is maintained."
+          },
+          {
+            "id": 7,
+            "title": "Refine Administration Section Structure",
+            "description": "Implement the nested structure for the Administration section with its main sub-sections and respective sub-items.",
+            "dependencies": [
+              3,
+              4
+            ],
+            "details": "Create a nested structure for the Administration section, including the three main sub-sections: User & Access Management, Vetting Configuration, and System & Company Configuration. Implement sub-items for each of these sections. Use appropriate indentation and styling to clearly show the hierarchy. Ensure that the Billing & Subscription item is at the same level as the main sub-sections.",
+            "status": "pending",
+            "testStrategy": "Verify the correct nesting and display of all Administration sub-sections and their respective sub-items. Test navigation and routing for all nested items. Ensure the structure is clear and intuitive for users."
           }
         ]
       },
@@ -551,14 +575,14 @@
       {
         "id": 9,
         "title": "Create placeholder pages for main navigation items",
-        "description": "Develop empty placeholder pages for each main navigation link specified in menu.md.",
-        "details": "1. Create a basic page template with a title and content area\n2. Implement placeholder pages for Dashboard, Suppliers, Assessments, Reports, and Settings\n3. Add page titles that correspond to the navigation items\n4. Include a few representative shadcn/ui components on each page (e.g., Card, Button)\n5. Ensure proper routing to each placeholder page\n6. Apply consistent styling and layout across all placeholder pages",
-        "testStrategy": "1. Verify all main navigation items have corresponding placeholder pages\n2. Check that routing works correctly for all pages\n3. Ensure placeholder content is visible and styled appropriately\n4. Test placeholder pages in both dark and light themes",
-        "priority": "medium",
+        "description": "Develop placeholder pages for each main navigation link and sub-page specified in menu.md using Next.js App Router structure and Recehtok-style dark theme.",
+        "status": "pending",
         "dependencies": [
           4
         ],
-        "status": "pending",
+        "priority": "medium",
+        "details": "1. Create a basic page template with a title and content area using the Recehtok-style dark theme\n2. Implement placeholder pages for all main navigation items and their sub-pages as specified in menu.md\n3. Add page titles that correspond to the navigation items\n4. Include a few representative shadcn/ui components on each page (e.g., Card, Button)\n5. Ensure proper routing to each placeholder page using Next.js App Router\n6. Apply consistent styling and layout across all placeholder pages\n7. Organize pages according to the Next.js App Router structure",
+        "testStrategy": "1. Verify all main navigation items and sub-pages have corresponding placeholder pages\n2. Check that routing works correctly for all pages, including nested routes\n3. Ensure placeholder content is visible and styled appropriately with the Recehtok-style dark theme\n4. Test placeholder pages in both dark and light themes\n5. Verify that the Next.js App Router structure is correctly implemented",
         "subtasks": [
           {
             "id": 1,
@@ -612,9 +636,44 @@
               3,
               4
             ],
-            "details": "Create interactive buttons and menu items using Tailwind: rounded-lg bg-white/10 hover:bg-white/20 active:bg-white/30 transition-all duration-200. Add glowing active state: .active { box-shadow: 0 0 15px rgba(0, 255, 255, 0.5); }. Implement routing using Next.js or React Router. Create placeholder pages for Dashboard, Suppliers, Assessments, Reports, and Settings. Ensure each page uses the base template and includes relevant components (charts, wallet cards, notifications).",
+            "details": "Create interactive buttons and menu items using Tailwind: rounded-lg bg-white/10 hover:bg-white/20 active:bg-white/30 transition-all duration-200. Add glowing active state: .active { box-shadow: 0 0 15px rgba(0, 255, 255, 0.5); }. Implement routing using Next.js App Router. Create placeholder pages for all main navigation items and sub-pages as specified in menu.md. Ensure each page uses the base template and includes relevant components (charts, wallet cards, notifications).",
             "status": "pending",
             "testStrategy": "Verify routing functionality, interactive element behaviors, and consistent styling across all placeholder pages"
+          },
+          {
+            "id": 6,
+            "title": "Create main navigation placeholder pages",
+            "description": "Develop placeholder pages for main navigation items using Next.js App Router",
+            "dependencies": [
+              1,
+              5
+            ],
+            "details": "Create placeholder pages for Dashboard, Vetting Center, Suppliers, Individuals, Reporting & Insights, Field Operations, Administration, My Account, and Help Center. Use the Next.js App Router structure to organize these pages. Implement basic layout and content structure for each page.",
+            "status": "pending",
+            "testStrategy": "Verify that all main navigation pages are created and accessible through the Next.js App Router"
+          },
+          {
+            "id": 7,
+            "title": "Implement sub-page placeholders",
+            "description": "Create placeholder pages for all sub-pages of main navigation items",
+            "dependencies": [
+              6
+            ],
+            "details": "Develop placeholder pages for sub-pages of Vetting Center, Suppliers, Individuals, Reporting & Insights, Field Operations, Administration, My Account, and Help Center. Use Next.js App Router nested routing to organize these sub-pages. Ensure consistent styling and layout across all sub-pages.",
+            "status": "pending",
+            "testStrategy": "Test navigation to all sub-pages and verify proper nesting within the Next.js App Router structure"
+          },
+          {
+            "id": 8,
+            "title": "Apply Recehtok-style dark theme to all pages",
+            "description": "Ensure all placeholder pages adhere to the Recehtok-style dark theme",
+            "dependencies": [
+              6,
+              7
+            ],
+            "details": "Apply the Recehtok-style dark theme consistently across all main and sub-pages. Use the dark purple background (#2D1B69) and ensure proper contrast for text and UI elements. Implement glassmorphic effects and subtle animations where appropriate.",
+            "status": "pending",
+            "testStrategy": "Verify visual consistency of the Recehtok-style dark theme across all placeholder pages"
           }
         ]
       },
@@ -841,7 +900,7 @@
     ],
     "metadata": {
       "created": "2025-06-19T10:14:20.408Z",
-      "updated": "2025-06-19T10:53:24.946Z",
+      "updated": "2025-06-19T10:55:12.631Z",
       "description": "Tasks for master context"
     }
   }
