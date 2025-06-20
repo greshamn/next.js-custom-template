@@ -119,7 +119,7 @@ const DashboardLayout: React.FC<{ children: React.ReactNode }> = ({ children }) 
   };
 
   return (
-    <div className="flex h-screen bg-dashboard-bg">
+    <div className="flex h-screen">
       <CurvedSidebar
         isOpen={isSidebarOpen}
         onToggle={handleSidebarToggle}
@@ -130,7 +130,7 @@ const DashboardLayout: React.FC<{ children: React.ReactNode }> = ({ children }) 
         <div className="mobile-overlay" onClick={handleSidebarToggle} />
       )}
       <main className={cn(
-        "flex-1 flex flex-col p-4 md:p-8 overflow-auto bg-dashboard-bg text-dashboard-foreground",
+        "flex-1 flex flex-col p-4 md:p-8 overflow-auto text-dashboard-foreground",
         isMobile && "main-content-mobile"
       )}>
         <div className="flex justify-between md:justify-end items-center w-full mb-8">
