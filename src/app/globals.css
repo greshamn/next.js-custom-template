@@ -54,11 +54,6 @@
   --glass-border: rgba(255, 255, 255, 0.2);
   --glass-blur: 8px;
 
-  /* Consilio-style Gradient Background Variables */
-  --bg-gradient-start: #4A3A9C;
-  --bg-gradient-mid: #2C2D7A;
-  --bg-gradient-end: #1A1D2B;
-  
   /* Glow effect variables */
   --glow-blue: #3b82f6;
   --glow-purple: #8b5cf6;
@@ -105,11 +100,6 @@
   /* Enhanced glassmorphism for dark theme */
   --glass-bg: rgba(0, 0, 0, 0.3);
   --glass-border: rgba(255, 255, 255, 0.1);
-  
-  /* Dark theme gradient backgrounds - Enhanced Consilio-style */
-  --bg-gradient-start: #5A4AAC;
-  --bg-gradient-mid: #3C3D8A;
-  --bg-gradient-end: #0F1419;
 }
 
 @theme inline {
@@ -163,11 +153,6 @@
   /* Glassmorphism colors */
   --color-glass-bg: var(--glass-bg);
   --color-glass-border: var(--glass-border);
-  
-  /* Consilio-style Gradient Background colors */
-  --color-bg-gradient-start: var(--bg-gradient-start);
-  --color-bg-gradient-end: var(--bg-gradient-end);
-  --color-bg-gradient-mid: var(--bg-gradient-mid);
 
   /* Radius */
   --radius-sm: calc(var(--radius) - 4px);
@@ -176,102 +161,54 @@
   --radius-xl: calc(var(--radius) + 4px);
 }
 
+/* CONSILIO-STYLE BACKGROUND SYSTEM WITH SMOOTH TRANSITIONS */
+
+/* Global transition properties - Applied to base elements for bidirectional smooth transitions */
+body {
+  transition: background-color 1500ms cubic-bezier(0.22, 1, 0.36, 1), background-image 1500ms cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+
+/* Ensure transitions persist during theme class changes */
+body::before, body::after {
+  transition: background 1500ms cubic-bezier(0.22, 1, 0.36, 1), opacity 800ms cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+
+/* Dark theme - User-specified vibrant gradient system (darker version) */
+:root:not(.light) body, :root.dark body {
+  background-color: #1a3d3f !important;
+  background-image:
+    radial-gradient(at 74% 94%, hsla(270,94%,25%,1) 0px, transparent 50%),
+    radial-gradient(at 3% 88%, hsla(140,66%,30%,1) 0px, transparent 50%),
+    radial-gradient(at 76% 13%, hsla(315,92%,32%,1) 0px, transparent 50%),
+    radial-gradient(at 36% 66%, hsla(183,87%,28%,1) 0px, transparent 50%),
+    radial-gradient(at 98% 37%, hsla(220,77%,25%,1) 0px, transparent 50%),
+    radial-gradient(at 96% 14%, hsla(85,97%,27%,1) 0px, transparent 50%),
+    radial-gradient(at 74% 68%, hsla(1,97%,23%,1) 0px, transparent 50%) !important;
+}
+
+/* Light theme - User-specified vibrant gradient system */
+:root.light body {
+  background-color: #99e2ff !important;
+  background-image:
+    radial-gradient(at 89% 90%, hsla(330,88%,76%,1) 0px, transparent 50%),
+    radial-gradient(at 33% 95%, hsla(276,73%,64%,1) 0px, transparent 50%),
+    radial-gradient(at 77% 79%, hsla(311,64%,63%,1) 0px, transparent 50%),
+    radial-gradient(at 49% 43%, hsla(205,66%,62%,1) 0px, transparent 50%),
+    radial-gradient(at 63% 32%, hsla(256,77%,76%,1) 0px, transparent 50%),
+    radial-gradient(at 29% 77%, hsla(337,61%,74%,1) 0px, transparent 50%),
+    radial-gradient(at 10% 21%, hsla(171,79%,66%,1) 0px, transparent 50%) !important;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
   body {
-    @apply text-foreground;
+    @apply bg-background text-foreground;
     color: hsl(var(--dashboard-foreground));
     min-height: 100vh;
+    font-feature-settings: "rlig" 1, "calt" 1;
   }
-}
-
-/* CONSILIO GRADIENT WITH TEXTURE AND DEPTH - OVERRIDE ALL OTHER STYLES */
-html, body {
-  /* Consilio-accurate multi-color abstract gradient */
-  background: 
-    /* Base foundation gradient */
-    radial-gradient(ellipse 150% 100% at 0% 100%, #1A2B4B 0%, transparent 50%),
-    radial-gradient(ellipse 120% 80% at 100% 80%, #2A5B6E 0%, transparent 45%),
-    conic-gradient(from 35deg at 30% 70%, #4A3B7F 0deg, #8A4A7F 90deg, #B87F9E 180deg, #4A3B7F 270deg, #1A2B4B 360deg),
-    linear-gradient(125deg, #1A2B4B 0%, #4A3B7F 35%, #8A4A7F 65%, #2A5B6E 100%) !important;
-  
-  /* Abstract depth and texture layers */
-  background-image: 
-    /* Very subtle noise texture */
-    url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.015'/%3E%3C/svg%3E"),
-    /* Organic color flow - bottom left navy */
-    radial-gradient(ellipse 180% 120% at 0% 100%, rgba(26, 43, 75, 0.8) 0%, transparent 40%),
-    /* Organic color flow - top right pink/magenta */
-    radial-gradient(ellipse 140% 100% at 100% 0%, rgba(184, 127, 158, 0.6) 0%, transparent 35%),
-    /* Mid-layer purple blend */
-    radial-gradient(ellipse 160% 90% at 50% 50%, rgba(74, 59, 127, 0.7) 0%, transparent 45%),
-    /* Teal accent bottom-right */
-    radial-gradient(ellipse 100% 80% at 90% 90%, rgba(42, 91, 110, 0.5) 0%, transparent 30%),
-    /* Base multi-color foundation */
-    conic-gradient(from 35deg at 30% 70%, 
-      #1A2B4B 0deg, 
-      #4A3B7F 90deg, 
-      #8A4A7F 180deg, 
-      #B87F9E 270deg, 
-      #2A5B6E 315deg,
-      #1A2B4B 360deg
-    ) !important;
-    
-  background-attachment: fixed !important;
-  background-size: 
-    120px 120px,
-    100% 100%, 
-    100% 100%, 
-    100% 100%, 
-    100% 100%, 
-    100% 100% !important;
-  background-repeat: repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat !important;
-  background-blend-mode: normal, multiply, overlay, soft-light, color-burn, normal !important;
-  min-height: 100vh !important;
-}
-
-/* Extra specificity to ensure gradient shows */
-html body {
-  /* Consilio-accurate multi-color abstract gradient */
-  background: 
-    /* Base foundation gradient */
-    radial-gradient(ellipse 150% 100% at 0% 100%, #1A2B4B 0%, transparent 50%),
-    radial-gradient(ellipse 120% 80% at 100% 80%, #2A5B6E 0%, transparent 45%),
-    conic-gradient(from 35deg at 30% 70%, #4A3B7F 0deg, #8A4A7F 90deg, #B87F9E 180deg, #4A3B7F 270deg, #1A2B4B 360deg),
-    linear-gradient(125deg, #1A2B4B 0%, #4A3B7F 35%, #8A4A7F 65%, #2A5B6E 100%) !important;
-  
-  /* Abstract depth and texture layers */
-  background-image: 
-    /* Very subtle noise texture */
-    url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.015'/%3E%3C/svg%3E"),
-    /* Organic color flow - bottom left navy */
-    radial-gradient(ellipse 180% 120% at 0% 100%, rgba(26, 43, 75, 0.8) 0%, transparent 40%),
-    /* Organic color flow - top right pink/magenta */
-    radial-gradient(ellipse 140% 100% at 100% 0%, rgba(184, 127, 158, 0.6) 0%, transparent 35%),
-    /* Mid-layer purple blend */
-    radial-gradient(ellipse 160% 90% at 50% 50%, rgba(74, 59, 127, 0.7) 0%, transparent 45%),
-    /* Teal accent bottom-right */
-    radial-gradient(ellipse 100% 80% at 90% 90%, rgba(42, 91, 110, 0.5) 0%, transparent 30%),
-    /* Base multi-color foundation */
-    conic-gradient(from 35deg at 30% 70%, 
-      #1A2B4B 0deg, 
-      #4A3B7F 90deg, 
-      #8A4A7F 180deg, 
-      #B87F9E 270deg, 
-      #2A5B6E 315deg,
-      #1A2B4B 360deg
-    ) !important;
-    
-  background-size: 
-    120px 120px,
-    100% 100%, 
-    100% 100%, 
-    100% 100%, 
-    100% 100%, 
-    100% 100% !important;
-  background-blend-mode: normal, multiply, overlay, soft-light, color-burn, normal !important;
 }
 
 /* Custom animations for Recehtok-style glow effects */
@@ -363,6 +300,27 @@ html body {
 
 /* Curved sidebar styling */
 .curved-sidebar {
+  /* VETTPRO: Force dark theme variables within the sidebar */
+  --background: 222.2 84% 4.9%;
+  --foreground: 210 40% 98%;
+  --card: 222.2 84% 4.9%;
+  --card-foreground: 210 40% 98%;
+  --popover: 222.2 84% 4.9%;
+  --popover-foreground: 210 40% 98%;
+  --primary: 210 40% 98%;
+  --primary-foreground: 222.2 84% 4.9%;
+  --secondary: 217.2 32.6% 17.5%;
+  --secondary-foreground: 210 40% 98%;
+  --muted: 217.2 32.6% 17.5%;
+  --muted-foreground: 215 20.2% 65.1%;
+  --accent: 217.2 32.6% 17.5%;
+  --accent-foreground: 210 40% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 217.2 32.6% 17.5%;
+  --input: 217.2 32.6% 17.5%;
+  --ring: 212.7 26.8% 83.9%;
+
   background: linear-gradient(135deg, 
     hsl(var(--sidebar-bg)) 0%, 
     hsl(var(--sidebar-bg)) 100%);
@@ -416,26 +374,6 @@ html body {
 .dashboard-card:hover {
   transform: translateY(-2px);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-}
-
-/* Force sidebar to always be dark theme */
-.curved-sidebar,
-.curved-sidebar * {
-  color: hsl(var(--sidebar-foreground)) !important;
-}
-
-.curved-sidebar h1,
-.curved-sidebar h2,
-.curved-sidebar h3,
-.curved-sidebar h4,
-.curved-sidebar h5,
-.curved-sidebar h6,
-.curved-sidebar p,
-.curved-sidebar span,
-.curved-sidebar a,
-.curved-sidebar svg,
-.curved-sidebar button {
-  color: hsl(var(--sidebar-foreground)) !important;
 }
 
 /* Active navigation items */
