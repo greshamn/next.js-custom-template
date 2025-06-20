@@ -6,15 +6,48 @@
 /* Based on Consilio-style_dashboard.png and Recehtok-style_dashboard.png */
 
 :root {
-  /* Base colors for light theme (Consilio-style) */
-  --sidebar-bg: #f8fafc;
-  --sidebar-border: oklch(0.929 0.013 255.508);
-  --card-bg: #ffffff;
-  --card-border: #e5e7eb;
+  /* Light Theme (Default) - Consilio-style */
+  --background: 0 0% 100%;
+  --foreground: 222.2 84% 4.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 222.2 84% 4.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 222.2 84% 4.9%;
+  --primary: 222.2 47.4% 11.2%;
+  --primary-foreground: 210 40% 98%;
+  --secondary: 210 40% 96%;
+  --secondary-foreground: 222.2 84% 4.9%;
+  --muted: 210 40% 96%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+  --accent: 210 40% 96%;
+  --accent-foreground: 222.2 84% 4.9%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+  --ring: 222.2 84% 4.9%;
+  --radius: 0.5rem;
+  
+  /* Chart colors for light theme */
+  --chart-1: 12 76% 61%;
+  --chart-2: 173 58% 39%;
+  --chart-3: 197 37% 24%;
+  --chart-4: 43 74% 66%;
+  --chart-5: 27 87% 67%;
 
-  /* Curved sidebar design variables */
-  --sidebar-width: 280px;
-  --sidebar-curve-path: "M 0 0 L 240 0 Q 280 50 240 100 L 240 100vh L 0 100vh Z";
+  /* VETTPRO Custom Variables - Light Theme */
+  --dashboard-bg: 210 40% 98%;
+  --dashboard-foreground: 222.2 84% 4.9%;
+  --dashboard-card: 0 0% 100%;
+  --dashboard-card-foreground: 222.2 84% 4.9%;
+  --dashboard-muted: 215.4 16.3% 46.9%;
+  
+  /* Sidebar - Always Dark */
+  --sidebar-bg: 224 71% 4%;
+  --sidebar-foreground: 210 40% 98%;
+  --sidebar-border: 215 27.9% 16.9%;
+  --sidebar-active: 210 40% 98%;
+  --sidebar-active-foreground: 224 71% 4%;
 
   /* Glassmorphism variables */
   --glass-bg: rgba(255, 255, 255, 0.1);
@@ -26,50 +59,90 @@
   --glow-purple: #8b5cf6;
   --glow-cyan: #06b6d4;
   --glow-pink: #ec4899;
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
-  --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.929 0.013 255.508);
-  --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.704 0.04 256.788);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.984 0.003 247.858);
-  --sidebar-foreground: oklch(0.129 0.042 264.695);
-  --sidebar-primary: oklch(0.208 0.042 265.755);
-  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.968 0.007 247.896);
-  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
-  --sidebar-ring: oklch(0.704 0.04 256.788);
+}
+
+/* Dark Theme - Recehtok-style */
+.dark {
+  --background: 222.2 84% 4.9%;
+  --foreground: 210 40% 98%;
+  --card: 222.2 84% 4.9%;
+  --card-foreground: 210 40% 98%;
+  --popover: 222.2 84% 4.9%;
+  --popover-foreground: 210 40% 98%;
+  --primary: 210 40% 98%;
+  --primary-foreground: 222.2 84% 4.9%;
+  --secondary: 217.2 32.6% 17.5%;
+  --secondary-foreground: 210 40% 98%;
+  --muted: 217.2 32.6% 17.5%;
+  --muted-foreground: 215 20.2% 65.1%;
+  --accent: 217.2 32.6% 17.5%;
+  --accent-foreground: 210 40% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 217.2 32.6% 17.5%;
+  --input: 217.2 32.6% 17.5%;
+  --ring: 212.7 26.8% 83.9%;
+  
+  /* Chart colors for dark theme */
+  --chart-1: 220 70% 50%;
+  --chart-2: 160 60% 45%;
+  --chart-3: 30 80% 55%;
+  --chart-4: 280 65% 60%;
+  --chart-5: 340 75% 55%;
+
+  /* VETTPRO Custom Variables - Dark Theme */
+  --dashboard-bg: 222.2 84% 4.9%;
+  --dashboard-foreground: 210 40% 98%;
+  --dashboard-card: 217.2 32.6% 17.5%;
+  --dashboard-card-foreground: 210 40% 98%;
+  --dashboard-muted: 215 20.2% 65.1%;
+
+  /* Enhanced glassmorphism for dark theme */
+  --glass-bg: rgba(0, 0, 0, 0.3);
+  --glass-border: rgba(255, 255, 255, 0.1);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  
+  /* Chart colors */
+  --color-chart-1: hsl(var(--chart-1));
+  --color-chart-2: hsl(var(--chart-2));
+  --color-chart-3: hsl(var(--chart-3));
+  --color-chart-4: hsl(var(--chart-4));
+  --color-chart-5: hsl(var(--chart-5));
 
-  /* Custom sidebar colors */
-  --color-sidebar-bg: var(--sidebar-bg);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-card-bg: var(--card-bg);
-  --color-card-border: var(--card-border);
+  /* VETTPRO Dashboard colors */
+  --color-dashboard-bg: hsl(var(--dashboard-bg));
+  --color-dashboard-foreground: hsl(var(--dashboard-foreground));
+  --color-dashboard-card: hsl(var(--dashboard-card));
+  --color-dashboard-card-foreground: hsl(var(--dashboard-card-foreground));
+  --color-dashboard-muted: hsl(var(--dashboard-muted));
+
+  /* Sidebar colors - Always dark */
+  --color-sidebar-bg: hsl(var(--sidebar-bg));
+  --color-sidebar-foreground: hsl(var(--sidebar-foreground));
+  --color-sidebar-border: hsl(var(--sidebar-border));
+  --color-sidebar-active: hsl(var(--sidebar-active));
+  --color-sidebar-active-foreground: hsl(var(--sidebar-active-foreground));
 
   /* Custom accent colors for glow effects */
   --color-glow-blue: var(--glow-blue);
@@ -81,64 +154,21 @@
   --color-glass-bg: var(--glass-bg);
   --color-glass-border: var(--glass-border);
 
-  /* Custom animations */
-  --animate-glow: glow 2s ease-in-out infinite alternate;
-  --animate-float: float 3s ease-in-out infinite;
-  --animate-fade-in: fadeIn 0.5s ease-out;
-  --animate-slide-in-right: slideInRight 0.3s ease-out;
-
-  /* Spacing for curved sidebar */
-  --space-sidebar: var(--sidebar-width);
-
-  /* Shadow variants for glassmorphism */
-  --shadow-glass: 0 8px 32px rgba(31, 38, 135, 0.37);
-  --shadow-glow-blue: 0 0 20px rgba(59, 130, 246, 0.5);
-  --shadow-glow-purple: 0 0 20px rgba(139, 92, 246, 0.5);
-  --color-sidebar-ring: var(--sidebar-ring);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar: var(--sidebar);
-  --color-chart-5: var(--chart-5);
-  --color-chart-4: var(--chart-4);
-  --color-chart-3: var(--chart-3);
-  --color-chart-2: var(--chart-2);
-  --color-chart-1: var(--chart-1);
-  --color-ring: var(--ring);
-  --color-input: var(--input);
-  --color-border: var(--border);
-  --color-destructive: var(--destructive);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-accent: var(--accent);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-muted: var(--muted);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-secondary: var(--secondary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-primary: var(--primary);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-popover: var(--popover);
-  --color-card-foreground: var(--card-foreground);
-  --color-card: var(--card);
+  /* Radius */
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
 }
 
-/* Dark theme colors (Recehtok-style) */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --sidebar-bg: #111827;
-    --sidebar-border: #374151;
-    --card-bg: #1f2937;
-    --card-border: #374151;
-
-    /* Enhanced glassmorphism for dark theme */
-    --glass-bg: rgba(0, 0, 0, 0.3);
-    --glass-border: rgba(255, 255, 255, 0.1);
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    background-color: hsl(var(--dashboard-bg));
+    color: hsl(var(--dashboard-foreground));
   }
 }
 
@@ -175,7 +205,7 @@
 @keyframes slideInRight {
   from {
     opacity: 0;
-    transform: translateX(20px);
+    transform: translateX(100px);
   }
   to {
     opacity: 1;
@@ -183,91 +213,610 @@
   }
 }
 
-/* Base styles */
-
-/* Utility classes for glassmorphism effect (Recehtok-style) */
-.glassmorphism {
-  background: var(--glass-bg);
-  backdrop-filter: blur(var(--glass-blur));
-  -webkit-backdrop-filter: blur(var(--glass-blur));
-  border: 1px solid var(--glass-border);
-  box-shadow: var(--shadow-glass);
+@keyframes glow-subtle {
+  from {
+    box-shadow: 0 0 5px rgba(59, 130, 246, 0.3);
+  }
+  to {
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.6), 0 0 25px rgba(59, 130, 246, 0.4);
+  }
 }
 
-/* Utility classes for glow effects (Recehtok-style) */
+/* Glassmorphism effect */
+.glassmorphism {
+  background: var(--color-glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--color-glass-border);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+}
+
+.glassmorphism::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Glow effects */
 .glow-blue {
-  box-shadow: var(--shadow-glow-blue);
-  animation: var(--animate-glow);
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.6);
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+.glow-subtle-blue {
+  animation: glow-subtle 2s ease-in-out infinite alternate;
 }
 
 .glow-purple {
-  box-shadow: var(--shadow-glow-purple);
-  animation: var(--animate-glow);
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.6);
+  animation: glow 2s ease-in-out infinite alternate;
 }
 
-/* Curved sidebar utility (Consilio-style) */
+/* Curved sidebar styling */
 .curved-sidebar {
+  background: linear-gradient(135deg, 
+    hsl(var(--sidebar-bg)) 0%, 
+    hsl(var(--sidebar-bg)) 100%);
   position: relative;
-  width: var(--sidebar-width);
-  background: var(--sidebar-bg);
-  border-right: 1px solid var(--sidebar-border);
-  clip-path: polygon(0 0, 85% 0, 100% 20%, 100% 80%, 85% 100%, 0 100%);
-  color: var(--sidebar-foreground);
+  height: 100vh;
+  border-right: 1px solid hsl(var(--sidebar-border));
 }
 
-/* Dashboard card styling */
+.curved-sidebar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 20px;
+  background: hsl(var(--sidebar-bg));
+  clip-path: polygon(0 0, 100% 0, 85% 50%, 100% 100%, 0 100%);
+  z-index: 1;
+}
+
+/* Improved collapse button styling */
+.sidebar-toggle-button {
+  background-color: hsl(var(--sidebar-bg)) !important;
+  border: 1px solid hsl(var(--sidebar-border)) !important;
+  border-radius: 50% !important;
+  width: 32px !important;
+  height: 32px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.2s ease-in-out !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+}
+
+.sidebar-toggle-button:hover {
+  background-color: hsl(var(--sidebar-active)) !important;
+  transform: scale(1.05) !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Dashboard cards */
 .dashboard-card {
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  border-radius: 0.5rem;
+  background-color: hsl(var(--dashboard-card));
+  color: hsl(var(--dashboard-card-foreground));
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius-lg);
   padding: 1.5rem;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease-in-out;
 }
 
 .dashboard-card:hover {
   transform: translateY(-2px);
-  box-shadow: var(--shadow-glass);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
-.dark {
-  --background: oklch(0.129 0.042 264.695);
-  --foreground: oklch(0.984 0.003 247.858);
-  --card: oklch(0.208 0.042 265.755);
-  --card-foreground: oklch(0.984 0.003 247.858);
-  --popover: oklch(0.208 0.042 265.755);
-  --popover-foreground: oklch(0.984 0.003 247.858);
-  --primary: oklch(0.929 0.013 255.508);
-  --primary-foreground: oklch(0.208 0.042 265.755);
-  --secondary: oklch(0.279 0.041 260.031);
-  --secondary-foreground: oklch(0.984 0.003 247.858);
-  --muted: oklch(0.279 0.041 260.031);
-  --muted-foreground: oklch(0.704 0.04 256.788);
-  --accent: oklch(0.279 0.041 260.031);
-  --accent-foreground: oklch(0.984 0.003 247.858);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.551 0.027 264.364);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.208 0.042 265.755);
-  --sidebar-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.279 0.041 260.031);
-  --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.551 0.027 264.364);
+/* Force sidebar to always be dark theme */
+.curved-sidebar,
+.curved-sidebar * {
+  color: hsl(var(--sidebar-foreground)) !important;
 }
 
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
+.curved-sidebar h1,
+.curved-sidebar h2,
+.curved-sidebar h3,
+.curved-sidebar h4,
+.curved-sidebar h5,
+.curved-sidebar h6,
+.curved-sidebar p,
+.curved-sidebar span,
+.curved-sidebar a,
+.curved-sidebar svg,
+.curved-sidebar button {
+  color: hsl(var(--sidebar-foreground)) !important;
+}
+
+/* Active navigation items */
+.nav-item-active {
+  background-color: hsl(var(--sidebar-active)) !important;
+  color: hsl(var(--sidebar-active-foreground)) !important;
+}
+
+.nav-item-active * {
+  color: hsl(var(--sidebar-active-foreground)) !important;
+}
+
+/* Responsive styles for mobile */
+@media (max-width: 768px) {
+  /* Mobile sidebar - hidden by default, slides in when open */
+  .curved-sidebar {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 50;
+    height: 100vh;
+    width: 18rem; /* w-72 equivalent */
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
   }
+
+  /* Mobile sidebar open state */
+  .mobile-sidebar-open {
+    transform: translateX(0) !important;
+  }
+
+  /* Mobile sidebar hidden state */
+  .mobile-sidebar-hidden {
+    transform: translateX(-100%) !important;
+  }
+
+  .mobile-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 40;
+  }
+
+  /* Enhanced mobile visual elements */
+  .dashboard-card {
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  /* Mobile-optimized glassmorphism */
+  .glassmorphism {
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+
+  /* Reduce glow effects on mobile for performance */
+  .glow-subtle-blue {
+    animation: none;
+    box-shadow: 0 0 8px rgba(59, 130, 246, 0.3);
+  }
+
+  /* Mobile-friendly chart containers */
+  .chart-container {
+    min-height: 200px;
+    max-height: 300px;
+  }
+
+  /* Fix main content on mobile when sidebar is open */
+  .main-content-mobile {
+    transition: none;
+    width: 100%;
+  }
+}
+
+/* Tablet responsive styles */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .dashboard-card {
+    padding: 1.25rem;
+  }
+
+  /* Tablet-optimized chart sizing */
+  .chart-container {
+    min-height: 250px;
+    max-height: 400px;
+  }
+
+  /* Enhanced glassmorphism for larger screens */
+  .glassmorphism {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+}
+
+/* Desktop responsive styles */
+@media (min-width: 1025px) {
+  .dashboard-card {
+    padding: 1.5rem;
+  }
+
+  /* Full glassmorphism effect for desktop */
+  .glassmorphism {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  /* Enhanced glow effects for desktop */
+  .glow-subtle-blue {
+    animation: glow-subtle 2s ease-in-out infinite alternate;
+  }
+
+  /* Desktop chart sizing */
+  .chart-container {
+    min-height: 300px;
+    max-height: 500px;
+  }
+}
+
+/* Large desktop responsive styles */
+@media (min-width: 1440px) {
+  .dashboard-card {
+    padding: 2rem;
+  }
+
+  /* Maximum visual effects for large screens */
+  .glassmorphism {
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  .chart-container {
+    min-height: 350px;
+    max-height: 600px;
+  }
+}
+
+/* Responsive text scaling */
+@media (max-width: 640px) {
+  .responsive-text-sm {
+    font-size: 0.75rem;
+  }
+  .responsive-text-base {
+    font-size: 0.875rem;
+  }
+  .responsive-text-lg {
+    font-size: 1rem;
+  }
+  .responsive-text-xl {
+    font-size: 1.125rem;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .responsive-text-sm {
+    font-size: 0.875rem;
+  }
+  .responsive-text-base {
+    font-size: 1rem;
+  }
+  .responsive-text-lg {
+    font-size: 1.125rem;
+  }
+  .responsive-text-xl {
+    font-size: 1.25rem;
+  }
+}
+
+/* Responsive grid system */
+.responsive-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .responsive-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .responsive-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .responsive-grid {
+    gap: 2rem;
+  }
+}
+
+/* Responsive panel styling */
+.responsive-panel {
+  background-color: hsl(var(--dashboard-card));
+  color: hsl(var(--dashboard-card-foreground));
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius-lg);
+  padding: 1rem;
+  transition: all 0.2s ease-in-out;
+}
+
+@media (min-width: 640px) {
+  .responsive-panel {
+    padding: 1.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .responsive-panel {
+    padding: 1.5rem;
+  }
+
+  .responsive-panel:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* Responsive button styling */
+.responsive-button {
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  transition: all 0.2s ease-in-out;
+}
+
+@media (min-width: 640px) {
+  .responsive-button {
+    padding: 0.75rem 1.25rem;
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .responsive-button {
+    padding: 0.75rem 1.5rem;
+  }
+
+  .responsive-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* Accessibility and performance optimizations */
+@media (max-width: 768px) {
+  /* Reduce motion for better mobile performance */
+  .reduce-motion {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  /* Ensure touch targets are at least 44px */
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Optimize scrolling on mobile */
+  .mobile-scroll {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .glassmorphism {
+    background: hsl(var(--dashboard-card));
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border: 2px solid hsl(var(--border));
+  }
+
+  .glow-subtle-blue {
+    animation: none;
+    box-shadow: none;
+    border: 2px solid var(--glow-blue);
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .glow-subtle-blue,
+  .glow-blue,
+  .glow-purple {
+    animation: none !important;
+  }
+
+  .dashboard-card,
+  .responsive-panel,
+  .responsive-button {
+    transition: none !important;
+  }
+}
+
+/* Print styles */
+@media print {
+  .curved-sidebar,
+  .mobile-overlay,
+  .glow-subtle-blue {
+    display: none !important;
+  }
+  
+  .dashboard-card,
+  .glassmorphism {
+    background: white !important;
+    box-shadow: none !important;
+    border: 1px solid #ccc !important;
+  }
+}
+
+/* Mobile Performance Optimizations */
+@media (max-width: 768px) {
+  /* Force GPU acceleration for smooth animations */
+  .curved-sidebar,
+  .mobile-overlay,
+  .dashboard-card {
+    transform: translateZ(0);
+    will-change: transform;
+  }
+
+  /* Optimize sidebar transitions for mobile */
+  .curved-sidebar {
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Reduce repaints and reflows */
+  .glassmorphism {
+    contain: layout style;
+  }
+
+  /* Optimize touch scrolling */
+  .mobile-scroll {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+  }
+
+  /* Reduce visual complexity for better performance */
+  .dashboard-card:hover {
+    transform: none;
+  }
+
+  /* Optimize font rendering */
   body {
-    @apply bg-background text-foreground;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeSpeed;
+  }
+
+  /* Reduce shadow complexity */
+  .shadow-glass {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* Lazy loading and progressive enhancement */
+.lazy-load {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.lazy-load.loaded {
+  opacity: 1;
+}
+
+/* Optimized chart containers for mobile */
+@media (max-width: 768px) {
+  .chart-container {
+    contain: layout style;
+    transform: translateZ(0);
+  }
+  
+  /* Simplified gradients for better performance */
+  .bg-gradient-to-br {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  }
+}
+
+/* Connection-aware optimizations */
+@media (prefers-reduced-data) {
+  .glassmorphism {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: hsl(var(--dashboard-card));
+  }
+  
+  .glow-subtle-blue,
+  .glow-blue,
+  .glow-purple {
+    animation: none;
+    box-shadow: none;
+  }
+  
+  .bg-gradient-to-br {
+    background: hsl(var(--dashboard-card));
+  }
+}
+
+/* Battery-conscious optimizations */
+@media (prefers-reduced-motion) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Critical CSS for above-the-fold content */
+.critical-above-fold {
+  contain: layout style paint;
+}
+
+/* Defer non-critical animations */
+.defer-animation {
+  animation-play-state: paused;
+}
+
+.defer-animation.in-viewport {
+  animation-play-state: running;
+}
+
+/* Optimize table rendering on mobile */
+@media (max-width: 768px) {
+  table {
+    table-layout: fixed;
+    contain: layout;
+  }
+  
+  /* Optimize table cell rendering */
+  td, th {
+    contain: layout style;
+  }
+}
+
+/* Preload critical resources */
+.preload-critical {
+  font-display: swap;
+}
+
+/* Optimize image loading */
+img {
+  content-visibility: auto;
+  contain-intrinsic-size: 300px 200px;
+}
+
+/* Mobile-specific utility classes */
+@media (max-width: 768px) {
+  .mobile-optimized {
+    contain: layout style paint;
+    transform: translateZ(0);
+  }
+  
+  .mobile-smooth-scroll {
+    scroll-behavior: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Reduce complexity for mobile cards */
+  .mobile-card {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}
+
+/* Progressive Web App optimizations */
+@media (display-mode: standalone) {
+  body {
+    user-select: none;
+    -webkit-touch-callout: none;
+  }
+  
+  .dashboard-card {
+    -webkit-tap-highlight-color: transparent;
   }
 }
