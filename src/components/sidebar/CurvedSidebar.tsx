@@ -99,43 +99,52 @@ const CurvedSidebar: React.FC<CurvedSidebarProps> = ({
   isMobile,
 }) => {
   return (
-    <aside
-      className={cn(
-        'curved-sidebar transition-all duration-300 ease-in-out flex flex-col',
-        // Desktop behavior
-        !isMobile && (isOpen ? 'w-72' : 'w-20'),
-        // Mobile behavior - always w-72 but use transform to hide/show
-        isMobile && 'w-72',
-        // Mobile specific classes for proper hide/show behavior
-        isMobile && isOpen && 'mobile-sidebar-open',
-        isMobile && !isOpen && 'mobile-sidebar-hidden'
-      )}
-    >
-      <div className="p-4 flex flex-col h-full">
-        <div className={cn('flex items-center mb-8 px-2', isOpen ? 'justify-between' : 'justify-center')}>
-          <h1 className={cn('text-2xl font-bold transition-all duration-300 text-sidebar-foreground', isOpen ? 'opacity-100' : 'hidden')}>
-            VETTPRO
-          </h1>
-          <Button 
-            variant="ghost" 
-            size="icon" 
-            onClick={onToggle} 
-            className="sidebar-toggle-button"
-          >
-            <ChevronLeft className={cn('transition-transform duration-300 text-sidebar-foreground w-4 h-4', !isMobile && !isOpen && 'rotate-180')} />
-          </Button>
+    <>
+      <svg width="0" height="0" className="absolute">
+        <defs>
+          <clipPath id="sidebar-clip-path" clipPathUnits="objectBoundingBox">
+            <path d="M0.08,0 H1 V1 H0.08 C0,1 0,1 0,0.92 V0.08 C0,0 0,0 0.08,0 Z" />
+          </clipPath>
+        </defs>
+      </svg>
+      <aside
+        className={cn(
+          'curved-sidebar transition-all duration-300 ease-in-out flex flex-col',
+          // Desktop behavior
+          !isMobile && (isOpen ? 'w-72' : 'w-20'),
+          // Mobile behavior - always w-72 but use transform to hide/show
+          isMobile && 'w-72',
+          // Mobile specific classes for proper hide/show behavior
+          isMobile && isOpen && 'mobile-sidebar-open',
+          isMobile && !isOpen && 'mobile-sidebar-hidden'
+        )}
+      >
+        <div className="p-4 flex flex-col h-full">
+          <div className={cn('flex items-center mb-8 px-2', isOpen ? 'justify-between' : 'justify-center')}>
+            <h1 className={cn('text-2xl font-bold transition-all duration-300 text-sidebar-foreground', isOpen ? 'opacity-100' : 'hidden')}>
+              VETTPRO
+            </h1>
+            <Button 
+              variant="ghost" 
+              size="icon" 
+              onClick={onToggle} 
+              className="sidebar-toggle-button"
+            >
+              <ChevronLeft className={cn('transition-transform duration-300 text-sidebar-foreground w-4 h-4', !isMobile && !isOpen && 'rotate-180')} />
+            </Button>
+          </div>
+          <nav className="flex-1" role="navigation" aria-label="Main Navigation">
+            <ul className="space-y-2">
+              {navItems.map((item) => (
+                <li key={item.id}>
+                  <NavItem item={item} isOpen={isOpen} isMobile={isMobile ?? false} />
+                </li>
+              ))}
+            </ul>
+          </nav>
         </div>
-        <nav className="flex-1" role="navigation" aria-label="Main Navigation">
-          <ul className="space-y-2">
-            {navItems.map((item) => (
-              <li key={item.id}>
-                <NavItem item={item} isOpen={isOpen} isMobile={isMobile ?? false} />
-              </li>
-            ))}
-          </ul>
-        </nav>
-      </div>
-    </aside>
+      </aside>
+    </>
   );
 };
 

@@ -325,8 +325,9 @@ body::before, body::after {
     hsl(var(--sidebar-bg)) 0%, 
     hsl(var(--sidebar-bg)) 100%);
   position: relative;
-  height: 100vh;
+  height: calc(100vh - 1rem);
   border-right: 1px solid hsl(var(--sidebar-border));
+  clip-path: url(#sidebar-clip-path);
 }
 
 .curved-sidebar::before {
@@ -337,8 +338,10 @@ body::before, body::after {
   bottom: 0;
   width: 20px;
   background: hsl(var(--sidebar-bg));
-  clip-path: polygon(0 0, 100% 0, 85% 50%, 100% 100%, 0 100%);
+  /* VETTPRO: This pseudo-element created the old, simple curve and is no longer needed. */
+  /* clip-path: polygon(0 0, 100% 0, 85% 50%, 100% 100%, 0 100%); */
   z-index: 1;
+  display: none; /* Hiding the old curve implementation */
 }
 
 /* Improved collapse button styling */
