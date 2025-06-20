@@ -50,9 +50,10 @@
   --sidebar-active-foreground: 224 71% 4%;
 
   /* Glassmorphism variables */
-  --glass-bg: rgba(255, 255, 255, 0.1);
-  --glass-border: rgba(255, 255, 255, 0.2);
-  --glass-blur: 8px;
+  --glass-bg: rgba(255, 255, 255, 0.25);
+  --glass-border: rgba(255, 255, 255, 0.18);
+  --glass-blur: 16px;
+  --shadow-color: 220 3% 15%;
 
   /* Glow effect variables */
   --glow-blue: #3b82f6;
@@ -98,8 +99,8 @@
   --dashboard-muted: 215 20.2% 65.1%;
 
   /* Enhanced glassmorphism for dark theme */
-  --glass-bg: rgba(0, 0, 0, 0.3);
-  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-bg: rgba(29, 29, 31, 0.45);
+  --glass-border: rgba(255, 255, 255, 0.12);
 }
 
 @theme inline {
@@ -261,13 +262,33 @@ body::before, body::after {
   }
 }
 
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slide-up-fade {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out forwards;
+}
+
+.animate-slide-up-fade {
+  animation: slide-up-fade 0.5s ease-out forwards;
+}
+
 /* Glassmorphism effect */
 .glassmorphism {
   background: var(--color-glass-bg);
   backdrop-filter: blur(var(--glass-blur));
   -webkit-backdrop-filter: blur(var(--glass-blur));
   border: 1px solid var(--color-glass-border);
-  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+  box-shadow: 0 8px 32px hsl(var(--shadow-color) / 0.37), 0 0 10px hsl(var(--shadow-color) / 0.1);
+  will-change: backdrop-filter, background;
+  contain: layout style;
 }
 
 .glassmorphism::before {

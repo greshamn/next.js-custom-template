@@ -1,21 +1,31 @@
 // GlowEffect component placeholder
 // Inspired by the luminous chart effects from Recehtok-style_dashboard.png
 import React from 'react';
-import { GlowEffectProps } from '../../types';
+import { cn } from '@/lib/utils';
 
-const GlowEffect: React.FC<GlowEffectProps & { children: React.ReactNode }> = ({ 
-  intensity = 'medium',
-  color = '#3B82F6',
-  blur = 4,
-  enabled = true,
-  children
+interface GlowEffectProps {
+  /** Optional additional class names to apply to the glow effect div. */
+  className?: string;
+  /** The color theme of the glow effect. */
+  glowColor?: 'blue' | 'purple' | 'cyan' | 'pink';
+}
+
+/**
+ * A component that renders a subtle, themeable glow effect using CSS box-shadow.
+ * It's intended to be absolutely positioned within a relative container.
+ */
+const GlowEffect: React.FC<GlowEffectProps> = ({
+  className,
+  glowColor = 'blue',
 }) => {
-  return (
-    <div className={`glow-effect ${enabled ? 'glow-enabled' : ''}`}>
-      {/* Glow effect implementation will go here */}
-      {children}
-    </div>
-  );
+  const colorClass = {
+    blue: 'glow-subtle-blue',
+    purple: 'glow-purple',
+    cyan: '[box-shadow:0_0_20px_theme(colors.cyan.500/0.6)]',
+    pink: '[box-shadow:0_0_20px_theme(colors.pink.500/0.6)]',
+  }[glowColor];
+
+  return <div className={cn('absolute rounded-full', colorClass, className)} />;
 };
 
 export default GlowEffect; 
