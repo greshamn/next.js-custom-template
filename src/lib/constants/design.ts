@@ -1,3 +1,5 @@
+import type { NavigationItem } from '@/types';
+
 // Design constants for VETTPRO dashboard
 // Based on Consilio-style_dashboard.png and Recehtok-style_dashboard.png
 
@@ -51,27 +53,102 @@ export const EFFECTS = {
   }
 };
 
-export const NAVIGATION_ITEMS = [
-  // Main navigation structure from PRD
-  { id: 'dashboard', title: 'Dashboard', icon: 'LayoutDashboard', href: '/dashboard' },
-  { 
-    id: 'vetting', 
-    title: 'Vetting Center', 
-    icon: 'Shield', 
+export const NAVIGATION_ITEMS: NavigationItem[] = [
+  { id: '1', title: 'Dashboard', icon: 'LayoutDashboard', href: '/dashboard', type: 'link' },
+  {
+    id: '2',
+    title: 'Vetting Center',
+    icon: 'ShieldCheck',
+    type: 'collapsible',
     children: [
-      { id: 'new-vetting', title: 'New Vetting Request', href: '/vetting/new' },
-      { id: 'active-requests', title: 'Active Requests', href: '/vetting/active' },
-      { id: 'completed', title: 'Completed Vettings', href: '/vetting/completed' },
-    ]
+      { id: '2.1', title: 'New Vetting Request', icon: 'PlusCircle', href: '/vetting/new', type: 'link' },
+      { id: '2.2', title: 'Active Requests', icon: 'Loader', href: '/vetting/active', type: 'link' },
+      { id: '2.3', title: 'Completed Vettings', icon: 'CheckCircle', href: '/vetting/completed', type: 'link' },
+    ],
   },
   {
-    id: 'suppliers',
+    id: '3',
     title: 'Suppliers',
     icon: 'Building2',
+    type: 'collapsible',
     children: [
-      { id: 'supplier-list', title: 'Supplier List', href: '/suppliers' },
-      { id: 'add-supplier', title: 'Add New Supplier', href: '/suppliers/new' },
+      { id: '3.1', title: 'Supplier List', icon: 'List', href: '/suppliers', type: 'link' },
+      { id: '3.2', title: 'Add New Supplier', icon: 'PlusCircle', href: '/suppliers/add', type: 'link' },
+    ],
+  },
+    {
+    id: '4',
+    title: 'Individuals',
+    icon: 'Users',
+    type: 'collapsible',
+    children: [
+      { id: '4.1', title: 'Individual List', icon: 'List', href: '/individuals', type: 'link' },
+      { id: '4.2', title: 'Add New Individual', icon: 'PlusCircle', href: '/individuals/add', type: 'link' },
+    ],
+  },
+  {
+    id: '5',
+    title: 'Reporting & Insights',
+    icon: 'TrendingUp',
+    type: 'collapsible',
+    children: [
+      { id: '5.1', title: 'Standard Reports', icon: 'FileText', href: '/reporting', type: 'link' },
+      { id: '5.2', title: 'Generate Custom Report', icon: 'FilePlus', href: '/reporting/custom', type: 'link' },
+      { id: '5.3', title: 'Risk Analytics Dashboard', icon: 'ShieldAlert', href: '/reporting/analytics', type: 'link' },
+    ],
+  },
+  {
+    id: '6',
+    title: 'Field Operations',
+    icon: 'Compass',
+    type: 'collapsible',
+    children: [
+      { id: '6.1', title: 'Verification Dashboard', icon: 'Map', href: '/field-operations', type: 'link' },
+      { id: '6.2', title: 'Assign New Verification Task', icon: 'ClipboardPlus', href: '/field-operations/assign', type: 'link' },
+    ],
+  },
+  { type: 'separator', id: 'separator-1' },
+  {
+    id: '7',
+    title: 'Administration',
+    icon: 'Settings',
+    type: 'collapsible',
+    children: [
+      { id: '7.1', title: 'User & Access Management', icon: 'Users', href: '/admin/users', type: 'link' },
+      { id: '7.2', title: 'Vetting Configuration', icon: 'FileCog', href: '/admin/vetting-config', type: 'link' },
+      { id: '7.3', title: 'System & Company Configuration', icon: 'Building', href: '/admin/system-config', type: 'link' },
+      { id: '7.4', title: 'Billing & Subscription', icon: 'CreditCard', href: '/admin/billing', type: 'link' },
+    ],
+  },
+  {
+    id: '8',
+    title: 'My Account',
+    icon: 'User',
+    type: 'collapsible',
+    children: [
+      { id: '8.1', title: 'Profile Settings', icon: 'Cog', href: '/account/profile', type: 'link' },
+      { id: '8.2', title: 'Security', icon: 'Lock', href: '/account/security', type: 'link' },
+      { id: '8.3', title: 'Notification Preferences', icon: 'Bell', href: '/account/notifications', type: 'link' },
+    ],
+  },
+  {
+    id: '9',
+    title: 'Help Center',
+    icon: 'HelpCircle',
+    type: 'collapsible',
+    children: [
+      { id: '9.1', title: 'Knowledge Base & FAQs', icon: 'BookOpen', href: '/help/kb', type: 'link' },
+      { id: '9.2', title: 'Contact Support', icon: 'Mail', href: '/help/support', type: 'link' },
+    ],
+  },
+  { type: 'separator', id: 'separator-2' },
+  {
+    id: '10',
+    title: 'Testing',
+    icon: 'Beaker',
+    type: 'collapsible',
+    children: [
+      { id: '10.1', title: 'Neumorphic UI', icon: 'Box', href: '/test/neumorphic', type: 'link' },
     ]
   },
-  // Additional navigation items will be added here
 ]; 

@@ -60,6 +60,24 @@
   --glow-purple: #8b5cf6;
   --glow-cyan: #06b6d4;
   --glow-pink: #ec4899;
+
+  /* Neumorphic theme additions - V11 (Purple Border) */
+  --color-page-bg-neo: #212428;
+  --color-card-bg-neo: #2D3135;
+  --color-card-bg-neo-end: #15171a;
+  --color-button-bg-neo: #222528;
+  --color-light-shadow-neo: rgba(255, 255, 255, 0.05);
+  --color-dark-shadow-neo: rgba(0, 0, 0, 0.5);
+  --color-button-border-neo: #8B5CF6;
+  --color-text-primary-neo: #E0E0E0;
+  --color-text-secondary-neo: #A0A0A0;
+  --color-accent-glow-neo: #FF9A3E;
+
+  --shadow-neumorphic-convex: 6px 6px 12px var(--color-dark-shadow-neo), -6px -6px 12px var(--color-light-shadow-neo);
+  --shadow-neumorphic-convex-sm: 3px 3px 6px var(--color-dark-shadow-neo), -3px -3px 6px var(--color-light-shadow-neo);
+  --shadow-neumorphic-concave: inset 6px 6px 12px var(--color-dark-shadow-neo), inset -6px -6px 12px var(--color-light-shadow-neo);
+
+  --shadow-button-glow: 0 0 20px 0px var(--color-button-glow-neo);
 }
 
 /* Dark Theme - Recehtok-style */
@@ -160,6 +178,22 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+
+  /* Neumorphic theme additions - V6 (Corrected Gradient) */
+  --color-page-bg-neo: #212428;
+  --color-card-bg-neo: #2D3135;
+  --color-card-bg-neo-end: #15171a;
+  --color-button-bg-neo: #222528;
+  --color-light-shadow-neo: #33373b;
+  --color-dark-shadow-neo: #191c1f;
+  --color-text-primary-neo: #E0E0E0;
+  --color-text-secondary-neo: #A0A0A0;
+  --color-accent-glow-neo: #FF9A3E;
+
+  --shadow-neumorphic-convex: 6px 6px 12px var(--color-dark-shadow-neo), -6px -6px 12px var(--color-light-shadow-neo);
+  --shadow-neumorphic-convex-sm: 3px 3px 6px var(--color-dark-shadow-neo), -3px -3px 6px var(--color-light-shadow-neo);
+  --shadow-neumorphic-convex-lg: 12px 12px 24px var(--color-dark-shadow-neo), -12px -12px 24px var(--color-light-shadow-neo);
+  --shadow-neumorphic-concave: inset 6px 6px 12px var(--color-dark-shadow-neo), inset -6px -6px 12px var(--color-light-shadow-neo);
 }
 
 /* CONSILIO-STYLE BACKGROUND SYSTEM WITH SMOOTH TRANSITIONS */

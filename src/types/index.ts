@@ -17,16 +17,31 @@ export interface CurvedSidebarProps extends SidebarProps {
   isMobile?: boolean;
 }
 
-export interface NavigationItem {
-  id: string;
-  title?: string;
-  icon?: string;
-  href?: string;
-  children?: NavigationItem[];
-  isActive?: boolean;
-  hasGlowEffect?: boolean;
-  type?: 'separator';
-}
+export type NavigationItem = 
+  | {
+      id: string;
+      title: string;
+      icon: string;
+      href: string;
+      children?: never;
+      type?: 'link';
+    }
+  | {
+      id: string;
+      title: string;
+      icon: string;
+      href?: string;
+      children: NavigationItem[];
+      type?: 'collapsible';
+    }
+  | {
+      id?: string;
+      type: 'separator';
+      title?: never;
+      icon?: never;
+      href?: never;
+      children?: never;
+    };
 
 export interface GlowEffectProps {
   intensity?: 'low' | 'medium' | 'high';
