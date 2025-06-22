@@ -1,53 +1,198 @@
 /* Neumorphic Theme System */
 :root {
-  /* Base Colors */
-  --neumorphic-bg: #212428;
-  --neumorphic-card: rgba(45, 49, 53, 0.5);
-  --neumorphic-card-end: rgba(21, 23, 26, 0.5);
-  --neumorphic-button: rgba(34, 37, 40, 0.5);
+  /* Base Colors - Restored visibility like target */
+  --neumorphic-bg: #1a1c20;
+  --neumorphic-card: rgba(55, 60, 65, 0.8);
+  --neumorphic-card-end: rgba(30, 35, 40, 0.8);
+  --neumorphic-button: rgba(45, 50, 55, 0.9);
   --neumorphic-text-primary: #E0E0E0;
   --neumorphic-text-secondary: #A0A0A0;
   --neumorphic-accent: #FF9A3E;
   --neumorphic-border: #8B5CF6;
 
-  /* Background Gradients */
-  --neumorphic-gradient-start: #1a4a3c;
-  --neumorphic-gradient-end: #4a1a4a;
+  /* Background Gradients - Darker and more muted for target design */
+  --neumorphic-gradient-start: #152e2a;
+  --neumorphic-gradient-end: #2d1a2d;
   
-  /* Shadows */
-  --neumorphic-light-shadow: rgba(255, 255, 255, 0.05);
-  --neumorphic-dark-shadow: rgba(0, 0, 0, 0.5);
+  /* Shadows - Multi-layer soft system for target design */
+  --neumorphic-shadow-light: rgba(0, 0, 0, 0.1);
+  --neumorphic-shadow-medium: rgba(0, 0, 0, 0.15);
+  --neumorphic-shadow-dark: rgba(0, 0, 0, 0.25);
 
-  /* Effects */
-  --neumorphic-shadow-convex: 6px 6px 12px var(--neumorphic-dark-shadow), -6px -6px 12px var(--neumorphic-light-shadow);
-  --neumorphic-shadow-convex-sm: 3px 3px 6px var(--neumorphic-dark-shadow), -3px -3px 6px var(--neumorphic-light-shadow);
-  --neumorphic-shadow-convex-lg: 12px 12px 24px var(--neumorphic-dark-shadow), -12px -12px 24px var(--neumorphic-light-shadow);
-  --neumorphic-shadow-concave: inset 6px 6px 12px var(--neumorphic-dark-shadow), inset -6px -6px 12px var(--neumorphic-light-shadow);
+  /* Multi-layer shadow effects for gentle elevation */
+  --neumorphic-shadow-convex: 
+    2px 2px 4px var(--neumorphic-shadow-light),
+    4px 4px 12px var(--neumorphic-shadow-medium);
+  --neumorphic-shadow-convex-sm: 
+    1px 1px 2px var(--neumorphic-shadow-light),
+    2px 2px 6px var(--neumorphic-shadow-medium);
+  --neumorphic-shadow-convex-lg: 
+    4px 4px 8px var(--neumorphic-shadow-light),
+    8px 8px 24px var(--neumorphic-shadow-medium),
+    16px 16px 48px var(--neumorphic-shadow-dark);
+  --neumorphic-shadow-concave: 
+    inset 2px 2px 4px var(--neumorphic-shadow-light),
+    inset 4px 4px 8px var(--neumorphic-shadow-medium);
   
   /* Gradients */
-  --neumorphic-gradient: linear-gradient(145deg, var(--neumorphic-card), var(--neumorphic-card-end));
+  --neumorphic-gradient: linear-gradient(180deg, var(--neumorphic-card), var(--neumorphic-card-end));
   --neumorphic-bg-gradient: linear-gradient(145deg, var(--neumorphic-gradient-start), var(--neumorphic-gradient-end));
   
-  /* Blur */
-  --neumorphic-blur: 2px;
+  /* Blur - Enhanced for glassmorphism */
+  --neumorphic-blur: 8px;
+  --neumorphic-blur-strong: 16px;
   
-  /* Spacing */
+  /* Spacing - Compact like target */
   --neumorphic-spacing-sm: 0.5rem;
   --neumorphic-spacing-md: 1rem;
   --neumorphic-spacing-lg: 1.5rem;
+  --neumorphic-spacing-xl: 2rem;
   
-  /* Border Radius */
+  /* Border Radius - Matching target exactly */
   --neumorphic-radius-sm: 0.75rem;
   --neumorphic-radius-md: 1.25rem;
-  --neumorphic-radius-lg: 2.5rem;
+  --neumorphic-radius-lg: 2rem;
+  --neumorphic-radius-xl: 2.5rem;
+}
+
+/* Neumorphic Card Gradient Class */
+.neumorphic-card-gradient {
+  background: linear-gradient(180deg, var(--neumorphic-card) 0%, var(--neumorphic-card-end) 100%) !important;
+}
+
+/* Soft multi-layer shadow system for target design */
+.shadow-neumorphic-convex,
+[class*="shadow-neumorphic-convex"] {
+  box-shadow: var(--neumorphic-shadow-convex) !important;
+}
+
+.shadow-neumorphic-convex-sm,
+[class*="shadow-neumorphic-convex-sm"] {
+  box-shadow: var(--neumorphic-shadow-convex-sm) !important;
+}
+
+.shadow-neumorphic-convex-lg,
+[class*="shadow-neumorphic-convex-lg"] {
+  box-shadow: var(--neumorphic-shadow-convex-lg) !important;
+}
+
+.shadow-neumorphic-concave,
+[class*="shadow-neumorphic-concave"] {
+  box-shadow: var(--neumorphic-shadow-concave) !important;
+}
+
+/* Override any potential light shadow classes and filters */
+[class*="neumorphic"] * {
+  text-shadow: none !important;
+}
+
+/* Remove ALL filter effects from neumorphic components except progress rings */
+[class*="neumorphic"]:not(.neumorphic-progress-glow),
+.goal-card-enhanced,
+[class*="goal-card"] {
+  filter: none !important;
+}
+
+/* Progress ring glow effects - Subtle and properly contained */
+.progress-ring-glow {
+  /* Additional glow animation */
+  animation: progress-glow-pulse 2s ease-in-out infinite;
+}
+
+@keyframes progress-glow-pulse {
+  0%, 100% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Ensure SVG containers don't interfere with glow effects */
+svg {
+  overflow: visible !important;
+}
+
+/* Contain filter effects within goal cards to prevent bleeding */
+.goal-card-enhanced {
+  contain: layout style paint;
+  isolation: isolate;
+}
+
+/* BLOCK all glow box-shadow effects on goal cards - CRITICAL FIX */
+.goal-card-enhanced.glow-blue,
+.goal-card-enhanced.glow-purple,
+.goal-card-enhanced.glow-subtle-blue {
+  box-shadow: none !important;
+  animation: none !important;
+}
+
+/* Block glow effects on any element inside goal cards */
+.goal-card-enhanced *.glow-blue,
+.goal-card-enhanced *.glow-purple,
+.goal-card-enhanced *.glow-subtle-blue {
+  box-shadow: none !important;
+  animation: none !important;
+}
+
+/* Comprehensive block of glow classes on all neumorphic containers */
+[class*="neumorphic"].glow-blue,
+[class*="neumorphic"].glow-purple,
+[class*="neumorphic"].glow-subtle-blue,
+[class*="goal-card"].glow-blue,
+[class*="goal-card"].glow-purple,
+[class*="goal-card"].glow-subtle-blue,
+div.glow-blue,
+div.glow-purple,
+div.glow-subtle-blue {
+  box-shadow: none !important;
+  animation: none !important;
+}
+
+@keyframes progress-pulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 6px currentColor) drop-shadow(0 0 12px currentColor);
+  }
+  50% {
+    filter: drop-shadow(0 0 8px currentColor) drop-shadow(0 0 16px currentColor);
+  }
+}
+
+/* Enhanced goal card backgrounds like target - NO GLOW */
+.goal-card-enhanced {
+  position: relative;
+  overflow: hidden;
+}
+
+.goal-card-enhanced::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.1) 0%, 
+    rgba(255, 255, 255, 0.02) 50%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+/* Enhanced glassmorphism for goal cards */
+.neumorphic-goal-card {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* Dark theme overrides if needed */
 .dark {
-  --neumorphic-bg: #212428;
-  --neumorphic-card: rgba(45, 49, 53, 0.5);
-  --neumorphic-card-end: rgba(21, 23, 26, 0.5);
-  --neumorphic-button: rgba(34, 37, 40, 0.5);
+  --neumorphic-bg: #1a1c20;
+  --neumorphic-card: rgba(55, 60, 65, 0.8);
+  --neumorphic-card-end: rgba(30, 35, 40, 0.8);
+  --neumorphic-button: rgba(45, 50, 55, 0.9);
   --neumorphic-text-primary: #E0E0E0;
   --neumorphic-text-secondary: #A0A0A0;
 } 

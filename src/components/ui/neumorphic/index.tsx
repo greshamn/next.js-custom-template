@@ -29,11 +29,11 @@ export const NeumorphicCard = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      "p-[var(--neumorphic-spacing-md)]",
-      "rounded-[var(--neumorphic-radius-lg)]",
-      "bg-neumorphic-card",
+      "p-8",
+      "rounded-[var(--neumorphic-radius-xl)]",
+      "neumorphic-card-gradient",
       "shadow-neumorphic-convex-lg",
-      "border border-neumorphic-border/5",
+      "border border-neumorphic-border/10",
       "backdrop-blur-[var(--neumorphic-blur)]",
       "text-neumorphic-text-primary",
       className
@@ -106,7 +106,7 @@ export const NeumorphicIconButton = React.forwardRef<
   <button
     ref={ref}
     className={cn(
-      "p-[var(--neumorphic-spacing-md)]",
+      "p-3",
       "rounded-full",
       "bg-neumorphic-button",
       "shadow-neumorphic-convex",
@@ -188,4 +188,72 @@ export const NeumorphicContainer = React.forwardRef<
     {children}
   </div>
 ));
-NeumorphicContainer.displayName = "NeumorphicContainer"; 
+NeumorphicContainer.displayName = "NeumorphicContainer";
+
+// Progress Ring Component
+export const NeumorphicProgressRing = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement> & {
+    progress: number;
+    size?: number;
+    strokeWidth?: number;
+    color: string;
+    icon: React.ElementType;
+  }
+>(({ className, progress, size = 60, strokeWidth = 3, color, icon: Icon, ...props }, ref) => {
+  const radius = (size - strokeWidth) / 2;
+  const circumference = radius * 2 * Math.PI;
+  const offset = circumference - (progress / 100) * circumference;
+
+  return (
+    <div
+      ref={ref}
+      className={cn(
+        "relative flex items-center justify-center",
+        className
+      )}
+      style={{ width: size, height: size }}
+      {...props}
+    >
+      {/* Progress Ring */}
+      <svg
+        className="absolute inset-0 transform -rotate-90"
+        width={size}
+        height={size}
+      >
+        {/* Background Circle */}
+        <circle
+          cx={size / 2}
+          cy={size / 2}
+          r={radius}
+          fill="none"
+          stroke="rgba(255, 255, 255, 0.1)"
+          strokeWidth={strokeWidth}
+        />
+        {/* Progress Circle with Subtle Glow */}
+        <circle
+          cx={size / 2}
+          cy={size / 2}
+          r={radius}
+          fill="none"
+          stroke={color}
+          strokeWidth={strokeWidth}
+          strokeLinecap="round"
+          strokeDasharray={circumference}
+          strokeDashoffset={offset}
+          className="progress-ring-glow"
+          style={{
+            transition: 'stroke-dashoffset 0.3s ease',
+            filter: `drop-shadow(0 0 4px ${color}80) drop-shadow(0 0 8px ${color}40)`
+          }}
+        />
+      </svg>
+      
+      {/* Icon */}
+      <div className="relative z-10 bg-neumorphic-button rounded-full p-2 shadow-neumorphic-concave">
+        <Icon className="w-4 h-4" style={{ color }} />
+      </div>
+    </div>
+  );
+});
+NeumorphicProgressRing.displayName = "NeumorphicProgressRing"; 

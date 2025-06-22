@@ -81,8 +81,8 @@ const config: Config = {
           "text-secondary": "var(--neumorphic-text-secondary)",
           accent: "var(--neumorphic-accent)",
           border: "var(--neumorphic-border)",
-          "light-shadow": "var(--neumorphic-light-shadow)",
           "dark-shadow": "var(--neumorphic-dark-shadow)",
+          "darker-shadow": "var(--neumorphic-darker-shadow)",
         },
       },
       boxShadow: {
@@ -93,6 +93,7 @@ const config: Config = {
       },
       backgroundImage: {
         "neumorphic-gradient": "var(--neumorphic-gradient)",
+        "neumorphic-bg-gradient": "var(--neumorphic-bg-gradient)",
       },
       backdropBlur: {
         neumorphic: "var(--neumorphic-blur)",
