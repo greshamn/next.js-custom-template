@@ -36,7 +36,7 @@ export default function RootLayout({
           enableSystem
         >
           <DashboardLayout>{children}</DashboardLayout>
-          <Toaster />
+          <Toaster variant="neumorphic" />
         </ThemeProvider>
       </body>
     </html>

@@ -1,21 +1,37 @@
 import * as React from "react"
+import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
 
-function Input({ className, type, ...props }: React.ComponentProps<"input">) {
+const inputVariants = cva(
+  "file:text-foreground placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground flex h-9 w-full min-w-0 rounded-md border bg-transparent px-3 py-1 text-base shadow-xs transition-all duration-200 outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm",
+  {
+    variants: {
+      variant: {
+        default: "dark:bg-input/30 dark:border-white/10 border-input focus-visible:border-transparent focus-visible:ring-2 focus-visible:ring-[hsl(var(--chart-1))] focus-visible:shadow-[0_0_10px_hsl(var(--chart-1))] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
+        neumorphic: "px-[var(--neumorphic-spacing-md)] py-[var(--neumorphic-spacing-sm)] rounded-[var(--neumorphic-radius-md)] bg-neumorphic-button shadow-neumorphic-concave border border-neumorphic-border/5 text-neumorphic-text-primary placeholder:text-neumorphic-text-secondary backdrop-blur-[var(--neumorphic-blur)] focus:outline-none focus:ring-2 focus:ring-neumorphic-accent/20 focus:shadow-neumorphic-convex-sm"
+      }
+    },
+    defaultVariants: {
+      variant: "default",
+    },
+  }
+)
+
+function Input({ 
+  className, 
+  type, 
+  variant,
+  ...props 
+}: React.ComponentProps<"input"> & VariantProps<typeof inputVariants>) {
   return (
     <input
       type={type}
       data-slot="input"
-      className={cn(
-        "file:text-foreground placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 dark:border-white/10 border-input flex h-9 w-full min-w-0 rounded-md border bg-transparent px-3 py-1 text-base shadow-xs transition-all duration-200 outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm",
-        "focus-visible:border-transparent focus-visible:ring-2 focus-visible:ring-[hsl(var(--chart-1))] focus-visible:shadow-[0_0_10px_hsl(var(--chart-1))]",
-        "aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
-        className
-      )}
+      className={cn(inputVariants({ variant, className }))}
       {...props}
     />
   )
 }
 
-export { Input }
+export { Input, inputVariants }

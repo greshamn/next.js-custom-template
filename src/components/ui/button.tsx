@@ -20,12 +20,24 @@ const buttonVariants = cva(
         ghost:
           "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
         link: "text-primary underline-offset-4 hover:underline",
+        // Neumorphic variants - Enhanced with dramatic feedback
+        neumorphic:
+          "neumorphic-button-enhanced px-[var(--neumorphic-spacing-md)] py-[var(--neumorphic-spacing-sm)] rounded-[var(--neumorphic-radius-md)] bg-neumorphic-button shadow-neumorphic-button-default border border-neumorphic-border/20 text-neumorphic-text-primary backdrop-blur-[var(--neumorphic-blur)] font-medium focus-visible:ring-2 focus-visible:ring-neumorphic-accent/20",
+        "neumorphic-outline":
+          "neumorphic-button-enhanced px-[var(--neumorphic-spacing-md)] py-[var(--neumorphic-spacing-sm)] rounded-[var(--neumorphic-radius-md)] bg-transparent shadow-neumorphic-concave border border-neumorphic-border/20 text-neumorphic-text-primary backdrop-blur-[var(--neumorphic-blur)] font-medium focus-visible:ring-2 focus-visible:ring-neumorphic-accent/20",
+        "neumorphic-ghost":
+          "neumorphic-button-enhanced px-[var(--neumorphic-spacing-md)] py-[var(--neumorphic-spacing-sm)] rounded-[var(--neumorphic-radius-md)] bg-transparent text-neumorphic-text-primary font-medium focus-visible:ring-2 focus-visible:ring-neumorphic-accent/20",
       },
       size: {
         default: "h-9 px-4 py-2 has-[>svg]:px-3",
         sm: "h-8 rounded-md gap-1.5 px-3 has-[>svg]:px-2.5",
         lg: "h-10 rounded-md px-6 has-[>svg]:px-4",
         icon: "size-9",
+        // Neumorphic sizes
+        "neumorphic-sm": "h-8 px-[var(--neumorphic-spacing-sm)] py-1 has-[>svg]:px-2",
+        "neumorphic-md": "h-10 px-[var(--neumorphic-spacing-md)] py-[var(--neumorphic-spacing-sm)] has-[>svg]:px-3",
+        "neumorphic-lg": "h-12 px-[var(--neumorphic-spacing-lg)] py-[var(--neumorphic-spacing-md)] has-[>svg]:px-4",
+        "neumorphic-icon": "size-10 p-0",
       },
     },
     defaultVariants: {

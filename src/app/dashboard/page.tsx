@@ -14,244 +14,254 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { toast } from "sonner";
 import PlaceholderLineChart from "@/components/charts/PlaceholderLineChart";
 import { Input } from "@/components/ui/input";
+import { 
+  NeumorphicBackground,
+  NeumorphicCard,
+  NeumorphicText,
+  NeumorphicHeading,
+  NeumorphicStatsCard,
+  NeumorphicBadge,
+  NeumorphicTable,
+  NeumorphicTableHeader,
+  NeumorphicTableBody,
+  NeumorphicTableRow,
+  NeumorphicTableHead,
+  NeumorphicTableCell,
+} from "@/components/ui/neumorphic";
+import { ActivityIcon, AlertCircleIcon, CheckCircleIcon, ClockIcon } from "lucide-react";
 
 export default function DashboardPage() {
   return (
-    <div className="space-y-6 p-6 bg-dashboard-bg text-dashboard-foreground">
-      {/* Header Section - Critical above-the-fold content */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 critical-above-fold">
-        <div>
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-dashboard-foreground">Dashboard</h1>
-          <p className="text-sm sm:text-base text-dashboard-muted mt-1">
-            Welcome to VETTPRO. Monitor your vetting operations.
-          </p>
+    <NeumorphicBackground className="min-h-screen">
+      <div className="max-w-7xl mx-auto space-y-6">
+        {/* Header Section */}
+        <NeumorphicCard className="mb-8">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+            <div>
+              <NeumorphicHeading>Dashboard</NeumorphicHeading>
+              <NeumorphicText variant="secondary" className="mt-2">
+                Welcome to VETTPRO. Monitor your vetting operations.
+              </NeumorphicText>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-2">
+              <Button variant="neumorphic-outline">New Vetting Request</Button>
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Button variant="neumorphic-outline">Test Dialog</Button>
+                </DialogTrigger>
+                <DialogContent variant="neumorphic">
+                  <DialogHeader>
+                    <DialogTitle>Neumorphic Dialog</DialogTitle>
+                    <DialogDescription>
+                      This is a test of the neumorphic effect on a dialog.
+                    </DialogDescription>
+                  </DialogHeader>
+                </DialogContent>
+              </Dialog>
+              <Popover>
+                <PopoverTrigger asChild>
+                  <Button variant="neumorphic-outline">Test Popover</Button>
+                </PopoverTrigger>
+                <PopoverContent variant="neumorphic">
+                  <div className="grid gap-4">
+                    <div className="space-y-2">
+                      <h4 className="font-medium leading-none text-neumorphic-text-primary">Neumorphic</h4>
+                      <NeumorphicText variant="secondary" size="sm">
+                        This is a test of the neumorphic effect on a popover.
+                      </NeumorphicText>
+                    </div>
+                  </div>
+                </PopoverContent>
+              </Popover>
+              <Button
+                variant="neumorphic-outline"
+                onClick={() =>
+                  toast("Neumorphic Toast", {
+                    description: "This is a test of the neumorphic effect.",
+                    action: {
+                      label: "Undo",
+                      onClick: () => console.log("Undo"),
+                    },
+                  })
+                }
+              >
+                Test Toast
+              </Button>
+            </div>
+          </div>
+        </NeumorphicCard>
+
+        {/* Stats Cards Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <NeumorphicStatsCard
+            title="Active Requests"
+            value="24"
+            icon={<ActivityIcon className="w-6 h-6 text-blue-400" />}
+          />
+          <NeumorphicStatsCard
+            title="Completed Today"
+            value="12"
+            icon={<CheckCircleIcon className="w-6 h-6 text-green-400" />}
+          />
+          <NeumorphicStatsCard
+            title="Pending Review"
+            value="8"
+            icon={<ClockIcon className="w-6 h-6 text-yellow-400" />}
+          />
+          <NeumorphicStatsCard
+            title="Risk Alerts"
+            value="3"
+            icon={<AlertCircleIcon className="w-6 h-6 text-red-400" />}
+          />
         </div>
-        <div className="flex flex-col sm:flex-row gap-2">
-          <Button>New Vetting Request</Button>
-          <Dialog>
-            <DialogTrigger asChild>
-              <Button variant="outline">Test Dialog</Button>
-            </DialogTrigger>
-            <DialogContent>
-              <DialogHeader>
-                <DialogTitle>Glassmorphism Dialog</DialogTitle>
-                <DialogDescription>
-                  This is a test of the glassmorphism effect on a dialog.
-                </DialogDescription>
-              </DialogHeader>
-            </DialogContent>
-          </Dialog>
-          <Popover>
-            <PopoverTrigger asChild>
-              <Button variant="outline">Test Popover</Button>
-            </PopoverTrigger>
-            <PopoverContent>
-              <div className="grid gap-4">
-                <div className="space-y-2">
-                  <h4 className="font-medium leading-none">Glassmorphism</h4>
-                  <p className="text-sm text-muted-foreground">
-                    This is a test of the glassmorphism effect on a popover.
-                  </p>
-                </div>
+
+        {/* Charts Section */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <LazyLoad fallback={<NeumorphicCard className="animate-pulse h-64" />}>
+            <NeumorphicCard>
+              <PlaceholderLineChart />
+            </NeumorphicCard>
+          </LazyLoad>
+
+          <LazyLoad fallback={<NeumorphicCard className="animate-pulse h-64" />}>
+            <NeumorphicCard className="flex flex-col justify-between h-full">
+              <div>
+                <NeumorphicText size="lg" className="font-semibold">Component Examples</NeumorphicText>
+                <NeumorphicText variant="secondary" size="sm" className="mt-1">
+                  Testing the updated button and input styles.
+                </NeumorphicText>
               </div>
-            </PopoverContent>
-          </Popover>
-          <Button
-            variant="outline"
-            onClick={() =>
-              toast("Glassmorphism Toast", {
-                description: "This is a test of the glassmorphism effect.",
-                action: {
-                  label: "Undo",
-                  onClick: () => console.log("Undo"),
-                },
-              })
-            }
-          >
-            Test Toast
-          </Button>
-        </div>
-      </div>
-
-      {/* Stats Cards Grid */}
-      <div className="responsive-grid">
-        <div className="dashboard-card">
-          <div className="flex items-center justify-between">
-            <div>
-              <p className="text-sm font-medium text-dashboard-muted">Active Requests</p>
-              <p className="text-2xl font-bold text-dashboard-foreground">24</p>
-            </div>
-            <div className="w-3 h-3 rounded-full bg-blue-500"></div>
-          </div>
-        </div>
-
-        <div className="dashboard-card">
-          <div className="flex items-center justify-between">
-            <div>
-              <p className="text-sm font-medium text-dashboard-muted">Completed Today</p>
-              <p className="text-2xl font-bold text-dashboard-foreground">12</p>
-            </div>
-            <div className="w-3 h-3 rounded-full bg-green-500"></div>
-          </div>
-        </div>
-
-        <div className="dashboard-card">
-          <div className="flex items-center justify-between">
-            <div>
-              <p className="text-sm font-medium text-dashboard-muted">Pending Review</p>
-              <p className="text-2xl font-bold text-dashboard-foreground">8</p>
-            </div>
-            <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-          </div>
-        </div>
-
-        <div className="dashboard-card">
-          <div className="flex items-center justify-between">
-            <div>
-              <p className="text-sm font-medium text-dashboard-muted">Risk Alerts</p>
-              <p className="text-2xl font-bold text-dashboard-foreground">3</p>
-            </div>
-            <div className="w-3 h-3 rounded-full bg-red-500"></div>
-          </div>
-        </div>
-      </div>
-
-      {/* Charts Section */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <LazyLoad fallback={<div className="dashboard-card animate-pulse h-64"></div>}>
-          <PlaceholderLineChart />
-        </LazyLoad>
-
-        <LazyLoad fallback={<div className="dashboard-card animate-pulse h-64"></div>}>
-          <div className="dashboard-card flex flex-col justify-between h-full">
-            <div>
-              <h3 className="text-lg font-semibold text-dashboard-foreground">Component Examples</h3>
-              <p className="text-sm text-dashboard-muted mt-1">
-                Testing the updated button and input styles.
-              </p>
-            </div>
-            <div className="space-y-4 mt-4">
-              <Input type="email" placeholder="Email with focus effect" />
-              <Button className="w-full">Styled Button</Button>
-            </div>
-          </div>
-        </LazyLoad>
-      </div>
-
-      {/* Recent Activity Table */}
-      <LazyLoad fallback={<div className="dashboard-card animate-pulse h-48"></div>}>
-        <div className="dashboard-card">
-          <div className="flex items-center justify-between mb-4">
-            <h3 className="text-lg font-semibold text-dashboard-foreground">Recent Vetting Requests</h3>
-            <button className="text-primary hover:text-primary/80 text-sm font-medium">
-              View All
-            </button>
-          </div>
-          
-          {/* Desktop Table */}
-          <div className="hidden sm:block overflow-x-auto">
-            <table className="w-full">
-              <thead>
-                <tr className="border-b border-border">
-                  <th className="text-left py-2 px-4 text-sm font-medium text-dashboard-muted">ID</th>
-                  <th className="text-left py-2 px-4 text-sm font-medium text-dashboard-muted">Supplier</th>
-                  <th className="text-left py-2 px-4 text-sm font-medium text-dashboard-muted hidden md:table-cell">Type</th>
-                  <th className="text-left py-2 px-4 text-sm font-medium text-dashboard-muted">Status</th>
-                  <th className="text-left py-2 px-4 text-sm font-medium text-dashboard-muted hidden lg:table-cell">Date</th>
-                  <th className="text-left py-2 px-4 text-sm font-medium text-dashboard-muted">Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr className="border-b border-border/50">
-                  <td className="py-3 px-4 text-sm text-dashboard-foreground">#VET-001</td>
-                  <td className="py-3 px-4 text-sm text-dashboard-foreground">Acme Corp Ltd</td>
-                  <td className="py-3 px-4 text-sm text-dashboard-muted hidden md:table-cell">Financial</td>
-                  <td className="py-3 px-4">
-                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
-                      Pending
-                    </span>
-                  </td>
-                  <td className="py-3 px-4 text-sm text-dashboard-muted hidden lg:table-cell">2024-01-15</td>
-                  <td className="py-3 px-4">
-                    <button className="text-primary hover:text-primary/80 text-sm font-medium">
-                      View
-                    </button>
-                  </td>
-                </tr>
-                <tr className="border-b border-border/50">
-                  <td className="py-3 px-4 text-sm text-dashboard-foreground">#VET-002</td>
-                  <td className="py-3 px-4 text-sm text-dashboard-foreground">TechFlow Ltd</td>
-                  <td className="py-3 px-4 text-sm text-dashboard-muted hidden md:table-cell">Technical</td>
-                  <td className="py-3 px-4">
-                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                      Completed
-                    </span>
-                  </td>
-                  <td className="py-3 px-4 text-sm text-dashboard-muted hidden lg:table-cell">2024-01-14</td>
-                  <td className="py-3 px-4">
-                    <button className="text-primary hover:text-primary/80 text-sm font-medium">
-                      View
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td className="py-3 px-4 text-sm text-dashboard-foreground">#VET-003</td>
-                  <td className="py-3 px-4 text-sm text-dashboard-foreground">Global Solutions</td>
-                  <td className="py-3 px-4 text-sm text-dashboard-muted hidden md:table-cell">Compliance</td>
-                  <td className="py-3 px-4">
-                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">
-                      Risk Alert
-                    </span>
-                  </td>
-                  <td className="py-3 px-4 text-sm text-dashboard-muted hidden lg:table-cell">2024-01-13</td>
-                  <td className="py-3 px-4">
-                    <button className="text-primary hover:text-primary/80 text-sm font-medium">
-                      View
-                    </button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          {/* Mobile Cards */}
-          <div className="sm:hidden space-y-3">
-            <div className="border border-border rounded-lg p-3">
-              <div className="flex justify-between items-start mb-2">
-                <div>
-                  <p className="font-medium text-dashboard-foreground">#VET-001</p>
-                  <p className="text-sm text-dashboard-muted">Acme Corp Ltd</p>
-                </div>
-                <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
-                  Pending
-                </span>
+              <div className="space-y-4 mt-4">
+                <Input variant="neumorphic" type="email" placeholder="Email with neumorphic effect" />
+                <Button variant="neumorphic-outline" className="w-full">Neumorphic Button</Button>
               </div>
-              <button className="text-primary text-sm font-medium">View Details</button>
+            </NeumorphicCard>
+          </LazyLoad>
+        </div>
+
+        {/* Recent Activity Table */}
+        <LazyLoad fallback={<NeumorphicCard className="animate-pulse h-48" />}>
+          <NeumorphicCard>
+            <div className="flex items-center justify-between mb-6">
+              <NeumorphicText size="lg" className="font-semibold">Recent Vetting Requests</NeumorphicText>
+              <Button variant="neumorphic-outline" className="text-neumorphic-text-secondary hover:text-neumorphic-text-primary text-sm">
+                View All
+              </Button>
             </div>
             
-            <div className="border border-border rounded-lg p-3">
-              <div className="flex justify-between items-start mb-2">
-                <div>
-                  <p className="font-medium text-dashboard-foreground">#VET-002</p>
-                  <p className="text-sm text-dashboard-muted">TechFlow Ltd</p>
-                </div>
-                <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                  Completed
-                </span>
-              </div>
-              <button className="text-primary text-sm font-medium">View Details</button>
+            {/* Desktop Table */}
+            <div className="hidden sm:block overflow-x-auto">
+              <NeumorphicTable>
+                <NeumorphicTableHeader>
+                  <NeumorphicTableRow>
+                    <NeumorphicTableHead>ID</NeumorphicTableHead>
+                    <NeumorphicTableHead>Supplier</NeumorphicTableHead>
+                    <NeumorphicTableHead className="hidden md:table-cell">Type</NeumorphicTableHead>
+                    <NeumorphicTableHead>Status</NeumorphicTableHead>
+                    <NeumorphicTableHead className="hidden lg:table-cell">Date</NeumorphicTableHead>
+                    <NeumorphicTableHead>Actions</NeumorphicTableHead>
+                  </NeumorphicTableRow>
+                </NeumorphicTableHeader>
+                <NeumorphicTableBody>
+                  <NeumorphicTableRow>
+                    <NeumorphicTableCell className="font-medium">#VET-001</NeumorphicTableCell>
+                    <NeumorphicTableCell>Acme Corp Ltd</NeumorphicTableCell>
+                    <NeumorphicTableCell className="hidden md:table-cell">
+                      <NeumorphicText variant="secondary" size="sm">Financial</NeumorphicText>
+                    </NeumorphicTableCell>
+                    <NeumorphicTableCell>
+                      <NeumorphicBadge variant="warning">Pending</NeumorphicBadge>
+                    </NeumorphicTableCell>
+                    <NeumorphicTableCell className="hidden lg:table-cell">
+                      <NeumorphicText variant="secondary" size="sm">2024-01-15</NeumorphicText>
+                    </NeumorphicTableCell>
+                    <NeumorphicTableCell>
+                      <Button variant="neumorphic-outline" className="text-neumorphic-text-secondary hover:text-neumorphic-text-primary text-sm">
+                        View
+                      </Button>
+                    </NeumorphicTableCell>
+                  </NeumorphicTableRow>
+                  <NeumorphicTableRow>
+                    <NeumorphicTableCell className="font-medium">#VET-002</NeumorphicTableCell>
+                    <NeumorphicTableCell>TechFlow Ltd</NeumorphicTableCell>
+                    <NeumorphicTableCell className="hidden md:table-cell">
+                      <NeumorphicText variant="secondary" size="sm">Technical</NeumorphicText>
+                    </NeumorphicTableCell>
+                    <NeumorphicTableCell>
+                      <NeumorphicBadge variant="success">Completed</NeumorphicBadge>
+                    </NeumorphicTableCell>
+                    <NeumorphicTableCell className="hidden lg:table-cell">
+                      <NeumorphicText variant="secondary" size="sm">2024-01-14</NeumorphicText>
+                    </NeumorphicTableCell>
+                    <NeumorphicTableCell>
+                      <Button variant="neumorphic-outline" className="text-neumorphic-text-secondary hover:text-neumorphic-text-primary text-sm">
+                        View
+                      </Button>
+                    </NeumorphicTableCell>
+                  </NeumorphicTableRow>
+                  <NeumorphicTableRow>
+                    <NeumorphicTableCell className="font-medium">#VET-003</NeumorphicTableCell>
+                    <NeumorphicTableCell>Global Solutions</NeumorphicTableCell>
+                    <NeumorphicTableCell className="hidden md:table-cell">
+                      <NeumorphicText variant="secondary" size="sm">Compliance</NeumorphicText>
+                    </NeumorphicTableCell>
+                    <NeumorphicTableCell>
+                      <NeumorphicBadge variant="danger">Risk Alert</NeumorphicBadge>
+                    </NeumorphicTableCell>
+                    <NeumorphicTableCell className="hidden lg:table-cell">
+                      <NeumorphicText variant="secondary" size="sm">2024-01-13</NeumorphicText>
+                    </NeumorphicTableCell>
+                    <NeumorphicTableCell>
+                      <Button variant="neumorphic-outline" className="text-neumorphic-text-secondary hover:text-neumorphic-text-primary text-sm">
+                        View
+                      </Button>
+                    </NeumorphicTableCell>
+                  </NeumorphicTableRow>
+                </NeumorphicTableBody>
+              </NeumorphicTable>
             </div>
-          </div>
-        </div>
-      </LazyLoad>
 
-      {/* Responsive Testing Indicator */}
-      <div className="fixed bottom-4 right-4 bg-dashboard-card border border-border rounded-lg px-3 py-2 text-xs font-mono text-dashboard-muted z-50">
-        <span className="block sm:hidden">📱 Mobile</span>
-        <span className="hidden sm:block md:hidden">📱 Tablet</span>
-        <span className="hidden md:block lg:hidden">💻 Desktop</span>
-        <span className="hidden lg:block">🖥️ Large</span>
+            {/* Mobile Cards */}
+            <div className="sm:hidden space-y-3">
+              <NeumorphicCard className="p-4">
+                <div className="flex justify-between items-start mb-2">
+                  <div>
+                    <NeumorphicText className="font-medium">#VET-001</NeumorphicText>
+                    <NeumorphicText variant="secondary" size="sm">Acme Corp Ltd</NeumorphicText>
+                  </div>
+                  <NeumorphicBadge variant="warning">Pending</NeumorphicBadge>
+                </div>
+                <Button variant="neumorphic-outline" className="text-neumorphic-text-secondary hover:text-neumorphic-text-primary text-sm">
+                  View Details
+                </Button>
+              </NeumorphicCard>
+              
+              <NeumorphicCard className="p-4">
+                <div className="flex justify-between items-start mb-2">
+                  <div>
+                    <NeumorphicText className="font-medium">#VET-002</NeumorphicText>
+                    <NeumorphicText variant="secondary" size="sm">TechFlow Ltd</NeumorphicText>
+                  </div>
+                  <NeumorphicBadge variant="success">Completed</NeumorphicBadge>
+                </div>
+                <Button variant="neumorphic-outline" className="text-neumorphic-text-secondary hover:text-neumorphic-text-primary text-sm">
+                  View Details
+                </Button>
+              </NeumorphicCard>
+            </div>
+          </NeumorphicCard>
+        </LazyLoad>
+
+        {/* Responsive Testing Indicator */}
+        <NeumorphicCard className="fixed bottom-4 right-4 p-3 z-50">
+          <NeumorphicText size="sm" className="font-mono">
+            <span className="block sm:hidden">📱 Mobile</span>
+            <span className="hidden sm:block md:hidden">📱 Tablet</span>
+            <span className="hidden md:block lg:hidden">💻 Desktop</span>
+            <span className="hidden lg:block">🖥️ Large</span>
+          </NeumorphicText>
+        </NeumorphicCard>
       </div>
-    </div>
+    </NeumorphicBackground>
   );
 } 

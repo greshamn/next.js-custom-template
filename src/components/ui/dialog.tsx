@@ -3,6 +3,7 @@
 import * as React from "react"
 import * as DialogPrimitive from "@radix-ui/react-dialog"
 import { XIcon } from "lucide-react"
+import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
 
@@ -30,46 +31,76 @@ function DialogClose({
   return <DialogPrimitive.Close data-slot="dialog-close" {...props} />
 }
 
+const dialogOverlayVariants = cva(
+  "data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-50",
+  {
+    variants: {
+      variant: {
+        default: "bg-black/50",
+        neumorphic: "bg-black/60 backdrop-blur-sm",
+      }
+    },
+    defaultVariants: {
+      variant: "default",
+    },
+  }
+)
+
 function DialogOverlay({
   className,
+  variant,
   ...props
-}: React.ComponentProps<typeof DialogPrimitive.Overlay>) {
+}: React.ComponentProps<typeof DialogPrimitive.Overlay> & VariantProps<typeof dialogOverlayVariants>) {
   return (
     <DialogPrimitive.Overlay
       data-slot="dialog-overlay"
-      className={cn(
-        "data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-50 bg-black/50",
-        className
-      )}
+      className={cn(dialogOverlayVariants({ variant, className }))}
       {...props}
     />
   )
 }
 
+const dialogContentVariants = cva(
+  "data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 fixed top-[50%] left-[50%] z-50 grid w-full max-w-[calc(100%-2rem)] translate-x-[-50%] translate-y-[-50%] gap-4 rounded-lg p-6 duration-200 sm:max-w-lg",
+  {
+    variants: {
+      variant: {
+        default: "glassmorphism",
+        neumorphic: "bg-neumorphic-card shadow-neumorphic-convex-lg border border-neumorphic-border/10 backdrop-blur-[var(--neumorphic-blur)] text-neumorphic-text-primary rounded-[var(--neumorphic-radius-lg)]",
+      }
+    },
+    defaultVariants: {
+      variant: "default",
+    },
+  }
+)
+
 function DialogContent({
   className,
   children,
   showCloseButton = true,
+  variant,
   ...props
-}: React.ComponentProps<typeof DialogPrimitive.Content> & {
-  showCloseButton?: boolean
-}) {
+}: React.ComponentProps<typeof DialogPrimitive.Content> & 
+  VariantProps<typeof dialogContentVariants> & {
+    showCloseButton?: boolean
+  }) {
   return (
     <DialogPortal data-slot="dialog-portal">
-      <DialogOverlay />
+      <DialogOverlay variant={variant} />
       <DialogPrimitive.Content
         data-slot="dialog-content"
-        className={cn(
-          "glassmorphism data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 fixed top-[50%] left-[50%] z-50 grid w-full max-w-[calc(100%-2rem)] translate-x-[-50%] translate-y-[-50%] gap-4 rounded-lg p-6 duration-200 sm:max-w-lg",
-          className
-        )}
+        className={cn(dialogContentVariants({ variant, className }))}
         {...props}
       >
         {children}
         {showCloseButton && (
           <DialogPrimitive.Close
             data-slot="dialog-close"
-            className="ring-offset-background focus:ring-ring data-[state=open]:bg-accent data-[state=open]:text-muted-foreground absolute top-4 right-4 rounded-xs opacity-70 transition-opacity hover:opacity-100 focus:ring-2 focus:ring-offset-2 focus:outline-hidden disabled:pointer-events-none [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4"
+            className={cn(
+              "ring-offset-background focus:ring-ring data-[state=open]:bg-accent data-[state=open]:text-muted-foreground absolute top-4 right-4 rounded-xs opacity-70 transition-opacity hover:opacity-100 focus:ring-2 focus:ring-offset-2 focus:outline-hidden disabled:pointer-events-none [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+              variant === "neumorphic" && "text-neumorphic-text-secondary hover:text-neumorphic-text-primary"
+            )}
           >
             <XIcon />
             <span className="sr-only">Close</span>
@@ -140,4 +171,6 @@ export {
   DialogPortal,
   DialogTitle,
   DialogTrigger,
+  dialogContentVariants,
+  dialogOverlayVariants,
 }
