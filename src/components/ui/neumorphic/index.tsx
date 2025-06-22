@@ -29,7 +29,7 @@ export const NeumorphicCard = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      "p-8",
+      "p-6",
       "rounded-[var(--neumorphic-radius-xl)]",
       "neumorphic-card-gradient",
       "shadow-neumorphic-convex-lg",
@@ -311,7 +311,7 @@ export const NeumorphicDialogContent = React.forwardRef<
       "fixed top-[50%] left-[50%] z-50",
       "w-full max-w-lg",
       "translate-x-[-50%] translate-y-[-50%]",
-      "p-6 gap-4",
+      "p-5 gap-4",
       "bg-neumorphic-card rounded-[var(--neumorphic-radius-lg)]",
       "shadow-neumorphic-convex-lg",
       "border border-neumorphic-border/10",
@@ -368,7 +368,7 @@ export const NeumorphicTable = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     className={cn(
-      "p-6 rounded-[var(--neumorphic-radius-lg)]",
+      "p-4 rounded-[var(--neumorphic-radius-lg)]",
       "bg-neumorphic-card shadow-neumorphic-convex",
       "border border-neumorphic-border/10",
       "backdrop-blur-[var(--neumorphic-blur)]",
@@ -432,7 +432,7 @@ export const NeumorphicTableHead = React.forwardRef<
   <th
     ref={ref}
     className={cn(
-      "h-12 px-4 text-left align-middle font-medium",
+      "h-10 px-3 text-left align-middle font-medium",
       "text-neumorphic-text-secondary",
       "[&:has([role=checkbox])]:pr-0",
       className
@@ -449,7 +449,7 @@ export const NeumorphicTableCell = React.forwardRef<
   <td
     ref={ref}
     className={cn(
-      "p-4 align-middle text-neumorphic-text-primary",
+      "p-3 align-middle text-neumorphic-text-primary",
       "[&:has([role=checkbox])]:pr-0",
       className
     )}
@@ -472,7 +472,7 @@ export const NeumorphicStatsCard = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      "p-6 rounded-[var(--neumorphic-radius-lg)]",
+      "p-4 rounded-[var(--neumorphic-radius-lg)]",
       "bg-neumorphic-card shadow-neumorphic-convex",
       "border border-neumorphic-border/10",
       "backdrop-blur-[var(--neumorphic-blur)]",
@@ -481,7 +481,7 @@ export const NeumorphicStatsCard = React.forwardRef<
     {...props}
   >
     <div className="flex items-center justify-between">
-      <div className="space-y-2">
+      <div className="space-y-1.5">
         <NeumorphicText variant="secondary" size="sm">
           {title}
         </NeumorphicText>
@@ -500,7 +500,7 @@ export const NeumorphicStatsCard = React.forwardRef<
         )}
       </div>
       {icon && (
-        <div className="p-3 rounded-full bg-neumorphic-button shadow-neumorphic-convex-sm">
+        <div className="p-2.5 rounded-full bg-neumorphic-button shadow-neumorphic-convex-sm">
           {icon}
         </div>
       )}

@@ -2,11 +2,9 @@
 
 import React, { useState, useEffect } from 'react';
 import CurvedSidebar from '@/components/sidebar/CurvedSidebar';
-import { NavigationItem, IconName } from '@/types';
 import { ThemeSwitcher } from '@/components/ui/ThemeSwitcher';
 import { Button } from '@/components/ui/button';
 import { Menu } from 'lucide-react';
-import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { FullScreenToggle } from '@/components/ui/FullScreenToggle';
 import { NAVIGATION_ITEMS } from '@/lib/constants/design';
@@ -39,7 +37,7 @@ const DashboardLayout: React.FC<{ children: React.ReactNode }> = ({ children }) 
   };
 
   return (
-    <main className="flex h-screen p-2">
+    <main className="flex h-screen">
       <CurvedSidebar
         isOpen={isSidebarOpen}
         onToggle={handleSidebarToggle}

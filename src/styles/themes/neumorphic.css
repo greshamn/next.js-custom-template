@@ -31,12 +31,28 @@
     8px 8px 24px var(--neumorphic-shadow-medium),
     16px 16px 48px var(--neumorphic-shadow-dark);
   --neumorphic-shadow-concave: 
-    inset 2px 2px 4px var(--neumorphic-shadow-light),
-    inset 4px 4px 8px var(--neumorphic-shadow-medium);
+    -2px -2px 4px rgba(255, 255, 255, 0.05),
+    4px 4px 8px var(--neumorphic-shadow-medium),
+    6px 6px 12px var(--neumorphic-shadow-light);
+  
+  /* Input field shadows - Recessed appearance */
+  --neumorphic-shadow-inset: 
+    inset 2px 2px 4px var(--neumorphic-shadow-medium),
+    inset 4px 4px 8px var(--neumorphic-shadow-light),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
+  --neumorphic-shadow-inset-focus: 
+    inset 2px 2px 4px var(--neumorphic-shadow-medium),
+    inset 4px 4px 8px var(--neumorphic-shadow-light),
+    0 0 0 2px rgba(139, 92, 246, 0.4),
+    inset 0 0 20px rgba(139, 92, 246, 0.1);
+  
+  /* Input backgrounds - Recessed surfaces */
+  --neumorphic-input-bg: rgba(25, 30, 35, 0.8);
+  --neumorphic-input-bg-focus: rgba(30, 35, 40, 0.9);
   
   /* Enhanced button state shadows - High contrast for visibility */
   --neumorphic-shadow-button-default: 
-    2px 2px 4px rgba(0, 0, 0, 0.3),
+    -2px -2px 4px rgba(255, 255, 255, 0.05),
     4px 4px 8px rgba(0, 0, 0, 0.2),
     6px 6px 12px rgba(0, 0, 0, 0.15),
     0 0 0 1px rgba(255, 255, 255, 0.1);
@@ -59,17 +75,93 @@
   --neumorphic-blur: 8px;
   --neumorphic-blur-strong: 16px;
   
-  /* Spacing - Compact like target */
-  --neumorphic-spacing-sm: 0.5rem;
-  --neumorphic-spacing-md: 1rem;
-  --neumorphic-spacing-lg: 1.5rem;
-  --neumorphic-spacing-xl: 2rem;
+  /* Spacing - Enhanced compact system */
+  --neumorphic-spacing-xs: 0.25rem;  /* 4px - Extra tight */
+  --neumorphic-spacing-sm: 0.5rem;   /* 8px - Tight */
+  --neumorphic-spacing-md: 0.75rem;  /* 12px - Compact (was 16px) */
+  --neumorphic-spacing-lg: 1rem;     /* 16px - Normal (was 24px) */
+  --neumorphic-spacing-xl: 1.5rem;   /* 24px - Spacious (was 32px) */
+  --neumorphic-spacing-2xl: 2rem;    /* 32px - Extra spacious */
   
   /* Border Radius - Subtle minimal values */
   --neumorphic-radius-sm: 0.25rem;   /* 4px */
   --neumorphic-radius-md: 0.46875rem; /* 7.5px */
   --neumorphic-radius-lg: 0.625rem;  /* 10px */
   --neumorphic-radius-xl: 0.75rem;   /* 12px */
+}
+
+/* Light Theme Variables */
+.light {
+  /* Base Colors - Light theme optimized */
+  --neumorphic-bg: #f0f2f5;
+  --neumorphic-card: rgba(235, 240, 245, 0.85);
+  --neumorphic-card-end: rgba(220, 225, 235, 0.9);
+  --neumorphic-button: rgba(230, 235, 240, 0.95);
+  --neumorphic-text-primary: #1a1d23;
+  --neumorphic-text-secondary: #4a5568;
+  --neumorphic-accent: #FF9A3E;
+  --neumorphic-border: #8B5CF6;
+
+  /* Background Gradients - Light theme */
+  --neumorphic-gradient-start: #e8f0f5;
+  --neumorphic-gradient-end: #d5e5f0;
+  
+  /* Shadows - Light theme with dark shadows for depth */
+  --neumorphic-shadow-light: rgba(0, 0, 0, 0.08);
+  --neumorphic-shadow-medium: rgba(0, 0, 0, 0.12);
+  --neumorphic-shadow-dark: rgba(0, 0, 0, 0.18);
+
+  /* Multi-layer shadow effects for light surfaces */
+  --neumorphic-shadow-convex: 
+    2px 2px 4px var(--neumorphic-shadow-light),
+    4px 4px 12px var(--neumorphic-shadow-medium);
+  --neumorphic-shadow-convex-sm: 
+    1px 1px 2px var(--neumorphic-shadow-light),
+    2px 2px 6px var(--neumorphic-shadow-medium);
+  --neumorphic-shadow-convex-lg: 
+    4px 4px 8px var(--neumorphic-shadow-light),
+    8px 8px 24px var(--neumorphic-shadow-medium),
+    16px 16px 48px var(--neumorphic-shadow-dark);
+  --neumorphic-shadow-concave: 
+    -2px -2px 4px rgba(255, 255, 255, 0.8),
+    4px 4px 8px var(--neumorphic-shadow-medium),
+    6px 6px 12px var(--neumorphic-shadow-light);
+  
+  /* Light theme input field shadows - Recessed appearance */
+  --neumorphic-shadow-inset: 
+    inset 2px 2px 4px rgba(0, 0, 0, 0.12),
+    inset 4px 4px 8px rgba(0, 0, 0, 0.08),
+    0 0 0 1px rgba(0, 0, 0, 0.08);
+  --neumorphic-shadow-inset-focus: 
+    inset 2px 2px 4px rgba(0, 0, 0, 0.12),
+    inset 4px 4px 8px rgba(0, 0, 0, 0.08),
+    0 0 0 2px rgba(139, 92, 246, 0.3),
+    inset 0 0 20px rgba(139, 92, 246, 0.08);
+  
+  /* Light theme input backgrounds - Recessed surfaces */
+  --neumorphic-input-bg: rgba(220, 225, 235, 0.6);
+  --neumorphic-input-bg-focus: rgba(215, 220, 230, 0.8);
+  
+  /* Light theme button state shadows */
+  --neumorphic-shadow-button-default: 
+    -2px -2px 4px rgba(255, 255, 255, 0.8),
+    4px 4px 8px rgba(0, 0, 0, 0.1),
+    6px 6px 12px rgba(0, 0, 0, 0.08),
+    0 0 0 1px rgba(0, 0, 0, 0.05);
+  --neumorphic-shadow-button-hover: 
+    3px 3px 6px rgba(0, 0, 0, 0.2),
+    6px 6px 12px rgba(0, 0, 0, 0.15),
+    8px 8px 16px rgba(0, 0, 0, 0.1),
+    0 0 20px rgba(139, 92, 246, 0.3),
+    0 0 0 1px rgba(139, 92, 246, 0.2);
+  --neumorphic-shadow-button-active: 
+    inset 3px 3px 6px rgba(0, 0, 0, 0.25),
+    inset 5px 5px 10px rgba(0, 0, 0, 0.2),
+    inset 1px 1px 2px rgba(0, 0, 0, 0.3);
+  
+  /* Light theme gradients */
+  --neumorphic-gradient: linear-gradient(135deg, var(--neumorphic-card), var(--neumorphic-card-end));
+  --neumorphic-bg-gradient: linear-gradient(145deg, var(--neumorphic-gradient-start), var(--neumorphic-gradient-end));
 }
 
 /* Neumorphic Card Gradient Class */
@@ -133,6 +225,160 @@
   transform: none !important;
   background: var(--neumorphic-button) !important;
   box-shadow: var(--neumorphic-shadow-button-default) !important;
+}
+
+/* Light theme button states */
+.light .neumorphic-button-enhanced:hover {
+  background: linear-gradient(145deg, 
+    rgba(139, 92, 246, 0.08), 
+    rgba(99, 62, 206, 0.05)
+  ) !important;
+  box-shadow: 
+    0 0 0 2px rgba(139, 92, 246, 0.3),
+    6px 6px 12px rgba(0, 0, 0, 0.15),
+    12px 12px 24px rgba(0, 0, 0, 0.1),
+    0 0 20px rgba(139, 92, 246, 0.25) !important;
+  transform: translateY(-2px) scale(1.02) !important;
+}
+
+.light .neumorphic-button-enhanced:active {
+  background: linear-gradient(145deg, 
+    rgba(200, 205, 210, 0.9), 
+    rgba(190, 195, 200, 0.95)
+  ) !important;
+  box-shadow: 
+    inset 4px 4px 8px rgba(0, 0, 0, 0.2),
+    inset 8px 8px 16px rgba(0, 0, 0, 0.12),
+    inset 2px 2px 4px rgba(0, 0, 0, 0.25) !important;
+  transform: translateY(2px) scale(0.98) !important;
+}
+
+/* Neumorphic Input Field Styling */
+.shadow-neumorphic-inset,
+[class*="shadow-neumorphic-inset"] {
+  box-shadow: var(--neumorphic-shadow-inset) !important;
+}
+
+.neumorphic-input-enhanced {
+  background: var(--neumorphic-input-bg) !important;
+  box-shadow: var(--neumorphic-shadow-inset) !important;
+  transition: all 0.2s ease-out;
+  border: 1px solid transparent;
+}
+
+.neumorphic-input-enhanced:focus {
+  background: var(--neumorphic-input-bg-focus) !important;
+  box-shadow: var(--neumorphic-shadow-inset-focus) !important;
+  outline: none;
+}
+
+/* Fallback styles with explicit values for debugging */
+input.neumorphic-input-enhanced {
+  background: rgba(25, 30, 35, 0.8) !important;
+  box-shadow: 
+    inset 2px 2px 4px rgba(0, 0, 0, 0.15),
+    inset 4px 4px 8px rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(255, 255, 255, 0.05) !important;
+  transition: all 0.2s ease-out;
+  border: 1px solid transparent;
+}
+
+input.neumorphic-input-enhanced:focus {
+  background: rgba(30, 35, 40, 0.9) !important;
+  box-shadow: 
+    inset 2px 2px 4px rgba(0, 0, 0, 0.15),
+    inset 4px 4px 8px rgba(0, 0, 0, 0.1),
+    0 0 0 2px rgba(139, 92, 246, 0.4),
+    inset 0 0 20px rgba(139, 92, 246, 0.1) !important;
+  outline: none;
+}
+
+/* Light theme fallback */
+.light input.neumorphic-input-enhanced {
+  background: rgba(220, 225, 235, 0.6) !important;
+  box-shadow: 
+    inset 2px 2px 4px rgba(0, 0, 0, 0.12),
+    inset 4px 4px 8px rgba(0, 0, 0, 0.08),
+    0 0 0 1px rgba(0, 0, 0, 0.08) !important;
+}
+
+.light input.neumorphic-input-enhanced:focus {
+  background: rgba(215, 220, 230, 0.8) !important;
+  box-shadow: 
+    inset 2px 2px 4px rgba(0, 0, 0, 0.12),
+    inset 4px 4px 8px rgba(0, 0, 0, 0.08),
+    0 0 0 2px rgba(139, 92, 246, 0.3),
+    inset 0 0 20px rgba(139, 92, 246, 0.08) !important;
+}
+
+.neumorphic-input-enhanced::placeholder {
+  color: var(--neumorphic-text-secondary);
+  opacity: 0.7;
+}
+
+.neumorphic-input-enhanced:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Light theme badge colors - better contrast on light backgrounds */
+.light .bg-green-500\/20 {
+  background-color: rgba(34, 197, 94, 0.15) !important;
+}
+.light .text-green-300 {
+  color: #059669 !important;
+}
+.light .border-green-500\/20 {
+  border-color: rgba(34, 197, 94, 0.2) !important;
+}
+
+.light .bg-yellow-500\/20 {
+  background-color: rgba(245, 158, 11, 0.15) !important;
+}
+.light .text-yellow-300 {
+  color: #d97706 !important;
+}
+.light .border-yellow-500\/20 {
+  border-color: rgba(245, 158, 11, 0.2) !important;
+}
+
+.light .bg-red-500\/20 {
+  background-color: rgba(239, 68, 68, 0.15) !important;
+}
+.light .text-red-300 {
+  color: #dc2626 !important;
+}
+.light .border-red-500\/20 {
+  border-color: rgba(239, 68, 68, 0.2) !important;
+}
+
+.light .bg-blue-500\/20 {
+  background-color: rgba(59, 130, 246, 0.15) !important;
+}
+.light .text-blue-300 {
+  color: #2563eb !important;
+}
+.light .border-blue-500\/20 {
+  border-color: rgba(59, 130, 246, 0.2) !important;
+}
+
+/* Light theme progress ring background circles */
+.light svg circle[stroke="rgba(255, 255, 255, 0.1)"] {
+  stroke: rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Light theme icon colors in stats cards */
+.light .text-blue-400 {
+  color: #3b82f6 !important;
+}
+.light .text-green-400 {
+  color: #10b981 !important;
+}
+.light .text-yellow-400 {
+  color: #f59e0b !important;
+}
+.light .text-red-400 {
+  color: #ef4444 !important;
 }
 
 /* Override any potential light shadow classes and filters */
@@ -239,6 +485,245 @@ div.glow-subtle-blue {
     rgba(255, 255, 255, 0.05) 100%
   );
   border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Sidebar-Specific Neumorphic Theme System - Inverse Theme with Rectangular Shape */
+
+/* Sidebar Dark Theme (when app is light) */
+.sidebar-neumorphic-container.dark {
+  /* Base Colors - Dark theme for sidebar */
+  --neumorphic-bg: #1a1c20;
+  --neumorphic-card: rgba(55, 60, 65, 0.25);
+  --neumorphic-card-end: rgba(5, 8, 12, 0.6);
+  --neumorphic-button: rgba(65, 70, 75, 0.95);
+  --neumorphic-text-primary: #E0E0E0;
+  --neumorphic-text-secondary: #A0A0A0;
+  --neumorphic-accent: #FF9A3E;
+  --neumorphic-border: #8B5CF6;
+
+  /* Sidebar-specific shadows - no rounded corners */
+  --neumorphic-shadow-convex: 
+    2px 2px 4px rgba(0, 0, 0, 0.1),
+    4px 4px 12px rgba(0, 0, 0, 0.15);
+  --neumorphic-shadow-concave: 
+    -2px -2px 4px rgba(255, 255, 255, 0.05),
+    4px 4px 8px rgba(0, 0, 0, 0.15),
+    6px 6px 12px rgba(0, 0, 0, 0.1);
+  
+  /* Input shadows for sidebar */
+  --neumorphic-shadow-inset: 
+    inset 2px 2px 4px rgba(0, 0, 0, 0.15),
+    inset 4px 4px 8px rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
+  --neumorphic-shadow-inset-focus: 
+    inset 2px 2px 4px rgba(0, 0, 0, 0.15),
+    inset 4px 4px 8px rgba(0, 0, 0, 0.1),
+    0 0 0 2px rgba(139, 92, 246, 0.4),
+    inset 0 0 20px rgba(139, 92, 246, 0.1);
+  
+  /* Input backgrounds */
+  --neumorphic-input-bg: rgba(25, 30, 35, 0.8);
+  --neumorphic-input-bg-focus: rgba(30, 35, 40, 0.9);
+
+  /* Enhanced button states */
+  --neumorphic-shadow-button-default: 
+    -2px -2px 4px rgba(255, 255, 255, 0.05),
+    4px 4px 8px rgba(0, 0, 0, 0.2),
+    6px 6px 12px rgba(0, 0, 0, 0.15);
+  --neumorphic-shadow-button-hover: 
+    3px 3px 6px rgba(0, 0, 0, 0.35),
+    6px 6px 12px rgba(0, 0, 0, 0.25),
+    8px 8px 16px rgba(0, 0, 0, 0.2),
+    0 0 20px rgba(139, 92, 246, 0.4);
+  --neumorphic-shadow-button-active: 
+    inset 3px 3px 6px rgba(0, 0, 0, 0.5),
+    inset 5px 5px 10px rgba(0, 0, 0, 0.4),
+    inset 1px 1px 2px rgba(0, 0, 0, 0.6);
+
+  /* Gradients */
+  --neumorphic-gradient: linear-gradient(135deg, var(--neumorphic-card), var(--neumorphic-card-end));
+  
+  /* Sidebar-specific radius - minimal for rectangular appearance */
+  --neumorphic-radius-sidebar: 0px; /* No border radius for rectangular sidebar */
+  --neumorphic-radius-sidebar-item: 4px; /* Minimal radius for nav items */
+}
+
+/* Sidebar Light Theme (when app is dark) */
+.sidebar-neumorphic-container.light {
+  /* Base Colors - Light theme for sidebar */
+  --neumorphic-bg: #f0f2f5;
+  --neumorphic-card: rgba(235, 240, 245, 0.85);
+  --neumorphic-card-end: rgba(220, 225, 235, 0.9);
+  --neumorphic-button: rgba(230, 235, 240, 0.95);
+  --neumorphic-text-primary: #1a1d23;
+  --neumorphic-text-secondary: #4a5568;
+  --neumorphic-accent: #FF9A3E;
+  --neumorphic-border: #8B5CF6;
+
+  /* Light theme shadows for sidebar */
+  --neumorphic-shadow-convex: 
+    2px 2px 4px rgba(0, 0, 0, 0.08),
+    4px 4px 12px rgba(0, 0, 0, 0.12);
+  --neumorphic-shadow-concave: 
+    -2px -2px 4px rgba(255, 255, 255, 0.8),
+    4px 4px 8px rgba(0, 0, 0, 0.12),
+    6px 6px 12px rgba(0, 0, 0, 0.08);
+  
+  /* Light theme input shadows */
+  --neumorphic-shadow-inset: 
+    inset 2px 2px 4px rgba(0, 0, 0, 0.12),
+    inset 4px 4px 8px rgba(0, 0, 0, 0.08),
+    0 0 0 1px rgba(0, 0, 0, 0.08);
+  --neumorphic-shadow-inset-focus: 
+    inset 2px 2px 4px rgba(0, 0, 0, 0.12),
+    inset 4px 4px 8px rgba(0, 0, 0, 0.08),
+    0 0 0 2px rgba(139, 92, 246, 0.3),
+    inset 0 0 20px rgba(139, 92, 246, 0.08);
+  
+  /* Light theme input backgrounds */
+  --neumorphic-input-bg: rgba(220, 225, 235, 0.6);
+  --neumorphic-input-bg-focus: rgba(215, 220, 230, 0.8);
+
+  /* Light theme button states */
+  --neumorphic-shadow-button-default: 
+    -2px -2px 4px rgba(255, 255, 255, 0.8),
+    4px 4px 8px rgba(0, 0, 0, 0.1),
+    6px 6px 12px rgba(0, 0, 0, 0.08);
+  --neumorphic-shadow-button-hover: 
+    3px 3px 6px rgba(0, 0, 0, 0.2),
+    6px 6px 12px rgba(0, 0, 0, 0.15),
+    8px 8px 16px rgba(0, 0, 0, 0.1),
+    0 0 20px rgba(139, 92, 246, 0.3);
+  --neumorphic-shadow-button-active: 
+    inset 3px 3px 6px rgba(0, 0, 0, 0.25),
+    inset 5px 5px 10px rgba(0, 0, 0, 0.2),
+    inset 1px 1px 2px rgba(0, 0, 0, 0.3);
+
+  /* Light theme gradients */
+  --neumorphic-gradient: linear-gradient(135deg, var(--neumorphic-card), var(--neumorphic-card-end));
+  
+  /* Sidebar-specific radius - minimal for rectangular appearance */
+  --neumorphic-radius-sidebar: 0px; /* No border radius for rectangular sidebar */
+  --neumorphic-radius-sidebar-item: 4px; /* Minimal radius for nav items */
+}
+
+/* Sidebar Container Styling - Rectangular Shape */
+.sidebar-neumorphic-container {
+  background: var(--neumorphic-bg) !important;
+  color: var(--neumorphic-text-primary) !important;
+  border-radius: var(--neumorphic-radius-sidebar) !important; /* Rectangular - no rounded corners */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Disable the curved pseudo-element for neumorphic sidebar */
+.sidebar-neumorphic-container::before {
+  display: none !important; /* Remove curved effect */
+}
+
+/* Sidebar Navigation Items */
+.sidebar-neumorphic-container .neumorphic-nav-item {
+  background: var(--neumorphic-button) !important;
+  box-shadow: var(--neumorphic-shadow-concave) !important;
+  border-radius: var(--neumorphic-radius-sidebar-item) !important;
+  color: var(--neumorphic-text-primary) !important;
+  transition: all 0.2s ease-out;
+  border: 1px solid transparent;
+}
+
+/* Dark theme sidebar (when app is light) - More vibrant purple */
+.sidebar-neumorphic-container.dark .neumorphic-nav-item:hover {
+  background: linear-gradient(145deg, 
+    rgba(167, 139, 250, 0.25), 
+    rgba(139, 92, 246, 0.18)
+  ) !important;
+  box-shadow: var(--neumorphic-shadow-button-hover) !important;
+  transform: translateY(-1px) scale(1.01) !important;
+}
+
+.sidebar-neumorphic-container.dark .neumorphic-nav-item.active {
+  background: linear-gradient(145deg, 
+    rgba(167, 139, 250, 0.35), 
+    rgba(139, 92, 246, 0.25)
+  ) !important;
+  box-shadow: var(--neumorphic-shadow-button-hover) !important;
+  color: var(--neumorphic-text-primary) !important;
+  border: 1px solid rgba(167, 139, 250, 0.3) !important;
+}
+
+/* Light theme sidebar (when app is dark) - Stronger purple */
+.sidebar-neumorphic-container.light .neumorphic-nav-item:hover {
+  background: linear-gradient(145deg, 
+    rgba(139, 92, 246, 0.35), 
+    rgba(99, 62, 206, 0.25)
+  ) !important;
+  box-shadow: var(--neumorphic-shadow-button-hover) !important;
+  transform: translateY(-1px) scale(1.01) !important;
+}
+
+.sidebar-neumorphic-container.light .neumorphic-nav-item.active {
+  background: linear-gradient(145deg, 
+    rgba(139, 92, 246, 0.45), 
+    rgba(99, 62, 206, 0.35)
+  ) !important;
+  box-shadow: var(--neumorphic-shadow-button-hover) !important;
+  color: var(--neumorphic-text-primary) !important;
+  border: 1px solid rgba(139, 92, 246, 0.4) !important;
+}
+
+/* Fallback for general states */
+.sidebar-neumorphic-container .neumorphic-nav-item:active {
+  background: var(--neumorphic-button) !important;
+  box-shadow: var(--neumorphic-shadow-button-active) !important;
+  transform: translateY(1px) scale(0.99) !important;
+}
+
+/* Sidebar Text Components */
+.sidebar-neumorphic-container .neumorphic-text {
+  color: var(--neumorphic-text-primary) !important;
+}
+
+.sidebar-neumorphic-container .neumorphic-text-secondary {
+  color: var(--neumorphic-text-secondary) !important;
+}
+
+/* Sidebar Logo/Header Area */
+.sidebar-neumorphic-container .neumorphic-header {
+  background: var(--neumorphic-card) !important;
+  box-shadow: var(--neumorphic-shadow-convex) !important;
+  border-radius: var(--neumorphic-radius-sidebar-item) !important;
+  color: var(--neumorphic-text-primary) !important;
+}
+
+/* Sidebar Toggle Button */
+.sidebar-neumorphic-container .neumorphic-toggle {
+  background: var(--neumorphic-button) !important;
+  box-shadow: var(--neumorphic-shadow-concave) !important;
+  border-radius: 50% !important; /* Keep circular for toggle button */
+  color: var(--neumorphic-text-primary) !important;
+  border: 1px solid rgba(139, 92, 246, 0.2) !important;
+}
+
+/* Dark theme toggle button (when app is light) */
+.sidebar-neumorphic-container.dark .neumorphic-toggle:hover {
+  background: linear-gradient(145deg, 
+    rgba(167, 139, 250, 0.25), 
+    rgba(139, 92, 246, 0.18)
+  ) !important;
+  box-shadow: var(--neumorphic-shadow-button-hover) !important;
+  transform: scale(1.05) !important;
+  border: 1px solid rgba(167, 139, 250, 0.4) !important;
+}
+
+/* Light theme toggle button (when app is dark) */
+.sidebar-neumorphic-container.light .neumorphic-toggle:hover {
+  background: linear-gradient(145deg, 
+    rgba(139, 92, 246, 0.35), 
+    rgba(99, 62, 206, 0.25)
+  ) !important;
+  box-shadow: var(--neumorphic-shadow-button-hover) !important;
+  transform: scale(1.05) !important;
+  border: 1px solid rgba(139, 92, 246, 0.4) !important;
 }
 
 /* Dark theme overrides if needed */

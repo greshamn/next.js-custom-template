@@ -33,13 +33,13 @@ import { ActivityIcon, AlertCircleIcon, CheckCircleIcon, ClockIcon } from "lucid
 export default function DashboardPage() {
   return (
     <NeumorphicBackground className="min-h-screen">
-      <div className="max-w-7xl mx-auto space-y-6">
+      <div className="max-w-7xl mx-auto space-y-4">
         {/* Header Section */}
-        <NeumorphicCard className="mb-8">
+        <NeumorphicCard>
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div>
               <NeumorphicHeading>Dashboard</NeumorphicHeading>
-              <NeumorphicText variant="secondary" className="mt-2">
+              <NeumorphicText variant="secondary" className="mt-1">
                 Welcome to VETTPRO. Monitor your vetting operations.
               </NeumorphicText>
             </div>
@@ -92,7 +92,7 @@ export default function DashboardPage() {
         </NeumorphicCard>
 
         {/* Stats Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           <NeumorphicStatsCard
             title="Active Requests"
             value="24"
@@ -116,7 +116,7 @@ export default function DashboardPage() {
         </div>
 
         {/* Charts Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
           <LazyLoad fallback={<NeumorphicCard className="animate-pulse h-64" />}>
             <NeumorphicCard>
               <PlaceholderLineChart />
@@ -132,7 +132,7 @@ export default function DashboardPage() {
                 </NeumorphicText>
               </div>
               <div className="space-y-4 mt-4">
-                <Input variant="neumorphic" type="email" placeholder="Email with neumorphic effect" />
+                <Input type="email" placeholder="Email with neumorphic effect" />
                 <Button variant="neumorphic-outline" className="w-full">Neumorphic Button</Button>
               </div>
             </NeumorphicCard>
@@ -142,7 +142,7 @@ export default function DashboardPage() {
         {/* Recent Activity Table */}
         <LazyLoad fallback={<NeumorphicCard className="animate-pulse h-48" />}>
           <NeumorphicCard>
-            <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center justify-between mb-4">
               <NeumorphicText size="lg" className="font-semibold">Recent Vetting Requests</NeumorphicText>
               <Button variant="neumorphic-outline" className="text-neumorphic-text-secondary hover:text-neumorphic-text-primary text-sm">
                 View All
@@ -222,8 +222,8 @@ export default function DashboardPage() {
             </div>
 
             {/* Mobile Cards */}
-            <div className="sm:hidden space-y-3">
-              <NeumorphicCard className="p-4">
+            <div className="sm:hidden space-y-2">
+              <NeumorphicCard className="p-3">
                 <div className="flex justify-between items-start mb-2">
                   <div>
                     <NeumorphicText className="font-medium">#VET-001</NeumorphicText>
@@ -236,7 +236,7 @@ export default function DashboardPage() {
                 </Button>
               </NeumorphicCard>
               
-              <NeumorphicCard className="p-4">
+              <NeumorphicCard className="p-3">
                 <div className="flex justify-between items-start mb-2">
                   <div>
                     <NeumorphicText className="font-medium">#VET-002</NeumorphicText>
