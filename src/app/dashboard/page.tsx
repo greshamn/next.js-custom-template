@@ -5,6 +5,7 @@ import { SimpleDataTableDemo } from '@/components/examples/SimpleDataTableDemo';
 import { DataTableDemo } from '@/components/examples/DataTableDemo';
 import { FormComponentsDemo } from '@/components/forms/examples/FormComponentsDemo';
 import SelectionComponentsDemo from '@/components/forms/examples/SelectionComponentsDemo';
+import { BasicDemo } from '@/components/charts/apex/examples/BasicDemo';
 import {
   Dialog,
   DialogContent,
@@ -142,6 +143,13 @@ export default function DashboardPage() {
             </NeumorphicCard>
           </LazyLoad>
         </div>
+
+        {/* ApexCharts Demo Section */}
+        <LazyLoad fallback={<NeumorphicCard className="animate-pulse h-96" />}>
+          <NeumorphicCard>
+            <BasicDemo />
+          </NeumorphicCard>
+        </LazyLoad>
 
         {/* Recent Activity Table */}
         <LazyLoad fallback={<NeumorphicCard className="animate-pulse h-48" />}>

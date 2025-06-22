@@ -137,7 +137,6 @@
     --animate-spin: spin 1s linear infinite;
     --animate-pulse: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
     --blur-sm: 8px;
-    --blur-lg: 16px;
     --blur-xl: 24px;
     --default-transition-duration: 150ms;
     --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -989,6 +988,10 @@
     border-bottom-style: var(--tw-border-style);
     border-bottom-width: 1px;
   }
+  .border-b-2 {
+    border-bottom-style: var(--tw-border-style);
+    border-bottom-width: 2px;
+  }
   .border-l-4 {
     border-left-style: var(--tw-border-style);
     border-left-width: 4px;
@@ -1622,11 +1625,6 @@
   }
   .backdrop-blur-\[var\(--neumorphic-blur\)\] {
     --tw-backdrop-blur: blur(var(--neumorphic-blur));
-    -webkit-backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
-    backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
-  }
-  .backdrop-blur-lg {
-    --tw-backdrop-blur: blur(var(--blur-lg));
     -webkit-backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
     backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
   }
@@ -3326,6 +3324,150 @@ svg {
 }
 .light .scrollbar-thin::-webkit-scrollbar-thumb:hover {
   background: rgba(139, 92, 246, 0.7);
+}
+.light .apexcharts-text, .light .apexcharts-xaxis-label, .light .apexcharts-yaxis-label, .light .apexcharts-legend-text, .light .apexcharts-title-text, .light .apexcharts-subtitle-text, .light .apexcharts-datalabel, .light .apexcharts-tooltip-text, .light .apexcharts-menu-item, .light .apexcharts-xaxis-title, .light .apexcharts-yaxis-title {
+  fill: var(--neumorphic-text-primary) !important;
+  color: var(--neumorphic-text-primary) !important;
+  font-family: inherit !important;
+}
+.light .apexcharts-legend-text, .light .apexcharts-datalabel-label {
+  fill: var(--neumorphic-text-secondary) !important;
+  color: var(--neumorphic-text-secondary) !important;
+}
+.light .apexcharts-toolbar svg, .light .apexcharts-zoom-icon svg, .light .apexcharts-pan-icon svg, .light .apexcharts-reset-icon svg, .light .apexcharts-download-icon svg, .light .apexcharts-selection-icon svg, .light .apexcharts-menu-icon svg {
+  fill: var(--neumorphic-text-primary) !important;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+.light .apexcharts-toolbar svg:hover {
+  opacity: 1;
+  fill: var(--neumorphic-border) !important;
+}
+.light .apexcharts-gridlines-horizontal line, .light .apexcharts-gridlines-vertical line {
+  stroke: var(--neumorphic-text-secondary) !important;
+  stroke-opacity: 0.2 !important;
+}
+.light .apexcharts-xaxis-tick, .light .apexcharts-yaxis-tick, .light .apexcharts-xaxis line, .light .apexcharts-yaxis line {
+  stroke: var(--neumorphic-text-secondary) !important;
+  stroke-opacity: 0.4 !important;
+}
+.dark .apexcharts-text, .dark .apexcharts-xaxis-label, .dark .apexcharts-yaxis-label, .dark .apexcharts-legend-text, .dark .apexcharts-title-text, .dark .apexcharts-subtitle-text, .dark .apexcharts-datalabel, .dark .apexcharts-tooltip-text, .dark .apexcharts-menu-item, .dark .apexcharts-xaxis-title, .dark .apexcharts-yaxis-title {
+  fill: var(--neumorphic-text-primary) !important;
+  color: var(--neumorphic-text-primary) !important;
+  font-family: inherit !important;
+}
+.dark .apexcharts-legend-text, .dark .apexcharts-datalabel-label {
+  fill: var(--neumorphic-text-secondary) !important;
+  color: var(--neumorphic-text-secondary) !important;
+}
+.dark .apexcharts-toolbar svg, .dark .apexcharts-zoom-icon svg, .dark .apexcharts-pan-icon svg, .dark .apexcharts-reset-icon svg, .dark .apexcharts-download-icon svg, .dark .apexcharts-selection-icon svg, .dark .apexcharts-menu-icon svg {
+  fill: var(--neumorphic-text-primary) !important;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+.dark .apexcharts-toolbar svg:hover {
+  opacity: 1;
+  fill: var(--neumorphic-border) !important;
+}
+.dark .apexcharts-gridlines-horizontal line, .dark .apexcharts-gridlines-vertical line {
+  stroke: var(--neumorphic-text-secondary) !important;
+  stroke-opacity: 0.2 !important;
+}
+.dark .apexcharts-xaxis-tick, .dark .apexcharts-yaxis-tick, .dark .apexcharts-xaxis line, .dark .apexcharts-yaxis line {
+  stroke: var(--neumorphic-text-secondary) !important;
+  stroke-opacity: 0.4 !important;
+}
+.apexcharts-tooltip {
+  background: var(--neumorphic-card) !important;
+  border: 1px solid var(--neumorphic-border) !important;
+  box-shadow: var(--neumorphic-shadow-convex) !important;
+  border-radius: var(--neumorphic-radius-md) !important;
+  backdrop-filter: blur(8px);
+}
+.apexcharts-tooltip-title {
+  background: transparent !important;
+  border-bottom: 1px solid var(--neumorphic-border) !important;
+  color: var(--neumorphic-text-primary) !important;
+  font-weight: 600;
+  padding: var(--neumorphic-spacing-sm) var(--neumorphic-spacing-md);
+}
+.apexcharts-tooltip-text-y-value, .apexcharts-tooltip-text-z-value {
+  color: var(--neumorphic-text-primary) !important;
+  font-weight: 600;
+}
+.apexcharts-tooltip-text-y-label, .apexcharts-tooltip-text-z-label {
+  color: var(--neumorphic-text-secondary) !important;
+}
+.apexcharts-menu {
+  background: var(--neumorphic-card) !important;
+  border: 1px solid var(--neumorphic-border) !important;
+  box-shadow: var(--neumorphic-shadow-convex) !important;
+  border-radius: var(--neumorphic-radius-md) !important;
+  backdrop-filter: blur(8px);
+  padding: var(--neumorphic-spacing-xs);
+}
+.apexcharts-menu-item {
+  border-radius: var(--neumorphic-radius-sm) !important;
+  padding: var(--neumorphic-spacing-sm) var(--neumorphic-spacing-md) !important;
+  margin: var(--neumorphic-spacing-xs) 0 !important;
+  transition: all 0.2s ease;
+}
+.apexcharts-menu-item:hover {
+  background: var(--neumorphic-button) !important;
+  color: var(--neumorphic-text-primary) !important;
+  box-shadow: var(--neumorphic-shadow-convex-sm) !important;
+}
+.apexcharts-legend {
+  padding: var(--neumorphic-spacing-md) !important;
+}
+.apexcharts-legend-series {
+  margin: var(--neumorphic-spacing-xs) var(--neumorphic-spacing-sm) !important;
+}
+.apexcharts-datalabel {
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+.apexcharts-selection-rect {
+  fill: var(--neumorphic-border) !important;
+  fill-opacity: 0.1 !important;
+  stroke: var(--neumorphic-border) !important;
+  stroke-width: 1px !important;
+  stroke-dasharray: 3,3 !important;
+}
+.apexcharts-xcrosshairs, .apexcharts-ycrosshairs {
+  stroke: var(--neumorphic-border) !important;
+  stroke-opacity: 0.6 !important;
+  stroke-width: 1px !important;
+  stroke-dasharray: 3,3 !important;
+}
+.apexcharts-pie-label, .apexcharts-radialbar-label {
+  fill: var(--neumorphic-text-primary) !important;
+  font-weight: 600 !important;
+}
+.apexcharts-text, .apexcharts-xaxis-label, .apexcharts-yaxis-label, .apexcharts-legend-text, .apexcharts-title-text, .apexcharts-subtitle-text, .apexcharts-datalabel {
+  transition: fill 0.3s ease, color 0.3s ease !important;
+}
+.apexcharts-toolbar svg {
+  transition: fill 0.3s ease, opacity 0.2s ease !important;
+}
+.apexcharts-gridlines-horizontal line, .apexcharts-gridlines-vertical line, .apexcharts-xaxis-tick, .apexcharts-yaxis-tick {
+  transition: stroke 0.3s ease !important;
+}
+.apexcharts-canvas {
+  border-radius: var(--neumorphic-radius-md);
+}
+.apexcharts-toolbar {
+  background: transparent !important;
+  border-radius: var(--neumorphic-radius-sm);
+  padding: var(--neumorphic-spacing-xs);
+}
+.apexcharts-toolbar > div {
+  margin: 0 var(--neumorphic-spacing-xs) !important;
+}
+.apexcharts-loading {
+  color: var(--neumorphic-text-secondary) !important;
+  font-family: inherit !important;
 }
 @keyframes glow {
   0%, 100% {

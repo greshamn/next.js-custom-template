@@ -1,1 +1,8 @@
-{}
+{
+  "components/charts/apex/components/BaseChart.tsx -> react-apexcharts": {
+    "id": "components/charts/apex/components/BaseChart.tsx -> react-apexcharts",
+    "files": [
+      "static/chunks/_app-pages-browser_node_modules_react-apexcharts_dist_react-apexcharts_min_js.js"
+    ]
+  }
+}

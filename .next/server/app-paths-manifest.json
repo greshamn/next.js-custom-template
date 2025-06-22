@@ -1,5 +1,5 @@
 {
-  "/dashboard/page": "app/dashboard/page.js",
   "/test/neumorphic/page": "app/test/neumorphic/page.js",
+  "/dashboard/page": "app/dashboard/page.js",
   "/suppliers/page": "app/suppliers/page.js"
 }
