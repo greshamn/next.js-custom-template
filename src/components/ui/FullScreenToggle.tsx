@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { Maximize, Minimize } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
 
 export function FullScreenToggle() {
   const [isFullScreen, setIsFullScreen] = useState(false);
@@ -24,8 +25,20 @@ export function FullScreenToggle() {
   };
 
   return (
-    <Button variant="outline" size="icon" onClick={handleToggleFullScreen}>
-      {isFullScreen ? <Minimize className="h-4 w-4" /> : <Maximize className="h-4 w-4" />}
+    <Button 
+      variant="ghost" 
+      size="icon" 
+      onClick={handleToggleFullScreen}
+      className={cn(
+        "neumorphic-topbar-button",
+        "relative overflow-hidden"
+      )}
+    >
+      {isFullScreen ? (
+        <Minimize className="h-5 w-5 transition-all duration-300" />
+      ) : (
+        <Maximize className="h-5 w-5 transition-all duration-300" />
+      )}
       <span className="sr-only">{isFullScreen ? 'Exit full screen' : 'Enter full screen'}</span>
     </Button>
   );

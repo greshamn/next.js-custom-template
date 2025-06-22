@@ -620,7 +620,7 @@ const Sidebar = () => {
   <Button className="neumorphic-toggle">
     <ChevronLeft />
   </Button>
-</div>
+          </div>
 ```
 
 ### CSS Architecture

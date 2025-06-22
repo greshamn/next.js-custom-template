@@ -33,7 +33,7 @@ import { ActivityIcon, AlertCircleIcon, CheckCircleIcon, ClockIcon } from "lucid
 export default function DashboardPage() {
   return (
     <NeumorphicBackground className="min-h-screen">
-      <div className="max-w-7xl mx-auto space-y-4">
+      <div className="w-full space-y-2">
         {/* Header Section */}
         <NeumorphicCard>
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">

@@ -126,7 +126,7 @@
     position: fixed;
     inset: 0;
     background-color: rgba(0,0,0,0.5);
-    z-index: 40;
+    z-index: 35; /* Below top menu bar (z-index: 40) but above content */
     opacity: 1;
     transition: opacity 300ms ease-in-out;
   }
@@ -148,9 +148,16 @@
     height: 200px;
   }
 
-  .main-content-mobile {
-    padding-left: 0;
-  }
+      .main-content-mobile {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+      padding-top: 66px !important; /* Reduced top padding for mobile */
+    }
+    
+    /* Ultra-tight layout for all screen sizes */
+    .main-content-tight {
+      padding-top: 72px !important; /* Even tighter top spacing for desktop */
+    }
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {

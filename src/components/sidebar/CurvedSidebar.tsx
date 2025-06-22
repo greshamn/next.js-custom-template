@@ -11,6 +11,7 @@ import Icon from '@/components/ui/Icon';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import { useInverseTheme } from '@/lib/hooks/useInverseTheme';
+import { useTheme } from 'next-themes';
 
 const NavItem: React.FC<{
   item: NavigationItem;
@@ -99,14 +100,46 @@ const CurvedSidebar: React.FC<CurvedSidebarProps> = ({
   isMobile,
 }) => {
   const inverseTheme = useInverseTheme();
+  const { theme } = useTheme();
+  const [sidebarThemeMode, setSidebarThemeMode] = React.useState<'inverse' | 'match'>('inverse');
+
+  // Listen for sidebar theme mode changes
+  React.useEffect(() => {
+    const handleModeChange = () => {
+      const mode = document.documentElement.getAttribute('data-sidebar-theme-mode') as 'inverse' | 'match' || 'inverse';
+      setSidebarThemeMode(mode);
+    };
+
+    // Set initial mode
+    handleModeChange();
+
+    // Listen for changes
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.type === 'attributes' && mutation.attributeName === 'data-sidebar-theme-mode') {
+          handleModeChange();
+        }
+      });
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-sidebar-theme-mode']
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  // Determine which theme to use
+  const sidebarTheme = sidebarThemeMode === 'inverse' ? inverseTheme : theme;
 
   return (
     <>
       <aside
         className={cn(
           'sidebar-neumorphic-container transition-all duration-300 ease-in-out flex flex-col',
-          // Apply inverse theme
-          inverseTheme,
+          // Apply selected theme (inverse or matching)
+          sidebarTheme,
           // Desktop behavior
           !isMobile && (isOpen ? 'w-72' : 'w-20'),
           // Mobile behavior - always w-72 but use transform to hide/show
