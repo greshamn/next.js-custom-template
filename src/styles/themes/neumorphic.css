@@ -75,13 +75,14 @@
   --neumorphic-blur: 8px;
   --neumorphic-blur-strong: 16px;
   
-  /* Spacing - Enhanced compact system */
-  --neumorphic-spacing-xs: 0.25rem;  /* 4px - Extra tight */
-  --neumorphic-spacing-sm: 0.5rem;   /* 8px - Tight */
-  --neumorphic-spacing-md: 0.75rem;  /* 12px - Compact (was 16px) */
-  --neumorphic-spacing-lg: 1rem;     /* 16px - Normal (was 24px) */
-  --neumorphic-spacing-xl: 1.5rem;   /* 24px - Spacious (was 32px) */
-  --neumorphic-spacing-2xl: 2rem;    /* 32px - Extra spacious */
+  /* Spacing - Ultra-compact dense system */
+  --neumorphic-spacing-xxs: 0.125rem; /* 2px - Ultra tight */
+  --neumorphic-spacing-xs: 0.25rem;   /* 4px - Extra tight */
+  --neumorphic-spacing-sm: 0.375rem;  /* 6px - Tight (was 8px) */
+  --neumorphic-spacing-md: 0.5rem;    /* 8px - Compact (was 12px) */
+  --neumorphic-spacing-lg: 0.75rem;   /* 12px - Normal (was 16px) */
+  --neumorphic-spacing-xl: 1rem;      /* 16px - Spacious (was 24px) */
+  --neumorphic-spacing-2xl: 1.5rem;   /* 24px - Extra spacious (was 32px) */
   
   /* Border Radius - Subtle minimal values */
   --neumorphic-radius-sm: 0.25rem;   /* 4px */

@@ -10,8 +10,18 @@ const Glassmorphism: React.FC<GlassmorphismProps & { children: React.ReactNode }
   className = '',
   children
 }) => {
+  // Generate dynamic styles based on props
+  const dynamicStyles = {
+    '--glass-opacity': opacity,
+    '--glass-blur': `${blur}px`,
+    '--glass-border-opacity': borderOpacity,
+  } as React.CSSProperties;
+
   return (
-    <div className={`glassmorphism ${className}`}>
+    <div 
+      className={`glassmorphism ${className}`}
+      style={dynamicStyles}
+    >
       {/* Glassmorphism effect implementation will go here */}
       {children}
     </div>

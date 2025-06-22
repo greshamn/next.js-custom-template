@@ -1,6 +1,8 @@
 "use client";
 
 import LazyLoad from '@/components/ui/LazyLoad';
+import { SimpleDataTableDemo } from '@/components/examples/SimpleDataTableDemo';
+import { DataTableDemo } from '@/components/examples/DataTableDemo';
 import {
   Dialog,
   DialogContent,
@@ -33,13 +35,13 @@ import { ActivityIcon, AlertCircleIcon, CheckCircleIcon, ClockIcon } from "lucid
 export default function DashboardPage() {
   return (
     <NeumorphicBackground className="min-h-screen">
-      <div className="w-full space-y-2">
+      <div className="w-full space-y-1">
         {/* Header Section */}
         <NeumorphicCard>
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div>
               <NeumorphicHeading>Dashboard</NeumorphicHeading>
-              <NeumorphicText variant="secondary" className="mt-1">
+              <NeumorphicText variant="secondary" className="leading-tight">
                 Welcome to VETTPRO. Monitor your vetting operations.
               </NeumorphicText>
             </div>
@@ -92,7 +94,7 @@ export default function DashboardPage() {
         </NeumorphicCard>
 
         {/* Stats Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2">
           <NeumorphicStatsCard
             title="Active Requests"
             value="24"
@@ -116,7 +118,7 @@ export default function DashboardPage() {
         </div>
 
         {/* Charts Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">
           <LazyLoad fallback={<NeumorphicCard className="animate-pulse h-64" />}>
             <NeumorphicCard>
               <PlaceholderLineChart />
@@ -131,7 +133,7 @@ export default function DashboardPage() {
                   Testing the updated button and input styles.
                 </NeumorphicText>
               </div>
-              <div className="space-y-4 mt-4">
+              <div className="space-y-2 mt-2">
                 <Input type="email" placeholder="Email with neumorphic effect" />
                 <Button variant="neumorphic-outline" className="w-full">Neumorphic Button</Button>
               </div>
@@ -142,7 +144,7 @@ export default function DashboardPage() {
         {/* Recent Activity Table */}
         <LazyLoad fallback={<NeumorphicCard className="animate-pulse h-48" />}>
           <NeumorphicCard>
-            <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center justify-between mb-2">
               <NeumorphicText size="lg" className="font-semibold">Recent Vetting Requests</NeumorphicText>
               <Button variant="neumorphic-outline" className="text-neumorphic-text-secondary hover:text-neumorphic-text-primary text-sm">
                 View All
@@ -249,6 +251,32 @@ export default function DashboardPage() {
                 </Button>
               </NeumorphicCard>
             </div>
+          </NeumorphicCard>
+        </LazyLoad>
+
+        {/* Simple Data Table Demo */}
+        <LazyLoad fallback={<NeumorphicCard className="animate-pulse h-96" />}>
+          <NeumorphicCard>
+            <div className="mb-4">
+              <NeumorphicText size="lg" className="font-semibold">Simple Data Table</NeumorphicText>
+              <NeumorphicText variant="secondary" size="sm" className="mt-1">
+                Clean, production-ready table with core features and standard display.
+              </NeumorphicText>
+            </div>
+            <SimpleDataTableDemo />
+          </NeumorphicCard>
+        </LazyLoad>
+
+        {/* Advanced Data Table Demo */}
+        <LazyLoad fallback={<NeumorphicCard className="animate-pulse h-96" />}>
+          <NeumorphicCard>
+            <div className="mb-4">
+              <NeumorphicText size="lg" className="font-semibold">Advanced Data Table</NeumorphicText>
+              <NeumorphicText variant="secondary" size="sm" className="mt-1">
+                Feature-rich table with custom cells, avatars, badges, row expansion, and column resizing.
+              </NeumorphicText>
+            </div>
+            <DataTableDemo />
           </NeumorphicCard>
         </LazyLoad>
 

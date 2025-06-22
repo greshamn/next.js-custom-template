@@ -66,7 +66,7 @@ const DashboardLayout: React.FC<{ children: React.ReactNode }> = ({ children }) 
             </Button>
           )}
         </div>
-        <div className="flex-1">
+        <div className="flex-1 mt-2">
           {children}
         </div>
       </div>
