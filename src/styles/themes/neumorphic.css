@@ -1,0 +1,53 @@
+/* Neumorphic Theme System */
+:root {
+  /* Base Colors */
+  --neumorphic-bg: #212428;
+  --neumorphic-card: rgba(45, 49, 53, 0.5);
+  --neumorphic-card-end: rgba(21, 23, 26, 0.5);
+  --neumorphic-button: rgba(34, 37, 40, 0.5);
+  --neumorphic-text-primary: #E0E0E0;
+  --neumorphic-text-secondary: #A0A0A0;
+  --neumorphic-accent: #FF9A3E;
+  --neumorphic-border: #8B5CF6;
+
+  /* Background Gradients */
+  --neumorphic-gradient-start: #1a4a3c;
+  --neumorphic-gradient-end: #4a1a4a;
+  
+  /* Shadows */
+  --neumorphic-light-shadow: rgba(255, 255, 255, 0.05);
+  --neumorphic-dark-shadow: rgba(0, 0, 0, 0.5);
+
+  /* Effects */
+  --neumorphic-shadow-convex: 6px 6px 12px var(--neumorphic-dark-shadow), -6px -6px 12px var(--neumorphic-light-shadow);
+  --neumorphic-shadow-convex-sm: 3px 3px 6px var(--neumorphic-dark-shadow), -3px -3px 6px var(--neumorphic-light-shadow);
+  --neumorphic-shadow-convex-lg: 12px 12px 24px var(--neumorphic-dark-shadow), -12px -12px 24px var(--neumorphic-light-shadow);
+  --neumorphic-shadow-concave: inset 6px 6px 12px var(--neumorphic-dark-shadow), inset -6px -6px 12px var(--neumorphic-light-shadow);
+  
+  /* Gradients */
+  --neumorphic-gradient: linear-gradient(145deg, var(--neumorphic-card), var(--neumorphic-card-end));
+  --neumorphic-bg-gradient: linear-gradient(145deg, var(--neumorphic-gradient-start), var(--neumorphic-gradient-end));
+  
+  /* Blur */
+  --neumorphic-blur: 2px;
+  
+  /* Spacing */
+  --neumorphic-spacing-sm: 0.5rem;
+  --neumorphic-spacing-md: 1rem;
+  --neumorphic-spacing-lg: 1.5rem;
+  
+  /* Border Radius */
+  --neumorphic-radius-sm: 0.75rem;
+  --neumorphic-radius-md: 1.25rem;
+  --neumorphic-radius-lg: 2.5rem;
+}
+
+/* Dark theme overrides if needed */
+.dark {
+  --neumorphic-bg: #212428;
+  --neumorphic-card: rgba(45, 49, 53, 0.5);
+  --neumorphic-card-end: rgba(21, 23, 26, 0.5);
+  --neumorphic-button: rgba(34, 37, 40, 0.5);
+  --neumorphic-text-primary: #E0E0E0;
+  --neumorphic-text-secondary: #A0A0A0;
+} 
