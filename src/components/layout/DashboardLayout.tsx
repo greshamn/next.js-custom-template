@@ -11,8 +11,11 @@ import { NAVIGATION_ITEMS } from '@/lib/constants/design';
 const DashboardLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
+    
     const handleResize = () => {
       const isMobileScreen = window.innerWidth < 768;
       setIsMobile(isMobileScreen);
@@ -34,6 +37,26 @@ const DashboardLayout: React.FC<{ children: React.ReactNode }> = ({ children }) 
   const handleSidebarToggle = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
+
+  // Don't render responsive layout until mounted to prevent hydration mismatch
+  if (!mounted) {
+    return (
+      <main className="flex h-screen">
+        <TopMenuBar isSidebarOpen={true} isMobile={false} />
+        <CurvedSidebar
+          isOpen={true}
+          onToggle={handleSidebarToggle}
+          navItems={NAVIGATION_ITEMS}
+          isMobile={false}
+        />
+        <div className="flex-1 flex flex-col overflow-auto text-dashboard-foreground px-1 md:px-2 py-1 pt-12 ml-72 main-content-tight">
+          <div className="flex-1 mt-2">
+            {children}
+          </div>
+        </div>
+      </main>
+    );
+  }
 
   return (
     <main className="flex h-screen">

@@ -3,6 +3,8 @@
 import LazyLoad from '@/components/ui/LazyLoad';
 import { SimpleDataTableDemo } from '@/components/examples/SimpleDataTableDemo';
 import { DataTableDemo } from '@/components/examples/DataTableDemo';
+import { FormComponentsDemo } from '@/components/forms/examples/FormComponentsDemo';
+import SelectionComponentsDemo from '@/components/forms/examples/SelectionComponentsDemo';
 import {
   Dialog,
   DialogContent,
@@ -277,6 +279,32 @@ export default function DashboardPage() {
               </NeumorphicText>
             </div>
             <DataTableDemo />
+          </NeumorphicCard>
+        </LazyLoad>
+
+        {/* Form Components Demo */}
+        <LazyLoad fallback={<NeumorphicCard className="animate-pulse h-96" />}>
+          <NeumorphicCard>
+            <div className="mb-4">
+              <NeumorphicText size="lg" className="font-semibold">🇿🇦 South African Form Components</NeumorphicText>
+              <NeumorphicText variant="secondary" size="sm" className="mt-1">
+                Comprehensive form components for South African vetting and verification systems with real-time validation.
+              </NeumorphicText>
+            </div>
+            <FormComponentsDemo />
+          </NeumorphicCard>
+        </LazyLoad>
+
+        {/* Selection Components Demo */}
+        <LazyLoad fallback={<NeumorphicCard className="animate-pulse h-96" />}>
+          <NeumorphicCard>
+            <div className="mb-4">
+              <NeumorphicText size="lg" className="font-semibold">🎯 Selection Components</NeumorphicText>
+              <NeumorphicText variant="secondary" size="sm" className="mt-1">
+                Radio buttons, checkboxes, dropdowns, and multi-select components with search, grouping, and validation.
+              </NeumorphicText>
+            </div>
+            <SelectionComponentsDemo />
           </NeumorphicCard>
         </LazyLoad>
 

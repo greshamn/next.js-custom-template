@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
 import { useTheme } from 'next-themes';
 import { ThemeSwitcher } from '@/components/ui/ThemeSwitcher';
@@ -14,12 +14,19 @@ interface TopMenuBarProps {
 
 const TopMenuBar: React.FC<TopMenuBarProps> = ({ isSidebarOpen, isMobile }) => {
   const { theme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  // Prevent hydration mismatch by only applying theme after client mount
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   return (
     <div 
       className={cn(
         'topbar-neumorphic-container h-16 flex items-center justify-end px-6',
-        theme, // Use main theme (not inverse)
+        // Only apply theme class after client mount to prevent hydration mismatch
+        mounted && theme,
         // Adjust positioning based on sidebar state
         !isMobile && (isSidebarOpen ? 'ml-72' : 'ml-20'),
         // Full width on mobile

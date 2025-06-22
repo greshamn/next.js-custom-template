@@ -87,7 +87,7 @@ export const NeumorphicInput = React.forwardRef<
       "border border-neumorphic-border/5",
       "text-neumorphic-text-primary",
       "placeholder:text-neumorphic-text-secondary",
-      "focus:outline-none focus:ring-2 focus:ring-neumorphic-accent/20",
+      "focus:outline-none focus:ring-2 focus:ring-purple-500/20 focus:border-purple-500/50",
       "backdrop-blur-[var(--neumorphic-blur)]",
       "w-full",
       className

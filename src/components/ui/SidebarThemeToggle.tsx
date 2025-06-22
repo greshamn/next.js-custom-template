@@ -5,9 +5,11 @@ import { Layers } from 'lucide-react';
 
 const SidebarThemeToggle: React.FC = () => {
   const [sidebarThemeMode, setSidebarThemeMode] = useState<'inverse' | 'match'>('inverse');
+  const [mounted, setMounted] = useState(false);
 
   // Load saved preference on mount
   useEffect(() => {
+    setMounted(true);
     const saved = localStorage.getItem('sidebar-theme-mode');
     if (saved === 'match' || saved === 'inverse') {
       setSidebarThemeMode(saved);
@@ -16,9 +18,10 @@ const SidebarThemeToggle: React.FC = () => {
 
   // Apply the theme mode to document
   useEffect(() => {
+    if (!mounted) return;
     document.documentElement.setAttribute('data-sidebar-theme-mode', sidebarThemeMode);
     localStorage.setItem('sidebar-theme-mode', sidebarThemeMode);
-  }, [sidebarThemeMode]);
+  }, [sidebarThemeMode, mounted]);
 
   const toggleSidebarTheme = () => {
     setSidebarThemeMode(prev => prev === 'inverse' ? 'match' : 'inverse');
