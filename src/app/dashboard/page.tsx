@@ -6,6 +6,8 @@ import { DataTableDemo } from '@/components/examples/DataTableDemo';
 import { FormComponentsDemo } from '@/components/forms/examples/FormComponentsDemo';
 import SelectionComponentsDemo from '@/components/forms/examples/SelectionComponentsDemo';
 import { BasicDemo } from '@/components/charts/apex/examples/BasicDemo';
+import { VettingLineChartsDemo } from '@/components/charts/apex/examples/VettingLineChartsDemo';
+import { VettingBarChartsDemo } from '@/components/charts/apex/examples/VettingBarChartsDemo';
 import {
   Dialog,
   DialogContent,
@@ -148,6 +150,20 @@ export default function DashboardPage() {
         <LazyLoad fallback={<NeumorphicCard className="animate-pulse h-96" />}>
           <NeumorphicCard>
             <BasicDemo />
+          </NeumorphicCard>
+        </LazyLoad>
+
+        {/* Vetting Line Charts Demo Section */}
+        <LazyLoad fallback={<NeumorphicCard className="animate-pulse h-96" />}>
+          <NeumorphicCard>
+            <VettingLineChartsDemo />
+          </NeumorphicCard>
+        </LazyLoad>
+
+        {/* Vetting Bar Charts Demo Section */}
+        <LazyLoad fallback={<NeumorphicCard className="animate-pulse h-96" />}>
+          <NeumorphicCard>
+            <VettingBarChartsDemo />
           </NeumorphicCard>
         </LazyLoad>
 

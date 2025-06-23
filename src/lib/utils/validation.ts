@@ -225,7 +225,7 @@ export function validateSAVATNumber(vatNumber: string): {
 }
 
 // Bank Account Number Validation (basic format checking)
-export function validateSABankAccount(accountNumber: string, _bankCode?: string): {
+export function validateSABankAccount(accountNumber: string): {
   isValid: boolean;
   error?: string;
 } {

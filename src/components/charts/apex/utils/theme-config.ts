@@ -1,19 +1,6 @@
 import { ApexOptions } from 'apexcharts';
 
-export type ThemeConfig = {
-  primaryColor: string;
-  secondaryColor: string;
-  backgroundColor: string;
-  textColor: string;
-  gridColor: string;
-  borderColor: string;
-  fontFamily: string;
-  fontSize: {
-    small: number;
-    medium: number;
-    large: number;
-  };
-};
+// ThemeConfig type moved to types/chart-types.ts to avoid duplicate exports
 
 /**
  * Get CSS custom property value from the document

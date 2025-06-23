@@ -121,22 +121,19 @@ export const BaseChart: React.FC<BaseChartProps> = ({
     );
   }
 
-  // Merge theme with provided options
+  // Create safe merged options - avoid deep merging for now
   const themeOptions = generateApexTheme();
+  console.log('BaseChart themeOptions:', themeOptions);
+  console.log('BaseChart options:', options);
+  
   const mergedOptions: ApexOptions = {
-    ...themeOptions,
-    ...options,
+    ...options, // Start with user options
+    // Override with safe theme values
     chart: {
-      ...themeOptions.chart,
       ...options.chart,
-    },
-    xaxis: {
-      ...themeOptions.xaxis,
-      ...options.xaxis,
-    },
-    yaxis: {
-      ...themeOptions.yaxis,
-      ...options.yaxis,
+      background: 'transparent',
+      foreColor: themeOptions.chart?.foreColor || '#000',
+      fontFamily: 'inherit',
     },
   };
 
