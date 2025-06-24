@@ -944,7 +944,13 @@ div.glow-subtle-blue {
 .light .apexcharts-tooltip-text,
 .light .apexcharts-menu-item,
 .light .apexcharts-xaxis-title,
-.light .apexcharts-yaxis-title {
+.light .apexcharts-yaxis-title,
+.light .apexcharts-datalabel-value,
+.light .apexcharts-datalabels text,
+.light .apexcharts-bar-goals-markers text,
+.light .apexcharts-annotations-label,
+.light .apexcharts-point-annotations text,
+.light .apexcharts-annotations text {
   fill: var(--neumorphic-text-primary) !important;
   color: var(--neumorphic-text-primary) !important;
   font-family: inherit !important;
@@ -1002,7 +1008,13 @@ div.glow-subtle-blue {
 .dark .apexcharts-tooltip-text,
 .dark .apexcharts-menu-item,
 .dark .apexcharts-xaxis-title,
-.dark .apexcharts-yaxis-title {
+.dark .apexcharts-yaxis-title,
+.dark .apexcharts-datalabel-value,
+.dark .apexcharts-datalabels text,
+.dark .apexcharts-bar-goals-markers text,
+.dark .apexcharts-annotations-label,
+.dark .apexcharts-point-annotations text,
+.dark .apexcharts-annotations text {
   fill: var(--neumorphic-text-primary) !important;
   color: var(--neumorphic-text-primary) !important;
   font-family: inherit !important;
@@ -1116,6 +1128,38 @@ div.glow-subtle-blue {
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
+/* Additional ApexCharts text element targeting for better coverage */
+.dark .apexcharts-svg text,
+.dark .apexcharts-bar-series text,
+.dark .apexcharts-series text,
+.dark tspan {
+  fill: var(--neumorphic-text-primary) !important;
+  color: var(--neumorphic-text-primary) !important;
+}
+
+.light .apexcharts-svg text,
+.light .apexcharts-bar-series text,
+.light .apexcharts-series text,
+.light tspan {
+  fill: var(--neumorphic-text-primary) !important;
+  color: var(--neumorphic-text-primary) !important;
+}
+
+/* High specificity rules for stubborn data labels */
+.dark .apexcharts-canvas .apexcharts-svg .apexcharts-datalabels text,
+.dark .apexcharts-canvas .apexcharts-svg .apexcharts-datalabel,
+.dark .apexcharts-canvas .apexcharts-svg .apexcharts-bar-series .apexcharts-datalabels text {
+  fill: var(--neumorphic-text-primary) !important;
+  color: var(--neumorphic-text-primary) !important;
+}
+
+.light .apexcharts-canvas .apexcharts-svg .apexcharts-datalabels text,
+.light .apexcharts-canvas .apexcharts-svg .apexcharts-datalabel,
+.light .apexcharts-canvas .apexcharts-svg .apexcharts-bar-series .apexcharts-datalabels text {
+  fill: var(--neumorphic-text-primary) !important;
+  color: var(--neumorphic-text-primary) !important;
+}
+
 /* ApexCharts zoom/pan selection area */
 .apexcharts-selection-rect {
   fill: var(--neumorphic-border) !important;
@@ -1183,4 +1227,86 @@ div.glow-subtle-blue {
 .apexcharts-loading {
   color: var(--neumorphic-text-secondary) !important;
   font-family: inherit !important;
+}
+
+/* TARGETED FIX: Override ApexCharts inline fill attributes in dark theme */
+/* ApexCharts sets fill="#color" directly on SVG elements - need to override with CSS */
+.dark .apexcharts-text[fill],
+.dark .apexcharts-xaxis-label[fill],
+.dark .apexcharts-yaxis-label[fill], 
+.dark .apexcharts-datalabel[fill],
+.dark .apexcharts-yaxis-annotation-label[fill] {
+  fill: #E0E0E0 !important;
+}
+
+/* Also target by class for elements without fill attributes */
+.dark .apexcharts-text,
+.dark .apexcharts-xaxis-label,
+.dark .apexcharts-yaxis-label,
+.dark .apexcharts-datalabel,
+.dark .apexcharts-yaxis-annotation-label {
+  fill: #E0E0E0 !important;
+  color: #E0E0E0 !important;
+}
+
+/* COMPREHENSIVE: Target any text within ApexCharts that has inline fill in dark theme */
+.dark svg text[fill]:not([fill="none"]) {
+  fill: #E0E0E0 !important;
+}
+
+/* FIX THE ROOT ISSUE: White background rectangles behind text in dark theme */
+/* ApexCharts creates white rect backgrounds that hide text in dark theme */
+.dark .apexcharts-yaxis-annotations rect[fill="#fff"],
+.dark .apexcharts-yaxis-annotations rect[fill="white"],
+.dark .apexcharts-yaxis-annotations rect[fill="#ffffff"] {
+  fill: rgba(26, 28, 32, 0.9) !important; /* Dark background with slight transparency */
+  stroke: #4a5568 !important; /* Dark border */
+}
+
+/* Target any white rectangles in ApexCharts annotations in dark theme */
+.dark svg rect[fill="#fff"],
+.dark svg rect[fill="white"],
+.dark svg rect[fill="#ffffff"] {
+  fill: rgba(26, 28, 32, 0.9) !important;
+  stroke: #4a5568 !important;
+}
+
+/* CRITICAL: Catch-all rules for ANY text within ApexCharts containers */
+/* These rules have the highest specificity to override ApexCharts defaults */
+.dark .apexcharts-canvas text,
+.dark .apexcharts-canvas tspan,
+.dark [class*="apexcharts"] text,
+.dark [class*="apexcharts"] tspan {
+  fill: var(--neumorphic-text-primary) !important;
+  color: var(--neumorphic-text-primary) !important;
+}
+
+.light .apexcharts-canvas text,
+.light .apexcharts-canvas tspan,
+.light [class*="apexcharts"] text,
+.light [class*="apexcharts"] tspan {
+  fill: var(--neumorphic-text-primary) !important;
+  color: var(--neumorphic-text-primary) !important;
+}
+
+/* SIMPLE & ELEGANT - Direct hardcoded fix for dark theme text visibility */
+/* Use exact same pattern that worked for light theme */
+
+/* Force text contrast for data labels specifically */
+.dark .apexcharts-datalabels text,
+.dark .apexcharts-datalabel text,
+.dark .apexcharts-bar-series .apexcharts-datalabels text {
+  fill: #FFFFFF !important;
+  color: #FFFFFF !important;
+  font-weight: 600 !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5) !important;
+}
+
+.light .apexcharts-datalabels text,
+.light .apexcharts-datalabel text,
+.light .apexcharts-bar-series .apexcharts-datalabels text {
+  fill: #000000 !important;
+  color: #000000 !important;
+  font-weight: 600 !important;
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.5) !important;
 } 

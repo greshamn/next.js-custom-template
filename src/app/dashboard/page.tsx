@@ -8,6 +8,7 @@ import SelectionComponentsDemo from '@/components/forms/examples/SelectionCompon
 import { BasicDemo } from '@/components/charts/apex/examples/BasicDemo';
 import { VettingLineChartsDemo } from '@/components/charts/apex/examples/VettingLineChartsDemo';
 import { VettingBarChartsDemo } from '@/components/charts/apex/examples/VettingBarChartsDemo';
+import { PieDonutChartsDemo } from '@/components/charts/apex/examples/PieDonutChartsDemo';
 import {
   Dialog,
   DialogContent,
@@ -164,6 +165,13 @@ export default function DashboardPage() {
         <LazyLoad fallback={<NeumorphicCard className="animate-pulse h-96" />}>
           <NeumorphicCard>
             <VettingBarChartsDemo />
+          </NeumorphicCard>
+        </LazyLoad>
+
+        {/* Pie & Donut Charts Demo Section */}
+        <LazyLoad fallback={<NeumorphicCard className="animate-pulse h-96" />}>
+          <NeumorphicCard>
+            <PieDonutChartsDemo />
           </NeumorphicCard>
         </LazyLoad>
 

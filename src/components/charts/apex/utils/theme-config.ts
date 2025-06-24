@@ -16,20 +16,36 @@ function getCSSCustomProperty(propertyName: string): string {
  * Generate ApexCharts theme configuration using neumorphic CSS custom properties
  */
 export function generateApexTheme(): ApexOptions {
-  // Simply read the CSS custom properties - they should automatically be correct for the current theme
-  const textPrimary = getCSSCustomProperty('--neumorphic-text-primary');
-  const textSecondary = getCSSCustomProperty('--neumorphic-text-secondary');
-  
-  // Enhanced debug logging
+  // Detect current theme
   const currentTheme = typeof window !== 'undefined' 
     ? document.documentElement.classList.contains('dark') ? 'dark' : 'light'
     : 'unknown';
   
+  // Read CSS custom properties with fallbacks
+  let textPrimary = getCSSCustomProperty('--neumorphic-text-primary');
+  let textSecondary = getCSSCustomProperty('--neumorphic-text-secondary');
+  
+  // If CSS custom properties are empty or invalid, use hardcoded fallbacks based on theme
+  if (!textPrimary || textPrimary.length === 0) {
+    textPrimary = currentTheme === 'dark' ? '#E0E0E0' : '#2D3748';
+    console.warn('ApexCharts: Using fallback textPrimary color:', textPrimary);
+  }
+  
+  if (!textSecondary || textSecondary.length === 0) {
+    textSecondary = currentTheme === 'dark' ? '#A0A0A0' : '#718096';
+    console.warn('ApexCharts: Using fallback textSecondary color:', textSecondary);
+  }
+  
+  // Enhanced debug logging
   console.log('ApexCharts Theme Debug:', { 
     currentTheme,
     textPrimary, 
     textSecondary,
-    documentClasses: typeof window !== 'undefined' ? document.documentElement.className : 'server'
+    documentClasses: typeof window !== 'undefined' ? document.documentElement.className : 'server',
+    cssCustomPropsRaw: {
+      primary: getCSSCustomProperty('--neumorphic-text-primary'),
+      secondary: getCSSCustomProperty('--neumorphic-text-secondary')
+    }
   });
 
   return {
@@ -53,15 +69,23 @@ export function generateApexTheme(): ApexOptions {
     xaxis: {
       labels: {
         style: {
-          colors: textPrimary,
+          colors: [textPrimary], // ApexCharts expects array
+          fontSize: '12px',
         },
       },
     },
     yaxis: {
       labels: {
         style: {
-          colors: textPrimary,
+          colors: [textPrimary], // ApexCharts expects array
+          fontSize: '12px',
         },
+      },
+    },
+    dataLabels: {
+      style: {
+        colors: [textPrimary], // Force data label colors
+        fontSize: '12px',
       },
     },
     grid: {
@@ -184,4 +208,34 @@ export const responsiveOptions: ApexOptions['responsive'] = [
       },
     },
   },
-]; 
+];
+
+/**
+ * Force ApexCharts text elements to use correct theme colors
+ * Call this after chart is mounted to override any ApexCharts defaults
+ */
+export function forceApexChartsThemeColors(): void {
+  if (typeof window === 'undefined') return;
+  
+  const isDark = document.documentElement.classList.contains('dark');
+  const textColor = isDark ? '#E0E0E0' : '#2D3748';
+  
+  // Find all ApexCharts text elements and force the color
+  const apexTextElements = document.querySelectorAll([
+    '.apexcharts-svg text',
+    '.apexcharts-svg tspan',
+    '.apexcharts-datalabel',
+    '.apexcharts-xaxis-label',
+    '.apexcharts-yaxis-label',
+    '.apexcharts-legend-text'
+  ].join(', '));
+  
+  apexTextElements.forEach((element) => {
+    if (element instanceof SVGElement) {
+      element.setAttribute('fill', textColor);
+      element.style.setProperty('fill', textColor, 'important');
+    }
+  });
+  
+  console.log(`Forced theme colors on ${apexTextElements.length} ApexCharts text elements`);
+}

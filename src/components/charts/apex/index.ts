@@ -6,5 +6,13 @@ export * from './utils';
 
 // Export components
 export { BaseChart } from './components/BaseChart';
+export { LineChart } from './components/LineChart';
+export { BarChart } from './components/BarChart';
+export { PieChart } from './components/PieChart';
+export { DonutChart } from './components/DonutChart';
 
-// Note: Other chart components (LineChart, AreaChart, etc.) will be added here as they are created 
+// Export specialized chart components
+export { RiskLevelDistributionChart } from './components/RiskLevelDistributionChart';
+export { VerificationStatusDonutChart } from './components/VerificationStatusDonutChart';
+export { ServiceTypeDistributionChart } from './components/ServiceTypeDistributionChart';
+export { ProvincialSupplierDonutChart } from './components/ProvincialSupplierDonutChart'; 

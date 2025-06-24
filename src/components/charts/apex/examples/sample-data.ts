@@ -616,6 +616,106 @@ export const slaComplianceBarData = [
   },
 ];
 
+// =====================================
+// VETTING-SPECIFIC PIE/DONUT CHART DATA
+// =====================================
+
+// 1. Supplier Risk Level Distribution (Pie Chart)
+export const supplierRiskLevelDistributionData: ChartData[] = [
+  { x: 'Low Risk (1-3)', y: 42 },
+  { x: 'Medium Risk (4-6)', y: 35 },
+  { x: 'High Risk (7-8)', y: 18 },
+  { x: 'Critical Risk (9-10)', y: 5 },
+];
+
+// 2. Verification Status Completion (Donut Chart)
+export const verificationCompletionStatusData: ChartData[] = [
+  { x: 'Completed', y: 68 },
+  { x: 'In Progress', y: 22 },
+  { x: 'Pending', y: 7 },
+  { x: 'Failed', y: 3 },
+];
+
+// 3. Verification Outcome Distribution (Pie Chart)
+export const verificationOutcomeDistributionData: ChartData[] = [
+  { x: 'Pass', y: 73 },
+  { x: 'Pass with Conditions', y: 15 },
+  { x: 'Flagged for Review', y: 8 },
+  { x: 'Fail', y: 4 },
+];
+
+// 4. Primary Risk Source Breakdown (Donut Chart)
+export const primaryRiskSourceData: ChartData[] = [
+  { x: 'Financial Instability', y: 28 },
+  { x: 'Compliance Issues', y: 24 },
+  { x: 'Operational Concerns', y: 19 },
+  { x: 'Reputational Risks', y: 15 },
+  { x: 'Legal/Regulatory', y: 10 },
+  { x: 'Other Factors', y: 4 },
+];
+
+// 5. Vetting Service Type Distribution (Pie Chart)
+export const vettingServiceTypeDistributionData: ChartData[] = [
+  { x: 'CIPC Registration Check', y: 22 },
+  { x: 'Tax Compliance Verification', y: 18 },
+  { x: 'BEE Certificate Validation', y: 16 },
+  { x: 'Criminal Background Check', y: 14 },
+  { x: 'Bank Account Verification', y: 12 },
+  { x: 'Reference Verification', y: 10 },
+  { x: 'Qualification Verification', y: 8 },
+];
+
+// 6. Provincial Supplier Distribution (Donut Chart)
+export const provincialSupplierDistributionData: ChartData[] = [
+  { x: 'Gauteng', y: 32 },
+  { x: 'Western Cape', y: 24 },
+  { x: 'KwaZulu-Natal', y: 16 },
+  { x: 'Eastern Cape', y: 8 },
+  { x: 'Limpopo', y: 6 },
+  { x: 'Mpumalanga', y: 5 },
+  { x: 'North West', y: 4 },
+  { x: 'Free State', y: 3 },
+  { x: 'Northern Cape', y: 2 },
+];
+
+// 7. Compliance Type Breakdown (Pie Chart)
+export const complianceTypeBreakdownData: ChartData[] = [
+  { x: 'Tax Compliance', y: 26 },
+  { x: 'BEE Compliance', y: 22 },
+  { x: 'Labour Compliance', y: 18 },
+  { x: 'Environmental Compliance', y: 14 },
+  { x: 'Health & Safety', y: 12 },
+  { x: 'Industry-Specific', y: 8 },
+];
+
+// 8. Vetting Cost Distribution by Service (Donut Chart - ZAR values)
+export const vettingCostDistributionData: ChartData[] = [
+  { x: 'Enhanced Due Diligence', y: 45 },
+  { x: 'Specialized Audits', y: 32 },
+  { x: 'Background Checks', y: 15 },
+  { x: 'Basic Verification', y: 8 },
+];
+
+// 9. Supplier Sector Distribution (Pie Chart)
+export const supplierSectorDistributionData: ChartData[] = [
+  { x: 'Construction & Infrastructure', y: 23 },
+  { x: 'Information Technology', y: 19 },
+  { x: 'Professional Services', y: 16 },
+  { x: 'Manufacturing', y: 12 },
+  { x: 'Transportation & Logistics', y: 11 },
+  { x: 'Mining & Resources', y: 9 },
+  { x: 'Healthcare', y: 6 },
+  { x: 'Other', y: 4 },
+];
+
+// 10. Fraud Detection Outcome (Donut Chart)
+export const fraudDetectionOutcomeData: ChartData[] = [
+  { x: 'Clean - No Issues', y: 78 },
+  { x: 'Minor Discrepancies', y: 12 },
+  { x: 'Significant Concerns', y: 7 },
+  { x: 'Fraud Detected', y: 3 },
+];
+
 // Export all sample data
 export const sampleData = {
   // Original data
@@ -650,4 +750,16 @@ export const sampleData = {
    sectorSupplierDistribution: sectorSupplierDistributionData,
    verificationProcessingTime: verificationProcessingTimeData,
    slaComplianceBar: slaComplianceBarData,
+   
+   // New pie/donut chart data
+   supplierRiskLevelDistribution: supplierRiskLevelDistributionData,
+   verificationCompletionStatus: verificationCompletionStatusData,
+   verificationOutcomeDistribution: verificationOutcomeDistributionData,
+   primaryRiskSource: primaryRiskSourceData,
+   vettingServiceTypeDistribution: vettingServiceTypeDistributionData,
+   provincialSupplierDistribution: provincialSupplierDistributionData,
+   complianceTypeBreakdown: complianceTypeBreakdownData,
+   vettingCostDistribution: vettingCostDistributionData,
+   supplierSectorDistribution: supplierSectorDistributionData,
+   fraudDetectionOutcome: fraudDetectionOutcomeData,
 }; 

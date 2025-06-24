@@ -51,6 +51,8 @@ export const BaseChart: React.FC<BaseChartProps> = ({
     const handleThemeChange = () => {
       console.log('Theme changed, forcing chart re-render');
       setThemeKey(prev => prev + 1);
+      
+
     };
 
     // Watch for class changes on document element (theme switching)
@@ -69,6 +71,8 @@ export const BaseChart: React.FC<BaseChartProps> = ({
 
     return () => observer.disconnect();
   }, [mounted]);
+
+
 
   // Show loading state
   if (loading) {
@@ -121,21 +125,82 @@ export const BaseChart: React.FC<BaseChartProps> = ({
     );
   }
 
-  // Create safe merged options - avoid deep merging for now
+  // Create properly merged options with theme integration
   const themeOptions = generateApexTheme();
   console.log('BaseChart themeOptions:', themeOptions);
   console.log('BaseChart options:', options);
   
+  // Create properly merged options with theme integration
+  // For pie/donut charts, avoid axis configurations that can cause offsetY errors
+  const isPieOrDonut = type === 'pie' || type === 'donut';
+  
   const mergedOptions: ApexOptions = {
-    ...options, // Start with user options
-    // Override with safe theme values
+    // Start with theme options as base
+    ...themeOptions,
+    // Then apply user options
+    ...options,
+    // Finally ensure critical theme values are preserved
     chart: {
+      ...themeOptions.chart,
       ...options.chart,
       background: 'transparent',
       foreColor: themeOptions.chart?.foreColor || '#000',
       fontFamily: 'inherit',
     },
   };
+
+  // Only add axis configurations for non-pie/donut charts
+  if (!isPieOrDonut) {
+    // Ensure axis labels use theme colors
+    mergedOptions.xaxis = {
+      ...themeOptions.xaxis,
+      ...options.xaxis,
+      labels: {
+        ...themeOptions.xaxis?.labels,
+        ...options.xaxis?.labels,
+        style: {
+          ...themeOptions.xaxis?.labels?.style,
+          ...options.xaxis?.labels?.style,
+          colors: themeOptions.xaxis?.labels?.style?.colors || [themeOptions.chart?.foreColor || '#000'],
+        },
+      },
+    };
+
+    // Handle yaxis (can be single object or array)
+    mergedOptions.yaxis = (() => {
+      const themeYaxis = themeOptions.yaxis;
+      const userYaxis = options.yaxis;
+      
+      // If user provided array, preserve it but apply theme to first element
+      if (Array.isArray(userYaxis)) {
+        return userYaxis.map((axis) => ({
+          ...axis,
+          labels: {
+            ...axis.labels,
+            style: {
+              ...axis.labels?.style,
+              colors: [themeOptions.chart?.foreColor || '#000'],
+            },
+          },
+        }));
+      }
+      
+      // Single yaxis object
+      return {
+        ...(typeof themeYaxis === 'object' && !Array.isArray(themeYaxis) ? themeYaxis : {}),
+        ...(typeof userYaxis === 'object' && !Array.isArray(userYaxis) ? userYaxis : {}),
+        labels: {
+          ...(typeof themeYaxis === 'object' && !Array.isArray(themeYaxis) ? themeYaxis.labels : {}),
+          ...(typeof userYaxis === 'object' && !Array.isArray(userYaxis) ? userYaxis.labels : {}),
+          style: {
+            ...(typeof themeYaxis === 'object' && !Array.isArray(themeYaxis) ? themeYaxis.labels?.style : {}),
+            ...(typeof userYaxis === 'object' && !Array.isArray(userYaxis) ? userYaxis.labels?.style : {}),
+            colors: [themeOptions.chart?.foreColor || '#000'],
+          },
+        },
+      };
+    })();
+  }
 
   return (
     <div className={neumorphicChartStyles.container}>

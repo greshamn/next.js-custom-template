@@ -3,7 +3,7 @@
 import React from 'react';
 import { ApexOptions } from 'apexcharts';
 import { BaseChart } from './BaseChart';
-import { generateColorPalette } from '../utils/theme-config';
+import { generateColorPalette, generateApexTheme } from '../utils/theme-config';
 
 export interface BarChartProps {
   data: BarChartData[] | BarSeriesData[];
@@ -104,6 +104,10 @@ export const BarChart: React.FC<BarChartProps> = ({
     const isStacked = type === 'stacked' || type === 'stacked100';
     const isGrouped = type === 'grouped';
 
+    // Get theme colors for text elements
+    const themeOptions = generateApexTheme();
+    const textColor = themeOptions.chart?.foreColor || '#000000';
+
     return {
       chart: {
         type: 'bar',
@@ -164,6 +168,7 @@ export const BarChart: React.FC<BarChartProps> = ({
         style: {
           fontSize: '12px',
           fontWeight: 'bold',
+          colors: [textColor], // Force data label color
         },
       },
       fill: {
@@ -200,6 +205,7 @@ export const BarChart: React.FC<BarChartProps> = ({
         labels: {
           style: {
             fontSize: '12px',
+            colors: [textColor], // Force axis label color
           },
           rotate: isHorizontal ? 0 : -45,
           maxHeight: isHorizontal ? undefined : 120,
@@ -226,6 +232,7 @@ export const BarChart: React.FC<BarChartProps> = ({
           },
           style: {
             fontSize: '12px',
+            colors: [textColor], // Force Y-axis label color
           },
         },
       },
@@ -257,6 +264,9 @@ export const BarChart: React.FC<BarChartProps> = ({
         horizontalAlign: 'center',
       },
       colors: transformedData?.map(series => series.color) || generateColorPalette(1),
+      // Merge with base theme options to ensure proper theming
+      ...themeOptions,
+      // Apply custom options last to allow overrides
       ...customOptions,
     };
   }, [
